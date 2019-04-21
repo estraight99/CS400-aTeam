@@ -27,9 +27,11 @@ public class Main extends Application {
     private Node createHelpButton()
     {
       Image helpIcon = new Image(getClass().getResourceAsStream("/img/help.png"));
+      ImageView helpImageView = new ImageView(helpIcon);
+      helpImageView.setFitHeight(50);
+      helpImageView.setFitWidth(50);
       Button helpButton = new Button();
-      helpButton.setGraphic(new ImageView(helpIcon));
-      
+      helpButton.setGraphic(helpImageView);
       return helpButton;
     }
     
@@ -38,7 +40,7 @@ public class Main extends Application {
 	public void start(Stage primaryStage) {
 		try {
 			BorderPane root = new BorderPane();
-			Scene scene = new Scene(root,400,400);
+			Scene scene = new Scene(root,1000,800);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			
 			root.setTop(createTitle());
