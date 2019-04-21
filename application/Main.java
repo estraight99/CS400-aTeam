@@ -42,7 +42,7 @@ public class Main extends Application {
     private Node createTextForComboBox()
     {
     	Text text = new Text();
-    	text.setText("size:");
+    	text.setText("Type :");
     	
 		return text;
     }
