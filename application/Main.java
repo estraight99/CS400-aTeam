@@ -60,7 +60,7 @@ public class Main extends Application {
 		launch(args);
 	}
 	
-	private void createRightPanel(int money, int cost) {
+	private Node createRightPanel(int money, int cost) {
 	    Group rightSide = new Group();
 	    
 	    Label info_lbl = new Label("Player's Info");
