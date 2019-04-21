@@ -97,11 +97,12 @@ public class Main extends Application {
 	}
 	
 	private VBox createLeftPanel()
-	{
-	  VBox result = new VBox();
-	  result.getChildren().addAll(drawMap(),createComboBox());
-	  return result;
-	}
+    {
+      VBox result = new VBox();
+      result.getChildren().addAll(drawMap(),createComboBox());
+      return result;
+    }
+	
 	private Node createRightPanel(int money, int cost) {
 	    Group rightSide = new Group();
 	    
