@@ -27,6 +27,7 @@ public class Main extends Application {
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			
 			root.setTop(createTitle());
+			root.setPadding(new InSets(10));
 			
 			primaryStage.setScene(scene);
 			primaryStage.show();
