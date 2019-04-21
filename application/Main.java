@@ -7,7 +7,6 @@ import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
@@ -15,7 +14,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
-import javafx.scene.text.Text;
 
 
 public class Main extends Application {
@@ -67,6 +65,7 @@ public class Main extends Application {
 			
 			root.setTop(createTitle());
 			root.setRight(createHelpButton());
+			root.setLeft(createRightPanel(100,10));
 			root.setPadding(new Insets(10));
 			
 			primaryStage.setScene(scene);
@@ -80,7 +79,7 @@ public class Main extends Application {
 		launch(args);
 	}
 	
-	private void createRightPanel(int money, int cost) {
+	private Node createRightPanel(int money, int cost) {
 	    Group rightSide = new Group();
 	    
 	    Label info_lbl = new Label("Player's Info");
@@ -95,9 +94,7 @@ public class Main extends Application {
 	    TextField fromRight_tf = new TextField();
 	    TextField toLeft_tf = new TextField();
 	    TextField toRight_tf = new TextField();
+	    
+	    return null;
 	}
-	
-	
 }
-
-
