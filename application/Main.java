@@ -47,6 +47,7 @@ public class Main extends Application {
 			
 			root.setTop(createTitle());
 			root.setRight(createHelpButton());
+			root.setLeft(createRightPanel(100,10));
 			root.setPadding(new Insets(10));
 			
 			primaryStage.setScene(scene);
@@ -75,5 +76,7 @@ public class Main extends Application {
 	    TextField fromRight_tf = new TextField();
 	    TextField toLeft_tf = new TextField();
 	    TextField toRight_tf = new TextField();
+	    
+	    return null;
 	}
 }
