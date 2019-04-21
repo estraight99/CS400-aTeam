@@ -13,11 +13,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
-<<<<<<< HEAD
 import javafx.scene.layout.VBox;
-=======
 import javafx.scene.layout.GridPane;
->>>>>>> 0bfe1d1f80b303c87e0240ee3c3895505c979126
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
