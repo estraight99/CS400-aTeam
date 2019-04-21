@@ -1,19 +1,17 @@
 package application;
-	
+
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.stage.Stage;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
-import javafx.scene.text.Text;
 
 
 public class Main extends Application {
@@ -25,6 +23,18 @@ public class Main extends Application {
       
       return title;
     }
+    
+    private Node createHelpButton()
+    {
+      Image helpIcon = new Image(getClass().getResourceAsStream("/img/help.png"));
+      ImageView helpImageView = new ImageView(helpIcon);
+      helpImageView.setFitHeight(50);
+      helpImageView.setFitWidth(50);
+      Button helpButton = new Button();
+      helpButton.setGraphic(helpImageView);
+      return helpButton;
+    }
+    
     
     private Node createTextForComboBox()
     {
@@ -43,17 +53,6 @@ public class Main extends Application {
 			    "7*7"
 			);
 		return comboBox;
-    }
-    
-    private Node createHelpButton()
-    {
-      Image helpIcon = new Image(getClass().getResourceAsStream("/img/help.png"));
-      ImageView helpImageView = new ImageView(helpIcon);
-      helpImageView.setFitHeight(50);
-      helpImageView.setFitWidth(50);
-      Button helpButton = new Button();
-      helpButton.setGraphic(helpImageView);
-      return helpButton;
     }
     
     
