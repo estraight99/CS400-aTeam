@@ -6,14 +6,18 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 
 
 public class Main extends Application {
   
     private Node createTitle()
     {
-      Label title = new Label("Road Builder")
+      Label title = new Label("Road Builder");
+      title.setFont(Font.font("Arial",FontWeight.BOLD,20));
       
+      return title;
     }
 	@Override
 	public void start(Stage primaryStage) {
@@ -22,7 +26,7 @@ public class Main extends Application {
 			Scene scene = new Scene(root,400,400);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			
-			root.setTop(createTop());
+			root.setTop(createTitle());
 			
 			primaryStage.setScene(scene);
 			primaryStage.show();
