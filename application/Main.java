@@ -1,5 +1,5 @@
 package application;
-
+	
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.stage.Stage;
@@ -7,6 +7,7 @@ import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
@@ -14,6 +15,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
+import javafx.scene.text.Text;
 
 
 public class Main extends Application {
@@ -37,7 +39,6 @@ public class Main extends Application {
       return helpButton;
     }
     
-    
     private Node createTextForComboBox()
     {
     	Text text = new Text();
@@ -57,12 +58,11 @@ public class Main extends Application {
 		return comboBox;
     }
     
-    
 	@Override
 	public void start(Stage primaryStage) {
 		try {
 			BorderPane root = new BorderPane();
-			Scene scene = new Scene(root,400,400);
+			Scene scene = new Scene(root,1000,800);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			
 			root.setTop(createTitle());
@@ -96,4 +96,8 @@ public class Main extends Application {
 	    TextField toLeft_tf = new TextField();
 	    TextField toRight_tf = new TextField();
 	}
+	
+	
 }
+
+
