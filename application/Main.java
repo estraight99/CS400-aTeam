@@ -78,7 +78,7 @@ public class Main extends Application {
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			
 			root.setTop(createTitle());
-			root.setLeft(createComboBox());
+			root.setLeft(createLeftPanel());
 			root.setRight(createRightPanel(100,10));
 			root.setPadding(new Insets(10));
 			
