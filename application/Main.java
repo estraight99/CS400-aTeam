@@ -13,7 +13,11 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
+<<<<<<< HEAD
 import javafx.scene.layout.VBox;
+=======
+import javafx.scene.layout.GridPane;
+>>>>>>> 0bfe1d1f80b303c87e0240ee3c3895505c979126
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
@@ -115,5 +119,13 @@ public class Main extends Application {
 		TextField toRight_tf = new TextField();
 
 		return null;
+	}
+	
+	private Node drawMap() {
+		GridPane grid = new GridPane();
+		for (int i = 0; i < 4; i++)
+			for (int j = 0; j < 4; j++)
+				grid.add(createLocation(0), i, j);
+		return grid;
 	}
 }
