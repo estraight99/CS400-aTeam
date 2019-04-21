@@ -58,6 +58,15 @@ public class Main extends Application {
 		return comboBox;
     }
     
+    private ImageView createLocation(int typeOfRoad)
+    {
+      Image location = new Image(getClass().getResourceAsStream("/img/road/"+typeOfRoad+".png"));
+      ImageView locationView = new ImageView(image);
+      locationView.setFitHeight(10);
+      locationView.setFitWidth(10);
+      return locationView;
+    }
+    
 	@Override
 	public void start(Stage primaryStage) {
 		try {
@@ -66,8 +75,8 @@ public class Main extends Application {
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			
 			root.setTop(createTitle());
-			root.setRight(createHelpButton());
-			root.setLeft(createRightPanel(100,10));
+			root.setLeft(createComboBox());
+			root.setRight(createRightPanel(100,10));
 			root.setPadding(new Insets(10));
 			
 			primaryStage.setScene(scene);
