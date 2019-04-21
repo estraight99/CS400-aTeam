@@ -61,7 +61,7 @@ public class Main extends Application {
     private ImageView createLocation(int typeOfRoad)
     {
       Image location = new Image(getClass().getResourceAsStream("/img/road/"+typeOfRoad+".png"));
-      ImageView locationView = new ImageView(image);
+      ImageView locationView = new ImageView(location);
       locationView.setFitHeight(10);
       locationView.setFitWidth(10);
       return locationView;
