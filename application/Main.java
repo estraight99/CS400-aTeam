@@ -26,17 +26,6 @@ public class Main extends Application {
       return title;
     }
     
-    private Node createHelpButton()
-    {
-      Image helpIcon = new Image(getClass().getResourceAsStream("/img/help.png"));
-      ImageView helpImageView = new ImageView(helpIcon);
-      helpImageView.setFitHeight(50);
-      helpImageView.setFitWidth(50);
-      Button helpButton = new Button();
-      helpButton.setGraphic(helpImageView);
-      return helpButton;
-    }
-    
     private Node createTextForComboBox()
     {
     	Text text = new Text();
@@ -55,6 +44,18 @@ public class Main extends Application {
 			);
 		return comboBox;
     }
+    
+    private Node createHelpButton()
+    {
+      Image helpIcon = new Image(getClass().getResourceAsStream("/img/help.png"));
+      ImageView helpImageView = new ImageView(helpIcon);
+      helpImageView.setFitHeight(50);
+      helpImageView.setFitWidth(50);
+      Button helpButton = new Button();
+      helpButton.setGraphic(helpImageView);
+      return helpButton;
+    }
+    
     
 	@Override
 	public void start(Stage primaryStage) {
