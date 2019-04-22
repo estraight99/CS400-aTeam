@@ -21,9 +21,15 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 
-
+/**
+ * This class is the Main class of our Road Builder project.
+ * @author Dung Viet Bui, Eli Straight, Yuanbo Zhang
+ */
 public class Main extends Application {
   
+    /**
+     * @return a Node instance which is the title of the program.
+     */
     private Node createTitle()
     {
       Label title = new Label("Road Builder");
@@ -78,10 +84,10 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) {
         try {
+            primaryStage.setTitle("Road Builder");
             BorderPane root = new BorderPane();
             Scene scene = new Scene(root,800,400);
             scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
-            
             root.setLeft(createLeftPanel());
             root.setRight(createRightPanel(100,10));
             root.setPadding(new Insets(10));
