@@ -65,8 +65,8 @@ public class Main extends Application {
       typeOfRoad = 0;
       Image location = new Image(getClass().getResourceAsStream("/img/road/"+typeOfRoad+".png"));
       ImageView locationView = new ImageView(location);
-      locationView.setFitHeight(10);
-      locationView.setFitWidth(10);
+      locationView.setFitHeight(50);
+      locationView.setFitWidth(50);
       return locationView;
     }
     
@@ -121,8 +121,8 @@ public class Main extends Application {
 	
 	private Node drawMap() {
 		GridPane grid = new GridPane();
-		grid.setVgap(10.0);
-		grid.setHgap(10.0);
+		grid.setVgap(1);
+		grid.setHgap(1);
 		for (int i = 0; i < 4; i++)
 			for (int j = 0; j < 4; j++)
 				grid.add(createLocation(0), i, j);
