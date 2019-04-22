@@ -178,9 +178,18 @@ public class Main extends Application {
 		GridPane grid = new GridPane();
 		grid.setVgap(1);
 		grid.setHgap(1);
-		for (int i = 0; i < 4; i++)
-			for (int j = 0; j < 4; j++)
+		
+		for (int i = 1; i <= 4; i++)
+			for (int j = 1; j <= 4; j++)
 				grid.add(createLocation(0), i, j);
+		for (Integer i = 1; i <= 4; i++) {
+        	Label label = new Label(i.toString());
+        	grid.add(label, 0, i);
+        }
+		for (Integer j = 1; j <= 4; j++) {
+        	Label label = new Label(j.toString());
+        	grid.add(label, j, 0);
+        }
 		return grid;
 	}
 }
