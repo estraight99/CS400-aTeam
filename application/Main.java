@@ -15,6 +15,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
@@ -51,13 +52,16 @@ public class Main extends Application {
     
     private Node createComboBox()
     {
+        HBox result = new HBox();
+        Label label = new Label("Choose Map Size: ");
         ComboBox <String> comboBox = new ComboBox<String>();
         comboBox.getItems().addAll(
                 "5*5",
                 "6*6",
                 "7*7"
             );
-        return comboBox;
+        result.getChildren().addAll(label,comboBox);
+        return result;
     }
     
     private ImageView createLocation(int typeOfRoad)
