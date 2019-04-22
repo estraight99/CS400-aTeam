@@ -121,6 +121,8 @@ public class Main extends Application {
 	
 	private Node drawMap() {
 		GridPane grid = new GridPane();
+		grid.setVgap(10.0);
+		grid.setHgap(10.0);
 		for (int i = 0; i < 4; i++)
 			for (int j = 0; j < 4; j++)
 				grid.add(createLocation(0), i, j);
