@@ -74,10 +74,9 @@ public class Main extends Application {
     public void start(Stage primaryStage) {
         try {
             BorderPane root = new BorderPane();
-            Scene scene = new Scene(root,1000,800);
+            Scene scene = new Scene(root,400,400);
             scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
             
-            root.setTop(createTitle());
             root.setLeft(createLeftPanel());
             root.setRight(createRightPanel(100,10));
             root.setPadding(new Insets(10));
@@ -96,7 +95,7 @@ public class Main extends Application {
     private VBox createLeftPanel()
     {
       VBox result = new VBox();
-      result.getChildren().addAll(drawMap(),createComboBox());
+      result.getChildren().addAll(createTitle(),drawMap(),createComboBox());
       return result;
     }
     
