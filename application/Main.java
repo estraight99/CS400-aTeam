@@ -38,6 +38,9 @@ public class Main extends Application {
       return title;
     }
     
+    /**
+     * @return a Node instance which is the Help button of the program
+     */
     private Node createHelpButton()
     {
       Image helpIcon = new Image(getClass().getResourceAsStream("/img/help.png"));
@@ -49,14 +52,9 @@ public class Main extends Application {
       return helpButton;
     }
     
-    private Node createTextForComboBox()
-    {
-        Text text = new Text();
-        text.setText("Type :");
-        
-        return text;
-    }
-    
+    /**
+     * @return a ComboBox that helps user choose the type of map.
+     */
     private Node createComboBox()
     {
         HBox result = new HBox();
