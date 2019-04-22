@@ -2,6 +2,7 @@ package application;
     
 import javafx.application.Application;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.stage.Stage;
 import javafx.scene.Group;
 import javafx.scene.Node;
@@ -104,23 +105,70 @@ public class Main extends Application {
     }
     
     private Node createRightPanel(int money, int cost) {
-        Group rightSide = new Group();
-        
-        Label info_lbl = new Label("Player's Info");
-        Label playerMoney_lbl = new Label("You Have: $" + money);
-        Label from_lbl = new Label("From: ");
-        Label to_lbl = new Label("To: ");
-        Label buildCost_lbl = new Label("Cost: $" + cost);
-        
-        Button build_btn = new Button("Build");
-        
-        TextField fromLeft_tf = new TextField();
-        TextField fromRight_tf = new TextField();
-        TextField toLeft_tf = new TextField();
-        TextField toRight_tf = new TextField();
-
-        return null;
-    }
+	    //creating components
+	    VBox rightSide_vbox = new VBox(); 
+	    
+	    HBox from_hbox = new HBox();
+	    HBox to_hbox = new HBox();
+	    //need hbox for button and info for alignment
+	    HBox build_hbox = new HBox();
+	    HBox info_hbox = new HBox();
+	    
+	    Label info_lbl = new Label("Player's Info");
+	    Label playerMoney_lbl = new Label("You Have: $" + money);
+	    Label from_lbl = new Label("From: ");
+	    Label to_lbl = new Label("To: ");
+	    Label buildCost_lbl = new Label("Cost: $" + cost);
+	    
+	    Button build_btn = new Button("Build");
+	    
+	    TextField fromLeft_tf = new TextField();
+	    TextField fromRight_tf = new TextField();
+	    TextField toLeft_tf = new TextField();
+	    TextField toRight_tf = new TextField();
+	    
+	    //changing labels's attributes
+	    info_lbl.setFont(Font.font("Arial",FontWeight.BOLD,20));
+	    playerMoney_lbl.setFont(Font.font("Arial",20));
+	    from_lbl.setFont(Font.font("Arial",20));
+	    to_lbl.setFont(Font.font("Arial",20));
+	    buildCost_lbl.setFont(Font.font("Arial",20));
+	    build_btn.setFont(Font.font("Arial",20));
+	    
+	    //changing TextField's width
+	    fromLeft_tf.setPrefWidth(80);
+	    fromRight_tf.setPrefWidth(80);
+	    toLeft_tf.setPrefWidth(80);
+	    toRight_tf.setPrefWidth(80);
+	    
+	    
+	    //setting spacing and adding to boxes
+	    from_hbox.setSpacing(20);
+	    from_hbox.getChildren().addAll(from_lbl, fromLeft_tf, fromRight_tf);
+	    
+	    to_hbox.setSpacing(20);
+	    to_hbox.getChildren().addAll(to_lbl, toLeft_tf, toRight_tf);
+	    to_hbox.setMargin(toLeft_tf, new Insets(0, 0, 0, 22));
+	    
+	    build_hbox.getChildren().addAll(build_btn);
+	    build_hbox.setAlignment(Pos.BASELINE_RIGHT);
+	    
+	    info_hbox.getChildren().addAll(info_lbl);
+	    info_hbox.setAlignment(Pos.BASELINE_CENTER);
+	    
+	    rightSide_vbox.setSpacing(25);
+	    rightSide_vbox.getChildren().addAll(info_hbox, playerMoney_lbl, 
+		    from_hbox, to_hbox, buildCost_lbl, build_hbox);
+	    
+	    //changing the margins for rightSide_vbox's children
+	    rightSide_vbox.setMargin(info_hbox, new Insets(40, 50, 30, 0));
+	    rightSide_vbox.setMargin(playerMoney_lbl, new Insets(0, 50, 0, 0));
+	    rightSide_vbox.setMargin(from_hbox, new Insets(0, 50, 0, 0));
+	    rightSide_vbox.setMargin(to_hbox, new Insets(0, 50, 0, 0));
+	    rightSide_vbox.setMargin(build_hbox, new Insets(0, 50, 0, 0));
+	    
+	    return rightSide_vbox;
+	}
 	
 	private Node drawMap() {
 		GridPane grid = new GridPane();
