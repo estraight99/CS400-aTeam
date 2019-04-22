@@ -116,6 +116,7 @@ public class Main extends Application {
         TextField toLeft_tf = new TextField();
         TextField toRight_tf = new TextField();
 
+<<<<<<< HEAD
         return null;
     }
     
@@ -128,4 +129,18 @@ public class Main extends Application {
                 grid.add(createLocation(0), i, j);
         return grid;
     }
+=======
+		return null;
+	}
+	
+	private Node drawMap() {
+		GridPane grid = new GridPane();
+		grid.setVgap(10.0);
+		grid.setHgap(10.0);
+		for (int i = 0; i < 4; i++)
+			for (int j = 0; j < 4; j++)
+				grid.add(createLocation(0), i, j);
+		return grid;
+	}
+>>>>>>> c95d9f5ce3b0eabade7148451303629eb8953cc2
 }
