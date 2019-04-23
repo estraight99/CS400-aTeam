@@ -26,17 +26,6 @@ import javafx.scene.text.Text;
  * @author Dung Viet Bui, Eli Straight, Yuanbo Zhang
  */
 public class Main extends Application {
-  
-    /**
-     * @return a Node instance which is the title of the program.
-     */
-    private Node createTitle()
-    {
-      Label title = new Label("Road Builder");
-      title.setFont(Font.font("Arial",FontWeight.BOLD,20));
-      
-      return title;
-    }
     
     /**
      * @return a Node instance which is the Help button of the program
@@ -114,7 +103,7 @@ public class Main extends Application {
     private VBox createLeftPanel()
     {
       VBox result = new VBox();
-      result.getChildren().addAll(createTitle(),drawLegend(),drawMap(),createComboBox());
+      result.getChildren().addAll(new TitleView(),drawLegend(),drawMap(),createComboBox());
       return result;
     }
     
