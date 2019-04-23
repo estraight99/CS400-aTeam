@@ -114,7 +114,6 @@ public class RightPanel extends GridPane
 	    
 	}
 	
-	
 	/**
      * @return a Node instance which is the Help button of the program
      */

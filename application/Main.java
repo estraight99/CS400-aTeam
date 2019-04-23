@@ -32,7 +32,7 @@ public class Main extends Application {
         try {
             primaryStage.setTitle("Road Builder");
             BorderPane root = new BorderPane();
-            Scene scene = new Scene(root,700,500);
+            Scene scene = new Scene(root);
             scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
             HBox sceneCenter = new HBox();
             sceneCenter.getChildren().addAll(new LeftPanel(),new RightPanel(100,10));
