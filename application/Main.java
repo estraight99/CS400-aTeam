@@ -94,10 +94,10 @@ public class Main extends Application {
         try {
             primaryStage.setTitle("Road Builder");
             BorderPane root = new BorderPane();
-            Scene scene = new Scene(root,800,400);
+            Scene scene = new Scene(root,600,400);
             scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
             root.setLeft(createLeftPanel());
-            root.setRight(createRightPanel(100,10));
+            root.setCenter(createRightPanel(100,10));
             root.setPadding(new Insets(10));
             
             primaryStage.setScene(scene);
@@ -120,8 +120,9 @@ public class Main extends Application {
     
     private Node createRightPanel(int money, int cost) {
 	    //creating components
-	    VBox rightSide_vbox = new VBox(); 
+	    HBox rightSide_vbox = new HBox(); 
 	    
+	    VBox first_
 	    HBox from_hbox = new HBox();
 	    HBox to_hbox = new HBox();
 	    //need hbox for button and info for alignment
@@ -157,29 +158,29 @@ public class Main extends Application {
 	    
 	    
 	    //setting spacing and adding to boxes
-	    from_hbox.setSpacing(20);
+	    //from_hbox.setSpacing(20);
 	    from_hbox.getChildren().addAll(from_lbl, fromLeft_tf, fromRight_tf);
 	    
-	    to_hbox.setSpacing(20);
+	    //to_hbox.setSpacing(20);
 	    to_hbox.getChildren().addAll(to_lbl, toLeft_tf, toRight_tf);
-	    to_hbox.setMargin(toLeft_tf, new Insets(0, 0, 0, 22));
+	    //to_hbox.setMargin(toLeft_tf, new Insets(0, 0, 0, 22));
 	    
 	    build_hbox.getChildren().addAll(build_btn);
-	    build_hbox.setAlignment(Pos.BASELINE_RIGHT);
+	    //build_hbox.setAlignment(Pos.BASELINE_RIGHT);
 	    
 	    info_hbox.getChildren().addAll(info_lbl);
-	    info_hbox.setAlignment(Pos.BASELINE_CENTER);
+	    //info_hbox.setAlignment(Pos.BASELINE_CENTER);
 	    
-	    rightSide_vbox.setSpacing(25);
+	    //rightSide_vbox.setSpacing(25);
 	    rightSide_vbox.getChildren().addAll(info_hbox, playerMoney_lbl, 
 		    from_hbox, to_hbox, buildCost_lbl, build_hbox);
 	    
 	    //changing the margins for rightSide_vbox's children
-	    rightSide_vbox.setMargin(info_hbox, new Insets(40, 50, 30, 0));
+	    /*rightSide_vbox.setMargin(info_hbox, new Insets(40, 50, 30, 0));
 	    rightSide_vbox.setMargin(playerMoney_lbl, new Insets(0, 50, 0, 0));
 	    rightSide_vbox.setMargin(from_hbox, new Insets(0, 50, 0, 0));
 	    rightSide_vbox.setMargin(to_hbox, new Insets(0, 50, 0, 0));
-	    rightSide_vbox.setMargin(build_hbox, new Insets(0, 50, 0, 0));
+	    rightSide_vbox.setMargin(build_hbox, new Insets(0, 50, 0, 0));*/
 	    
 	    return rightSide_vbox;
 	}
@@ -193,6 +194,7 @@ public class Main extends Application {
 		for (int i = 1; i <= 4; i++)
 			for (int j = 1; j <= 4; j++)
 				grid.add(createLocation(0), i, j);
+		
 		for (Integer i = 1; i <= 4; i++) {
         	Label label = new Label(i.toString());
         	//label.setMinSize(50, 50);
