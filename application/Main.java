@@ -27,49 +27,19 @@ import javafx.scene.text.Text;
  */
 public class Main extends Application {
     
-    /**
-     * @return a Node instance which is the Help button of the program
-     */
-    private Node createHelpButton()
-    {
-      Image helpIcon = new Image(getClass().getResourceAsStream("/img/help.png"));
-      ImageView helpImageView = new ImageView(helpIcon);
-      helpImageView.setFitHeight(50);
-      helpImageView.setFitWidth(50);
-      Button helpButton = new Button();
-      helpButton.setGraphic(helpImageView);
-      return helpButton;
-    }
-    
-    /**
-     * @return a ComboBox that helps user choose the type of map.
-     */
-    private Node createComboBox()
-    {
-        HBox result = new HBox();
-        Label label = new Label("Choose Map Size: ");
-        ComboBox <String> comboBox = new ComboBox<String>();
-        comboBox.getItems().addAll(
-                "5*5",
-                "6*6",
-                "7*7"
-            );
-        result.getChildren().addAll(label,comboBox);
-        return result;
-    }
-    
-    
-    
     @Override
     public void start(Stage primaryStage) {
         try {
             primaryStage.setTitle("Road Builder");
             BorderPane root = new BorderPane();
-            Scene scene = new Scene(root,800,400);
+            Scene scene = new Scene(root,700,500);
             scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+            HBox sceneCenter = new HBox();
+            sceneCenter.getChildren().addAll(new LeftPanel(),new RightPanel(100,10));
+            sceneCenter.setSpacing(10.0);
             root.setTop(new TitleView());
-            root.setLeft(new LeftPanel());
-            root.setCenter(new RightPanel(100,10));
+            root.setLeft(sceneCenter);
+            root.setPadding(new Insets(10));
             
             primaryStage.setScene(scene);
             primaryStage.show();

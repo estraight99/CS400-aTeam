@@ -1,8 +1,12 @@
 package application;
 
+import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -26,10 +30,10 @@ public class RightPanel extends GridPane
 	    
 	    Label info_lbl = new Label("Player's Info");
 	    Label playerMoney_lbl = new Label("You Have: $" + money);
-	    Label from_lbl = new Label("From: ");
-	    Label to_lbl = new Label("To: ");
-	    Label buildCost_lbl = new Label("Cost: $");
-	    Label cost_lbl = new Label((new Integer(cost)).toString());
+	    Label from_lbl = new Label("From:");
+	    Label to_lbl = new Label("To:");
+	    Label buildCost_lbl = new Label("Cost:");
+	    Label cost_lbl = new Label("$"+cost);
 	    
 	    Button build_btn = new Button("Build");
 	    
@@ -43,12 +47,13 @@ public class RightPanel extends GridPane
 	    third_column.getChildren().addAll(fromRight_tf,toRight_tf,build_btn);
 	    
 	    //changing labels's attributes
-	    info_lbl.setFont(Font.font("Arial",20));
-	    playerMoney_lbl.setFont(Font.font("Arial",20));
-	    from_lbl.setFont(Font.font("Arial",20));
-	    to_lbl.setFont(Font.font("Arial",20));
-	    buildCost_lbl.setFont(Font.font("Arial",20));
-	    build_btn.setFont(Font.font("Arial",20));
+	    info_lbl.setFont(Font.font("Arial",15));
+	    playerMoney_lbl.setFont(Font.font("Arial",15));
+	    from_lbl.setFont(Font.font("Arial",15));
+	    to_lbl.setFont(Font.font("Arial",15));
+	    buildCost_lbl.setFont(Font.font("Arial",15));
+	    build_btn.setFont(Font.font("Arial",15));
+	    cost_lbl.setFont(Font.font("Arial",15));
 	    
 	    //changing TextField's width
 	    /*fromLeft_tf.setPrefWidth(80);
@@ -83,9 +88,8 @@ public class RightPanel extends GridPane
 	    rightSide_vbox.setMargin(build_hbox, new Insets(0, 50, 0, 0));*/
 	    
 	    
-	    this.add(info_lbl, 0, 0);
-	    this.add(playerMoney_lbl,0,1);
-	    this.add(next_row,0,2);
+	    this.add(info_lbl, 0, 1);
+	    this.add(playerMoney_lbl,0,2);
 	    
 	    this.add(from_lbl,0,3);
 	    this.add(fromLeft_tf, 1, 3);
@@ -100,9 +104,29 @@ public class RightPanel extends GridPane
 	    
 	    
 	    this.add(build_btn, 2, 6);
+	    
+	    this.add(createHelpButton(), 3, 1);
+	    
 	    this.setVgap(10.0);
 	    this.setHgap(5.0);
 	    
+	    
+	    
 	}
-
+	
+	
+	/**
+     * @return a Node instance which is the Help button of the program
+     */
+    private Node createHelpButton()
+    {
+      Image helpIcon = new Image(getClass().getResourceAsStream("/img/help.png"));
+      ImageView helpImageView = new ImageView(helpIcon);
+      helpImageView.setFitHeight(15);
+      helpImageView.setFitWidth(15);
+      Button helpButton = new Button();
+      helpButton.setGraphic(helpImageView);
+      return helpButton;
+    }
+	
 }

@@ -3,16 +3,19 @@ package application;
 import java.io.File;
 
 import javafx.geometry.Pos;
+import javafx.scene.Node;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 
 public class MapView extends GridPane {
 	MapView()
 	{
-		this.setVgap(1);
-		this.setHgap(1);
+		this.setVgap(0.1);
+		this.setHgap(0.1);
 		
 		for (int i = 1; i <= 4; i++)
 			for (int j = 1; j <= 4; j++)
@@ -21,14 +24,15 @@ public class MapView extends GridPane {
 		for (Integer i = 1; i <= 4; i++) {
         	Label label = new Label(i.toString());
         	//label.setMinSize(50, 50);
-        	label.setAlignment(Pos.CENTER);
+        	//label.setAlignment(Pos.CENTER);
         	this.add(label, 0, i);
         }
 		for (Integer j = 1; j <= 4; j++) {
         	Label label = new Label(j.toString());
-        	label.setAlignment(Pos.CENTER);
+        	//label.setAlignment(Pos.CENTER);
         	this.add(label, j, 0);
         }
+		
 	}
 	
 	private ImageView createLocation(int typeOfRoad)

@@ -20,6 +20,7 @@ public class LegendView extends FlowPane {
     	Label label2 = new Label("Sawmill");
 		this.getChildren().addAll(createLegend("red"),label1,createLegend("green"),label2);
 		this.setHgap(5);
+		this.setMaxWidth(200.0);
 	}
 	
 	private ImageView createLegend(String color)
