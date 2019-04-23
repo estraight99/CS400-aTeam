@@ -18,12 +18,13 @@ public class LegendView extends FlowPane {
 	{
 		Label label1 = new Label("Factory");
     	Label label2 = new Label("Sawmill");
-		this.getChildren().addAll(createLegend("red"),label1,createLegend("blue"),label2);
+		this.getChildren().addAll(createLegend("red"),label1,createLegend("green"),label2);
+		this.setHgap(5);
 	}
 	
 	private ImageView createLegend(String color)
     {
-      Image legend = new Image(getClass().getResourceAsStream(File.separator+"img"+File.separator+"legend"+File.separator+color+".png"));
+      Image legend = new Image(getClass().getResourceAsStream(".."+File.separator+"img"+File.separator+"legend"+File.separator+color+".png"));
       ImageView locationView = new ImageView(legend);
       locationView.setFitHeight(10);
       locationView.setFitWidth(10);

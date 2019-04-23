@@ -65,7 +65,7 @@ public class Main extends Application {
         try {
             primaryStage.setTitle("Road Builder");
             BorderPane root = new BorderPane();
-            Scene scene = new Scene(root,600,400);
+            Scene scene = new Scene(root,800,400);
             scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
             root.setLeft(createLeftPanel());
             root.setCenter(createRightPanel(100,10));
@@ -100,12 +100,6 @@ public class Main extends Application {
 	    VBox third_column = new VBox();
 	    
 	    next_row.getChildren().addAll(first_column,second_column,third_column);
-	    
-	    HBox from_hbox = new HBox();
-	    HBox to_hbox = new HBox();
-	    //need hbox for button and info for alignment
-	    HBox build_hbox = new HBox();
-	    HBox info_hbox = new HBox();
 	    
 	    Label info_lbl = new Label("Player's Info");
 	    Label playerMoney_lbl = new Label("You Have: $" + money);
