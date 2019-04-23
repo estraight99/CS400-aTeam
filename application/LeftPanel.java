@@ -25,9 +25,9 @@ public class LeftPanel extends VBox{
         Label label = new Label("Choose Map Size: ");
         ComboBox <String> comboBox = new ComboBox<String>();
         comboBox.getItems().addAll(
-                "5*5",
-                "6*6",
-                "7*7"
+                "10*10",
+                "1000*1000",
+                "10000*10000"
             );
         result.getChildren().addAll(label,comboBox);
         return result;
