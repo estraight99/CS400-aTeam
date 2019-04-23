@@ -1,5 +1,7 @@
 package application;
 
+import java.io.File;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.Node;
@@ -21,8 +23,7 @@ public class LegendView extends FlowPane {
 	
 	private ImageView createLegend(String color)
     {
-      
-      Image legend = new Image(getClass().getResourceAsStream("/img/legend/"+color+".png"));
+      Image legend = new Image(getClass().getResourceAsStream(".."+File.separator+"img"+File.separator+"legend"+File.separator+color+".png"));
       ImageView locationView = new ImageView(legend);
       locationView.setFitHeight(10);
       locationView.setFitWidth(10);

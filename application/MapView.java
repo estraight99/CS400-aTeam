@@ -1,5 +1,7 @@
 package application;
 
+import java.io.File;
+
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -32,7 +34,7 @@ public class MapView extends GridPane {
 	private ImageView createLocation(int typeOfRoad)
     {
       typeOfRoad = 0;
-      Image location = new Image(getClass().getResourceAsStream("/img/road/"+typeOfRoad+".png"));
+      Image location = new Image(getClass().getResourceAsStream(".."+File.separator+"img"+File.separator+"road"+File.separator+typeOfRoad+".png"));
       ImageView locationView = new ImageView(location);
       locationView.setFitHeight(50);
       locationView.setFitWidth(50);
