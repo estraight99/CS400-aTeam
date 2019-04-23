@@ -67,7 +67,8 @@ public class Main extends Application {
             BorderPane root = new BorderPane();
             Scene scene = new Scene(root,800,400);
             scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
-            root.setLeft(createLeftPanel());
+            root.setTop(new TitleView());
+            root.setLeft(new LeftPanel());
             root.setCenter(new RightPanel(100,10));
             
             primaryStage.setScene(scene);
@@ -79,13 +80,6 @@ public class Main extends Application {
     
     public static void main(String[] args) {
         launch(args);
-    }
-    
-    private VBox createLeftPanel()
-    {
-      VBox result = new VBox();
-      result.getChildren().addAll(new TitleView(),new LegendView(),new MapView(),createComboBox());
-      return result;
     }
 	
 	
