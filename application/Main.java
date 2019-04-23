@@ -122,7 +122,11 @@ public class Main extends Application {
 	    //creating components
 	    HBox rightSide_vbox = new HBox(); 
 	    
-	    VBox first_
+	    VBox first_column = new VBox();
+	    VBox second_column = new VBox();
+	    VBox third_column = new VBox();
+	    
+	    
 	    HBox from_hbox = new HBox();
 	    HBox to_hbox = new HBox();
 	    //need hbox for button and info for alignment
@@ -157,8 +161,10 @@ public class Main extends Application {
 	    toRight_tf.setPrefWidth(80);
 	    
 	    
+	    
+	    /*
 	    //setting spacing and adding to boxes
-	    //from_hbox.setSpacing(20);
+	    from_hbox.setSpacing(20);
 	    from_hbox.getChildren().addAll(from_lbl, fromLeft_tf, fromRight_tf);
 	    
 	    //to_hbox.setSpacing(20);
@@ -173,7 +179,7 @@ public class Main extends Application {
 	    
 	    //rightSide_vbox.setSpacing(25);
 	    rightSide_vbox.getChildren().addAll(info_hbox, playerMoney_lbl, 
-		    from_hbox, to_hbox, buildCost_lbl, build_hbox);
+		    from_hbox, to_hbox, buildCost_lbl, build_hbox);*/
 	    
 	    //changing the margins for rightSide_vbox's children
 	    /*rightSide_vbox.setMargin(info_hbox, new Insets(40, 50, 30, 0));
