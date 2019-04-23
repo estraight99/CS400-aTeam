@@ -58,25 +58,7 @@ public class Main extends Application {
         return result;
     }
     
-    private ImageView createLocation(int typeOfRoad)
-    {
-      typeOfRoad = 0;
-      Image location = new Image(getClass().getResourceAsStream("/img/road/"+typeOfRoad+".png"));
-      ImageView locationView = new ImageView(location);
-      locationView.setFitHeight(50);
-      locationView.setFitWidth(50);
-      return locationView;
-    }
     
-    private ImageView createLegend(String color)
-    {
-      
-      Image legend = new Image(getClass().getResourceAsStream("/img/legend/"+color+".png"));
-      ImageView locationView = new ImageView(legend);
-      locationView.setFitHeight(10);
-      locationView.setFitWidth(10);
-      return locationView;
-    }
     
     @Override
     public void start(Stage primaryStage) {
@@ -103,7 +85,7 @@ public class Main extends Application {
     private VBox createLeftPanel()
     {
       VBox result = new VBox();
-      result.getChildren().addAll(new TitleView(),drawLegend(),drawMap(),createComboBox());
+      result.getChildren().addAll(new TitleView(),new LegendView(),new MapView(),createComboBox());
       return result;
     }
     
@@ -191,52 +173,5 @@ public class Main extends Application {
 	    return rightSide_vbox;
 	}
 	
-	private Node drawMap() {
-		
-		GridPane grid = new GridPane();
-		grid.setVgap(1);
-		grid.setHgap(1);
-		
-		for (int i = 1; i <= 4; i++)
-			for (int j = 1; j <= 4; j++)
-				grid.add(createLocation(0), i, j);
-		
-		for (Integer i = 1; i <= 4; i++) {
-        	Label label = new Label(i.toString());
-        	//label.setMinSize(50, 50);
-        	label.setAlignment(Pos.CENTER);
-        	grid.add(label, 0, i);
-        }
-		for (Integer j = 1; j <= 4; j++) {
-        	Label label = new Label(j.toString());
-        	label.setAlignment(Pos.CENTER);
-        	grid.add(label, j, 0);
-        }
-		
-		ImageView legend1 = createLegend("red");
-		ImageView legend2 = createLegend("green");
-		VBox box1 = new VBox();
-	    box1.getChildren().addAll(legend1);
-	    box1.setAlignment(Pos.CENTER);
-	    VBox box2 = new VBox();
-	    box2.getChildren().addAll(legend2);
-	    box2.setAlignment(Pos.CENTER);
-		grid.add(box1, 1, 1);
-		grid.add(box2, 4, 4);
-		return grid;
-	}
 	
-	private Node drawLegend() {
-		GridPane grid = new GridPane();
-		grid.setVgap(20);
-		grid.setHgap(20);
-		grid.add(createLegend("red"), 0, 0);
-		grid.add(createLegend("green"), 0, 1);
-		Label label1 = new Label("station1");
-		
-    	grid.add(label1, 1, 0);
-    	Label label2 = new Label("station2");
-    	grid.add(label2, 1, 1);
-		return grid;
-	}
 }

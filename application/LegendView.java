@@ -1,25 +1,22 @@
 package application;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.GridPane;
 
-public class LegendView extends ListView<Node> {
+public class LegendView extends FlowPane {
 	
 	LegendView()
 	{
-		super();
-		this.add(createLegend("red"), 0, 0);
-		this.add(createLegend("green"), 0, 1);
-		Label label1 = new Label("station1");
-		
-    	grid.add(label1, 1, 0);
-    	Label label2 = new Label("station2");
-    	grid.add(label2, 1, 1);
-		return grid;
+		Label label1 = new Label("Factory");
+    	Label label2 = new Label("Sawmill");
+		this.getChildren().addAll(createLegend("red"),label1,createLegend("blue"),label2);
 	}
 	
 	private ImageView createLegend(String color)
