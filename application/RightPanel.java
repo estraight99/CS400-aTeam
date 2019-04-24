@@ -18,14 +18,6 @@ public class RightPanel extends GridPane
 		super();
 		//creating components
 	    
-		HBox next_row = new HBox();
-	    
-	    VBox first_column = new VBox();
-	    VBox second_column = new VBox();
-	    VBox third_column = new VBox();
-	    
-	    next_row.getChildren().addAll(first_column,second_column,third_column);
-	    
 	    Label info_lbl = new Label("Player's Info");
 	    Label playerMoney_lbl = new Label("You Have: $" + money);
 	    Label from_lbl = new Label("From:");
@@ -40,9 +32,11 @@ public class RightPanel extends GridPane
 	    TextField toLeft_tf = new TextField();
 	    TextField toRight_tf = new TextField();
 	    
-	    first_column.getChildren().addAll(from_lbl,to_lbl,buildCost_lbl);
-	    second_column.getChildren().addAll(fromLeft_tf,toLeft_tf);
-	    third_column.getChildren().addAll(fromRight_tf,toRight_tf,build_btn);
+	    fromLeft_tf.setMaxWidth(50);
+	    fromRight_tf.setMaxWidth(50);
+	    toLeft_tf.setMaxWidth(50);
+	    toRight_tf.setMaxWidth(50);
+	    
 	    
 	    //changing labels's attributes
 	    info_lbl.setFont(Font.font("Arial",15));
