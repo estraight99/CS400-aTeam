@@ -4,11 +4,14 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 
 /**
- * This class represents 
+ * This class represents the title of the program
  * @author Dung Viet Bui
  *
  */
 public class TitleView extends Label {
+    /**
+     * This method initializes a title for the program.
+     */
 	TitleView()
 	{
 		super("Road Builder");
