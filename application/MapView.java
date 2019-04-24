@@ -31,6 +31,11 @@ public class MapView extends GridPane {
 		
 	}
 	
+	/**
+	 * This method creates an ImageView of a tile on the graph.
+	 * @param typeOfRoad is the road information in integer. 0<=typeOfRoad<=16
+	 * @return an ImageView with that typeOfRoad
+	 */
 	private ImageView createLocation(int typeOfRoad)
     {
       typeOfRoad = 0;

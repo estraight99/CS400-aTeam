@@ -6,9 +6,15 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
+/**
+ * This class represents the left part of the GUI
+ * @author Dung Viet Bui, Yuanbo Zhang
+ */
 public class LeftPanel extends VBox{
 	
-	
+    /**
+     * This method creates a VBox instance of the left part of the GUI
+     */
 	LeftPanel()
 	{
 		super();
