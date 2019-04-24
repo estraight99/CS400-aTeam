@@ -32,6 +32,19 @@ public class RightPanel extends GridPane
 	    TextField toLeft_tf = new TextField();
 	    TextField toRight_tf = new TextField();
 	    
+
+	    fromLeft_tf.setPromptText("X");
+	    fromLeft_tf.setFocusTraversable(false); 
+	    
+	    fromRight_tf.setPromptText("Y");
+	    fromRight_tf.setFocusTraversable(false);
+	    
+	    toLeft_tf.setPromptText("X");
+        toLeft_tf.setFocusTraversable(false); 
+        
+        toRight_tf.setPromptText("Y");
+        toRight_tf.setFocusTraversable(false);
+	    
 	    fromLeft_tf.setMaxWidth(50);
 	    fromRight_tf.setMaxWidth(50);
 	    toLeft_tf.setMaxWidth(50);
@@ -97,27 +110,11 @@ public class RightPanel extends GridPane
 	    
 	    this.add(build_btn, 2, 6);
 	    
-	    this.add(createHelpButton(), 3, 1);
-	    
 	    this.setVgap(10.0);
 	    this.setHgap(5.0);
 	    
 	    
 	    
 	}
-	
-	/**
-     * @return a Node instance which is the Help button of the program
-     */
-    private Node createHelpButton()
-    {
-      Image helpIcon = new Image(getClass().getResourceAsStream("/img/help.png"));
-      ImageView helpImageView = new ImageView(helpIcon);
-      helpImageView.setFitHeight(15);
-      helpImageView.setFitWidth(15);
-      Button helpButton = new Button();
-      helpButton.setGraphic(helpImageView);
-      return helpButton;
-    }
 	
 }
