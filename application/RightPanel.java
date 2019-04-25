@@ -8,6 +8,7 @@ import javafx.scene.text.Font;
 
 /**
  * class that creates the right panel of the road builder application
+ * @author Eli Straight
  */
 public class RightPanel extends GridPane {
     RightPanel(int money, int cost) {
