@@ -35,6 +35,7 @@ public class LeftPanel extends VBox{
                 "1000*1000",
                 "10000*10000"
             );
+        comboBox.getSelectionModel().selectFirst();
         result.getChildren().addAll(label,comboBox);
         return result;
     }
