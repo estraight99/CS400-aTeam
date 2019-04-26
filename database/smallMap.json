@@ -1,0 +1,69 @@
+{
+  "length": 3,
+  "width": 3,
+  "data": [
+    {
+      "x": 1,
+      "y": 1,
+      "type": "City",
+      "name": "London",
+      "road": 12
+    },
+    {
+      "x": 1,
+      "y": 2,
+      "type": "Grassland",
+      "name": "",
+      "road": 6
+    },
+    {
+      "x": 1,
+      "y": 3,
+      "type": "Grassland",
+      "name": "",
+      "road": 0
+    },
+    {
+      "x": 2,
+      "y": 1,
+      "type": "Grassland",
+      "name": "",
+      "road": 9
+    },
+    {
+      "x": 2,
+      "y": 2,
+      "type": "City",
+      "name": "Manchester",
+      "road": 15
+    },
+    {
+      "x": 2,
+      "y": 3,
+      "type": "City",
+      "name": "Liverpool",
+      "road": 2
+    },
+    {
+      "x": 3,
+      "y": 1,
+      "type": "Grassland",
+      "name": "",
+      "road": 0
+    },
+    {
+      "x": 3,
+      "y": 2,
+      "type": "Grassland",
+      "name": "",
+      "road": 1
+    },
+    {
+      "x": 3,
+      "y": 3,
+      "type": "Grassland",
+      "name": "",
+      "road": 0
+    }
+  ]
+}
