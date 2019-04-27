@@ -1,5 +1,7 @@
 package application;
 
+import java.io.FileNotFoundException;
+
 public class GUIInformation {
   User user;
   GameMap map;
@@ -9,5 +11,11 @@ public class GUIInformation {
     this.user = user;
     this.map = map;
     this.topLeft = topLeft;
+  }
+  
+  public void updateJSONFile() throws FileNotFoundException
+  {
+    user.updateJSONFile();
+    map.updateJSONFile();
   }
 }
