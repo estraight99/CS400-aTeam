@@ -8,7 +8,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 
 public class MapView extends GridPane {
-	MapView()
+	MapView(GameMap map)
 	{
 		this.setVgap(0.1);
 		this.setHgap(0.1);
@@ -27,8 +27,7 @@ public class MapView extends GridPane {
         	Label label = new Label(j.toString());
         	//label.setAlignment(Pos.CENTER);
         	this.add(label, j, 0);
-        }
-		
+		}	
 	}
 	
 	/**

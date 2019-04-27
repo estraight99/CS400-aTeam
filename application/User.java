@@ -4,7 +4,6 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
-import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
@@ -32,6 +31,7 @@ public class User {
   public void pay(int x) {
     this.money -= x;
   }
+  
   
   public void updateJSONFile() throws FileNotFoundException
   {
