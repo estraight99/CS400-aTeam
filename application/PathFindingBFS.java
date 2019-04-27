@@ -42,12 +42,12 @@ public class PathFindingBFS implements PathFinding{
     { 
       Location current = queue.getFirst();
       queue.removeFirst();
-      for (Direction i : Direction.values())
+      for (int i=0; i<4; i++)
       {
-        Coordinate newLocation = new Coordinate(current.getX()+mx[i.ordinal()],current.getY()+my[i.ordinal()]);
+        Coordinate newLocation = new Coordinate(current.getX()+mx[i],current.getY()+my[i]);
         if (map.isValid(newLocation) && onShortestPath(start,finish,newLocation))
         {
-          int tmpCost = current.getRoadCostWithDirection(i.ordinal());
+          int tmpCost = current.getRoadCostWithDirection(i);
           if (dis[newLocation.x][newLocation.y]>dis[current.getX()][current.getY()]+tmpCost)
           {
             dis[newLocation.x][newLocation.y]=dis[current.getX()][current.getY()]+tmpCost;

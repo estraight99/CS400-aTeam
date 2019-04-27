@@ -37,7 +37,7 @@ public class MapGenerator {
   {
     generateMap(smallPath,10,10);
     generateMap(mediumPath,1000,1000);
-    generateMap(bigPath,1000,10000);
+    generateMap(bigPath,1000,2000);
     System.out.println("Done!");
   }
 }
