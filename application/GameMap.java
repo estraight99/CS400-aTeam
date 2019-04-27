@@ -31,10 +31,10 @@ public class GameMap {
       JSONObject joLevel2 = (JSONObject) i;
       int x = ((Long) joLevel2.get("x")).intValue();
       int y = ((Long) joLevel2.get("y")).intValue();
-      String name = (String) joLevel2.get("name");
-      String type = (String) joLevel2.get("type");
+      //String name = (String) joLevel2.get("name");
+      //String type = (String) joLevel2.get("type");
       int roadInformation = ((Long) joLevel2.get("road")).intValue();
-      content[x][y] = new Location(x,y,name,type,roadInformation);
+      content[x][y] = new Location(x,y,"","",roadInformation);
     }
     
   }

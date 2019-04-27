@@ -107,9 +107,9 @@ public class Location {
     JSONObject jo = new JSONObject();
     jo.put("x", this.getX());
     jo.put("y", this.getY());
-    jo.put("type", this.type);
+    //jo.put("type", this.type);
     jo.put("road", this.roadInformation);
-    jo.put("name", this.name);
+    //jo.put("name", this.name);
     return jo;
   }
 

@@ -43,8 +43,8 @@ public class Main extends Application {
      * This method launches the GUI
      * @param args is ignored by this method.
      */
-    public static void main(String[] args) {
-        launch(args);
+    public static void main(String[] args) {  
+      launch(args);
     }
 	
 	
