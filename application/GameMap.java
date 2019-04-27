@@ -1,11 +1,9 @@
 package application;
 
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.Arrays;
 import org.json.simple.JSONArray; 
 import org.json.simple.JSONObject; 
 import org.json.simple.parser.*; 
@@ -35,6 +33,11 @@ public class GameMap {
       int roadInformation = ((Long) joLevel2.get("road")).intValue();
       content[x][y] = new Location(name,type,roadInformation);
     }
+  }
+  
+  public Location getLocation(int x,int y)
+  {
+    return content[x][y];
   }
   
   @Override
