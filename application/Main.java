@@ -1,5 +1,6 @@
 package application;
     
+import java.io.File;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.stage.Stage;
@@ -16,12 +17,13 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) {
         try {
+            User mainUser = new User("."+File.separator+"database"+File.separator+"user.json");
             primaryStage.setTitle("Road Builder");
             BorderPane root = new BorderPane();
             Scene scene = new Scene(root);
             scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
             HBox sceneCenter = new HBox();
-            sceneCenter.getChildren().addAll(new LeftPanel(),new RightPanel(100,10));
+            sceneCenter.getChildren().addAll(new LeftPanel(),new RightPanel(mainUser));
             sceneCenter.setSpacing(10.0);
             root.setTop(new TitleView());
             root.setLeft(sceneCenter);

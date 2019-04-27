@@ -11,12 +11,13 @@ import javafx.scene.text.Font;
  * @author Eli Straight
  */
 public class RightPanel extends GridPane {
-    RightPanel(int money, int cost) {
-	super();
-
+    RightPanel(User user) {
+	
+    super();
+    int cost = 0;
 	//creating components
-	Label info_lbl = new Label("Player's Info");
-	Label playerMoney_lbl = new Label("You Have: $" + money);
+	Label info_lbl = new Label("Welcome "+user.getName());
+	Label playerMoney_lbl = new Label("You Have: $" + user.getMoney());
 	Label from_lbl = new Label("From:");
 	Label to_lbl = new Label("To:");
 	Label buildCost_lbl = new Label("Cost:");

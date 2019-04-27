@@ -82,7 +82,6 @@ public class GameMap {
     return result;
   }
   
-  
   public static void main(String[] args) throws FileNotFoundException, IOException, ParseException
   {
     GameMap smallMap = new GameMap("."+File.separator+"database"+File.separator+"smallMap.json");
