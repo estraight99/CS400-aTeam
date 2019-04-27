@@ -13,17 +13,20 @@ public class MapView extends GridPane {
 		this.setVgap(0.1);
 		this.setHgap(0.1);
 		
-		for (int i = 1; i <= 4; i++)
-			for (int j = 1; j <= 4; j++)
-				this.add(createLocation(0), i, j);
+		int n = map.getLength();
+		int m = map.getWidth();
 		
-		for (Integer i = 1; i <= 4; i++) {
+		for (int i = 1; i <= n; i++)
+			for (int j = 1; j <= m; j++)
+				this.add(createLocation(map.getLocation(i, j)), j, i);
+		
+		for (Integer i = 1; i <= n; i++) {
         	Label label = new Label(i.toString());
         	//label.setMinSize(50, 50);
         	//label.setAlignment(Pos.CENTER);
         	this.add(label, 0, i);
         }
-		for (Integer j = 1; j <= 4; j++) {
+		for (Integer j = 1; j <= m; j++) {
         	Label label = new Label(j.toString());
         	//label.setAlignment(Pos.CENTER);
         	this.add(label, j, 0);
@@ -35,9 +38,9 @@ public class MapView extends GridPane {
 	 * @param typeOfRoad is the road information in integer. 0<=typeOfRoad<=16
 	 * @return an ImageView with that typeOfRoad
 	 */
-	private ImageView createLocation(int typeOfRoad)
+	private ImageView createLocation(Location loc)
     {
-      typeOfRoad = 0;
+	  int typeOfRoad = loc.getRoadInformation();
       Image location = new Image(getClass().getResourceAsStream(".."+File.separator+"img"+File.separator+"road"+File.separator+typeOfRoad+".png"));
       ImageView locationView = new ImageView(location);
       locationView.setFitHeight(50);
