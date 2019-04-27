@@ -73,6 +73,15 @@ public class GameMap {
     return result;
   }
   
+  public Location[][] getMap(Coordinate topLeft,Coordinate bottomRight)
+  {
+    Location[][] result = new Location[bottomRight.x-topLeft.x+1][bottomRight.y-topLeft.y+1];
+    for (int i=0; i<bottomRight.x-topLeft.x+1; i++)
+      for (int j=0; j<bottomRight.y-topLeft.y+1; j++)
+        result[i][j] = content[topLeft.x+i][topLeft.y+j];
+    return result;
+  }
+  
   
   public static void main(String[] args) throws FileNotFoundException, IOException, ParseException
   {
