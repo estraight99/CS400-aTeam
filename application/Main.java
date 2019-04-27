@@ -19,13 +19,14 @@ public class Main extends Application {
         try {
             User mainUser = new User("."+File.separator+"database"+File.separator+"user.json");
             GameMap gameMap = new GameMap("."+File.separator+"database"+File.separator+"smallMap.json");
-            
+            Coordinate topLeft = new Coordinate(1,1);
+            GUIInformation information = new GUIInformation(mainUser,gameMap,topLeft);
             primaryStage.setTitle("Road Builder");
             BorderPane root = new BorderPane();
             Scene scene = new Scene(root);
             scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
             HBox sceneCenter = new HBox();
-            sceneCenter.getChildren().addAll(new LeftPanel(gameMap),new RightPanel(mainUser));
+            sceneCenter.getChildren().addAll(new LeftPanel(information),new RightPanel(information));
             sceneCenter.setSpacing(10.0);
             root.setTop(new TitleView());
             root.setLeft(sceneCenter);

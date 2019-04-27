@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.PrintWriter;
 import org.json.simple.JSONArray; 
 import org.json.simple.JSONObject; 
 import org.json.simple.parser.*; 
@@ -11,9 +12,11 @@ import org.json.simple.parser.*;
 public class GameMap {
   int length,width;
   Location[][] content;
+  String pathToJSONFile;
   
   public GameMap(String pathToJSONFile) throws FileNotFoundException, IOException, ParseException
   {
+    this.pathToJSONFile = pathToJSONFile;
     // based on https://www.geeksforgeeks.org/parse-json-java/
     Object obj = new JSONParser().parse(new FileReader(pathToJSONFile));
     JSONObject jo = (JSONObject) obj;
@@ -33,6 +36,7 @@ public class GameMap {
       int roadInformation = ((Long) joLevel2.get("road")).intValue();
       content[x][y] = new Location(x,y,name,type,roadInformation);
     }
+    
   }
   
   public boolean isValid(Coordinate c)
@@ -61,7 +65,7 @@ public class GameMap {
 
   public int getWidth() {
     return width;
-  }
+  };
 
   public void setWidth(int width) {
     this.width = width;
@@ -80,6 +84,30 @@ public class GameMap {
       for (int j=0; j<bottomRight.y-topLeft.y+1; j++)
         result[i][j] = content[topLeft.x+i][topLeft.y+j];
     return result;
+  }
+  
+  public void updateJSONFile() throws FileNotFoundException
+  {
+    JSONObject jo = new JSONObject();
+    jo.put("length", this.length);
+    jo.put("width", this.width);
+    
+    JSONArray data = new JSONArray();
+    for (int i=1; i<=length; i++)
+      for (int j=1; j<=width; j++)
+      {
+        JSONObject location = content[i][j].createJSONObject();
+        data.add(location);
+      }
+    
+    jo.put("data", data);
+    
+    PrintWriter pw = new PrintWriter(this.pathToJSONFile); 
+    pw.write(jo.toJSONString()); 
+      
+    pw.flush(); 
+    pw.close(); 
+    
   }
   
   public static void main(String[] args) throws FileNotFoundException, IOException, ParseException

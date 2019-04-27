@@ -1,5 +1,7 @@
 package application;
 
+import org.json.simple.JSONObject;
+
 public class Location {
   Coordinate coordinate;
   String type;
@@ -98,6 +100,17 @@ public class Location {
       location.buildRoad((direction+2)%4);
       user.pay(GameConstant.ROAD_COST);
     }
+  }
+
+
+  public JSONObject createJSONObject() {
+    JSONObject jo = new JSONObject();
+    jo.put("x", this.getX());
+    jo.put("y", this.getY());
+    jo.put("type", this.type);
+    jo.put("road", this.roadInformation);
+    jo.put("name", this.name);
+    return jo;
   }
 
 }

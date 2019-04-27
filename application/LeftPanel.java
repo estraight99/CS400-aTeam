@@ -16,10 +16,10 @@ public class LeftPanel extends VBox{
     /**
      * This method creates a VBox instance of the left part of the GUI
      */
-	LeftPanel(GameMap map)
+	LeftPanel(GUIInformation information)
 	{
 		super();
-		this.map = map;
+		this.map = information.map;
 	    this.getChildren().addAll(new LegendView(),new MapView(map),this.createComboBox());
 	    this.setSpacing(10);
 	}

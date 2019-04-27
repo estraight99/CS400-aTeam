@@ -43,8 +43,8 @@ public class MapView extends GridPane {
 	  int typeOfRoad = loc.getRoadInformation();
       Image location = new Image(getClass().getResourceAsStream(".."+File.separator+"img"+File.separator+"road"+File.separator+typeOfRoad+".png"));
       ImageView locationView = new ImageView(location);
-      locationView.setFitHeight(50);
-      locationView.setFitWidth(50);
+      locationView.setFitHeight(20);
+      locationView.setFitWidth(20);
       return locationView;
     }
 }

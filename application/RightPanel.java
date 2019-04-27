@@ -11,9 +11,10 @@ import javafx.scene.text.Font;
  * @author Eli Straight
  */
 public class RightPanel extends GridPane {
-    RightPanel(User user) {
+    RightPanel(GUIInformation information) {
 	
     super();
+    User user = information.user;
     int cost = 0;
 	//creating components
 	Label info_lbl = new Label("Welcome "+user.getName());
