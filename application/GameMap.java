@@ -31,8 +31,13 @@ public class GameMap {
       String name = (String) joLevel2.get("name");
       String type = (String) joLevel2.get("type");
       int roadInformation = ((Long) joLevel2.get("road")).intValue();
-      content[x][y] = new Location(name,type,roadInformation);
+      content[x][y] = new Location(x,y,name,type,roadInformation);
     }
+  }
+  
+  public boolean isValid(Coordinate c)
+  {
+    return (1<=c.x && c.x<=length && 1<=c.y && c.y<=width);
   }
   
   public Location getLocation(int x,int y)
@@ -40,6 +45,28 @@ public class GameMap {
     return content[x][y];
   }
   
+  public Location getLocation(Coordinate pos)
+  {
+    return content[pos.x][pos.y];
+  }
+  
+  
+  public int getLength() {
+    return length;
+  }
+
+  public void setLength(int length) {
+    this.length = length;
+  }
+
+  public int getWidth() {
+    return width;
+  }
+
+  public void setWidth(int width) {
+    this.width = width;
+  }
+
   @Override
   public String toString() {
     String result = this.length+" "+this.width;
@@ -51,6 +78,11 @@ public class GameMap {
   {
     GameMap smallMap = new GameMap("."+File.separator+"database"+File.separator+"smallMap.json");
     System.out.println(smallMap);
+    PathFinding pathFinder = new PathFindingBFS(smallMap);
+    System.out.println(pathFinder.evaluateCost(new Coordinate(3,1), new Coordinate(1,3)));
+    User user = new User("bvd",100);
+    pathFinder.buildRoad(user, new Coordinate(3,1), new Coordinate(1,3));
+    System.out.println(user.getMoney());
   }
   
 }

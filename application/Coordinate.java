@@ -1,18 +1,21 @@
 package application;
 
 public class Coordinate {
-  static int[] mx = new int[]{-1,0,1,0};
-  static int[] my = new int[]{0,-1,0,1};
   
-  int x,y;
+  public int x,y;
   Coordinate(int x,int y)
   {
     this.x = x;
     this.y = y;
   }
   
-  Coordinate nextCoordinate(Direction direction)
+  @Override
+  public boolean equals(Object x)
   {
-    return new Coordinate(x+mx[direction.ordinal()],y+my[direction.ordinal()]);
+    if (!(x instanceof Coordinate))
+      return false;
+    Coordinate other = (Coordinate) x;
+    return (this.x==other.x && this.y==other.y);
   }
+  
 }
