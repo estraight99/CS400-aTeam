@@ -1,6 +1,9 @@
 package application;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import org.json.simple.parser.ParseException;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.stage.Stage;
@@ -20,20 +23,28 @@ public class Main extends Application {
   GUIInformation information;
   LeftPanel leftPanel;
   RightPanel rightPanel;
+  BorderPane root;
+  Stage primaryStage;
   
+  private void initializeInformation() throws FileNotFoundException, IOException, ParseException
+  {
+    mainUser = new User("." + File.separator + "database" + File.separator + "user.json");
+    
+    gameMap =
+        new GameMap("." + File.separator + "database" + File.separator + "mediumMap.json");
+    
+    Coordinate topLeft = new Coordinate(1, 1);
+    
+    information = new GUIInformation(mainUser, gameMap, topLeft);
+  }
   @Override
   public void start(Stage primaryStage) {
     try {
-      mainUser = new User("." + File.separator + "database" + File.separator + "user.json");
-      gameMap =
-          new GameMap("." + File.separator + "database" + File.separator + "mediumMap.json");
-      Coordinate topLeft = new Coordinate(1, 1);
-      information = new GUIInformation(mainUser, gameMap, topLeft);
-
-      leftPanel = new LeftPanel(information);
-      rightPanel = new RightPanel(information);
-
+      this.primaryStage = primaryStage;
+      
+      initializeInformation();
       primaryStage.setTitle("Road Builder");
+      updateRoot();
       BorderPane root = new BorderPane();
       Scene scene = new Scene(root);
       scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
@@ -74,9 +85,13 @@ public class Main extends Application {
   }
   
   
-  private void updateScene()
+  private void updateRoot()
   {
-    
+    leftPanel = new LeftPanel(information);
+    rightPanel = new RightPanel(information);
+    root.setTop(new TitleView(primaryStage));
+    root.setLeft(sceneCenter);
+    root.setPadding(new Insets(10));
   }
   /**
    * This method launches the GUI
