@@ -40,7 +40,7 @@ public class Main extends Application {
       root.setLeft(sceneCenter);
       root.setPadding(new Insets(10));
 
-      scene.setOnKeyReleased(new EventHandler<KeyEvent>() {
+      scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
 
         @Override
         public void handle(KeyEvent event) {
