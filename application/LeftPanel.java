@@ -39,7 +39,7 @@ public class LeftPanel {
         comboBox.getItems().addAll(
                 "10*10",
                 "100*100",
-                "1000*2000"
+                "1000*1000"
             );
         if (information.getMap().getWidth()==10)
           comboBox.getSelectionModel().select(0);

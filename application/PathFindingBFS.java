@@ -29,6 +29,9 @@ public class PathFindingBFS implements PathFinding{
   
   @Override
   public int evaluateCost(Coordinate start, Coordinate finish) {
+    
+    if (!map.isValid(start) || !map.isValid(finish))
+      return 0;
     dis = new int[map.getLength()+1][map.getWidth()+1];
     trace = new Location[map.getLength()+1][map.getWidth()+1];
     for (int i=1; i<=map.getLength(); i++)
