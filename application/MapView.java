@@ -8,10 +8,14 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 
 public class MapView {
+    static Image[] allPossibleImage;
     GUIInformation information;
+    
+    
 	MapView(GUIInformation information)
 	{
 	  this.information = information;
+	  allPossibleImage = new Image[16];
 	}
 	
 	/**
@@ -22,7 +26,12 @@ public class MapView {
 	private ImageView createLocation(Location loc)
     {
 	  int typeOfRoad = loc.getRoadInformation();
-      Image location = new Image(getClass().getResourceAsStream(".."+File.separator+"img"+File.separator+"road"+File.separator+typeOfRoad+".png"));
+	  Image location = allPossibleImage[typeOfRoad];
+	  if (location==null)
+	  {
+	    location = new Image(getClass().getResourceAsStream(".."+File.separator+"img"+File.separator+"road"+File.separator+typeOfRoad+".png"));
+	    allPossibleImage[typeOfRoad] = location;
+	  }
       ImageView locationView = new ImageView(location);
       locationView.setFitHeight(20);
       locationView.setFitWidth(20);

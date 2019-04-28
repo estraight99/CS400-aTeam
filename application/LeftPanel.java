@@ -13,7 +13,8 @@ import javafx.scene.layout.VBox;
 public class LeftPanel {
 	
     GUIInformation information;
-    
+    LegendView legend;
+    Node comboBox;
     /**
      * This method creates a VBox instance of the left part of the GUI
      */
@@ -21,6 +22,8 @@ public class LeftPanel {
 	{
 		super();
 		this.information = information;
+		this.legend = new LegendView();
+		this.comboBox = this.createComboBox();
 	}
 	
 	/**
@@ -45,9 +48,7 @@ public class LeftPanel {
     {
       this.information = information;
       VBox result = new VBox();
-      LegendView legend = new LegendView();
       MapView map = new MapView(information);
-      Node comboBox = this.createComboBox();
       result.getChildren().addAll(legend,map.getGridPane(),comboBox);
       result.setSpacing(10); 
       return result;
