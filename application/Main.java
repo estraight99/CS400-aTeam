@@ -2,9 +2,11 @@ package application;
     
 import java.io.File;
 import javafx.application.Application;
+import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 
@@ -31,6 +33,22 @@ public class Main extends Application {
             root.setTop(new TitleView());
             root.setLeft(sceneCenter);
             root.setPadding(new Insets(10));
+            
+            scene.setOnKeyTyped(new EventHandler<KeyEvent>()
+                {
+
+                  @Override
+                  public void handle(KeyEvent event) {
+                     switch (event.getCode())
+                     {
+                       case LEFT: 
+                     }
+                    
+                  }
+              
+                });
+            
+            
             
             primaryStage.setScene(scene);
             primaryStage.show();

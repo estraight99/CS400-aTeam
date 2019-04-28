@@ -13,6 +13,27 @@ public class GUIInformation {
     this.topLeft = topLeft;
   }
   
+  public void moveMapLeft()
+  {
+    
+  }
+  
+  public void moveMapRight()
+  {
+    
+  }
+  
+  public void moveMapUp()
+  {
+    
+  }
+  
+  
+  public void moveMapDown()
+  {
+    
+  }
+  
   public void updateJSONFile() throws FileNotFoundException
   {
     user.updateJSONFile();
