@@ -86,6 +86,7 @@ public class GameMap {
     return result;
   }
   
+  @SuppressWarnings("unchecked")
   public void updateJSONFile() throws FileNotFoundException
   {
     JSONObject jo = new JSONObject();

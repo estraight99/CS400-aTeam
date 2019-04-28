@@ -1,6 +1,5 @@
 package application;
 import javafx.scene.Node;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -43,7 +42,7 @@ public class TitleView extends BorderPane {
       helpButton.setGraphic(helpImageView);
       helpButton.setOnAction(event ->
       {
-        Stage helpWindow = new HelpView(primaryStage);
+        new HelpView(primaryStage);
       });
       return helpButton;
     }

@@ -2,11 +2,9 @@ package application;
 
 import java.io.File;
 import javafx.application.Application;
-import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 
@@ -54,6 +52,29 @@ public class Main extends Application {
             break;
           case D:
             information.moveMap(3);
+            break;  
+          case DIGIT0:
+          case DIGIT1:
+          case DIGIT2:
+          case DIGIT3:
+          case DIGIT4:
+          case DIGIT5:
+          case DIGIT6:
+          case DIGIT7:
+          case DIGIT8:
+          case DIGIT9:
+            try
+            {
+              PathFinding pathFinder = new PathFindingBFS(gameMap);
+              Coordinate start = new Coordinate(rightPanel.getFromX(),rightPanel.getFromY());
+              Coordinate finish = new Coordinate(rightPanel.getToX(),rightPanel.getToY());
+              System.out.println("I'm here");
+              rightPanel.cost_lbl.setText("$"+pathFinder.evaluateCost(start, finish));
+            }
+            catch (Exception e)
+            {
+              // do nothing
+            }
             break;
           default:
             break;
@@ -61,6 +82,9 @@ public class Main extends Application {
         sceneCenter.getChildren().clear();
         sceneCenter.getChildren().addAll(leftPanel.getGUI(information), rightPanel);
       });
+      
+      
+      
       
       
 

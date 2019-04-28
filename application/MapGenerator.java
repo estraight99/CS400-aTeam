@@ -11,6 +11,7 @@ public class MapGenerator {
   static final String smallPath = "."+File.separator+"database"+File.separator+"smallMap.json";
   static final String mediumPath = "."+File.separator+"database"+File.separator+"mediumMap.json";
   static final String bigPath = "."+File.separator+"database"+File.separator+"bigMap.json";
+  @SuppressWarnings("unchecked")
   public static void generateMap(String pathToJSONFile,int length,int width) throws FileNotFoundException
   {
     JSONObject jo = new JSONObject();

@@ -103,6 +103,7 @@ public class Location {
   }
 
 
+  @SuppressWarnings("unchecked")
   public JSONObject createJSONObject() {
     JSONObject jo = new JSONObject();
     jo.put("x", this.getX());

@@ -33,6 +33,7 @@ public class User {
   }
   
   
+  @SuppressWarnings("unchecked")
   public void updateJSONFile() throws FileNotFoundException
   {
     JSONObject jo = new JSONObject();
