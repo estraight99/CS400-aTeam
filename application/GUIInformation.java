@@ -25,6 +25,7 @@ public class GUIInformation {
   public void moveMap(int direction)
   {
     Coordinate result = new Coordinate(topLeft.x+mx[direction],topLeft.y+my[direction]);
+    //System.out.println((map.length-9)+" "+(map.width-9));
     if (ok(result))
       this.topLeft = result;
   }

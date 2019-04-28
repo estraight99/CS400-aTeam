@@ -7,34 +7,11 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 
-public class MapView extends GridPane {
+public class MapView {
+    GUIInformation information;
 	MapView(GUIInformation information)
 	{
-		this.setVgap(0.1);
-		this.setHgap(0.1);
-		
-		
-		int n = information.map.length;
-		int m = information.map.width;
-		
-		int x = Math.min(information.topLeft.x,n-9);
-        int y = Math.min(information.topLeft.y,m-9);
-		
-        for (int i = x; i <= x+9; i++)
-			for (int j = y; j <= y+9; j++)
-				this.add(createLocation(information.map.getLocation(i, j)), j, i);
-		
-		for (Integer i = x; i <= x+9; i++) {
-        	Label label = new Label(i.toString());
-        	//label.setMinSize(50, 50);
-        	//label.setAlignment(Pos.CENTER);
-        	this.add(label, 0, i);
-        }
-		for (Integer j = y; j <= y+9; j++) {
-        	Label label = new Label(j.toString());
-        	//label.setAlignment(Pos.CENTER);
-        	this.add(label, j, 0);
-		}	
+	  this.information = information;
 	}
 	
 	/**
@@ -52,4 +29,36 @@ public class MapView extends GridPane {
       locationView.setFitWidth(20);
       return locationView;
     }
+
+  public GridPane getGridPane() {
+    GridPane result = new GridPane();
+    
+    result.setVgap(0.1);
+    result.setHgap(0.1);
+    
+    
+    int n = information.map.length;
+    int m = information.map.width;
+    
+    int x = Math.min(information.topLeft.x,n-9);
+    int y = Math.min(information.topLeft.y,m-9);
+    
+    for (int i = x; i <= x+9; i++)
+        for (int j = y; j <= y+9; j++)
+            result.add(createLocation(information.map.getLocation(i, j)), j, i);
+    
+    for (Integer i = x; i <= x+9; i++) {
+        Label label = new Label(i.toString());
+        //label.setMinSize(50, 50);
+        //label.setAlignment(Pos.CENTER);
+        result.add(label, 0, i);
+    }
+    for (Integer j = y; j <= y+9; j++) {
+        Label label = new Label(j.toString());
+        //label.setAlignment(Pos.CENTER);
+        result.add(label, j, 0);
+    }
+    
+    return result;
+  }
 }

@@ -34,36 +34,35 @@ public class Main extends Application {
       Scene scene = new Scene(root);
       scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
       HBox sceneCenter = new HBox();
-      sceneCenter.getChildren().addAll(leftPanel, rightPanel);
+      sceneCenter.getChildren().addAll(leftPanel.getGUI(information), rightPanel);
       sceneCenter.setSpacing(10.0);
       root.setTop(new TitleView());
       root.setLeft(sceneCenter);
       root.setPadding(new Insets(10));
 
-      scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
+      scene.setOnKeyReleased(new EventHandler<KeyEvent>() {
 
         @Override
         public void handle(KeyEvent event) {
-          System.out.println(information.topLeft);
+          //System.out.println(information.topLeft);
           switch (event.getCode()) {
-            case UP:
-              information.moveMap(0);
-              break;
-            case LEFT:
+            case A:
               information.moveMap(1);
               break;
-            case RIGHT:
+            case W:
+              information.moveMap(0);
+              break;
+            case S:
               information.moveMap(2);
               break;
-            case DOWN:
+            case D:
               information.moveMap(3);
               break;
             default:
               break;
           }
           sceneCenter.getChildren().clear();
-          leftPanel.update(information);
-          sceneCenter.getChildren().addAll(leftPanel,rightPanel);
+          sceneCenter.getChildren().addAll(leftPanel.getGUI(information),rightPanel);
         }
 
       });

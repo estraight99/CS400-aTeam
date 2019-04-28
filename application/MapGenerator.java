@@ -36,7 +36,7 @@ public class MapGenerator {
   public static void main(String[] args) throws FileNotFoundException
   {
     generateMap(smallPath,10,10);
-    generateMap(mediumPath,1000,1000);
+    generateMap(mediumPath,100,100);
     generateMap(bigPath,1000,2000);
     System.out.println("Done!");
   }

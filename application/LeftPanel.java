@@ -10,15 +10,17 @@ import javafx.scene.layout.VBox;
  * This class represents the left part of the GUI
  * @author Dung Viet Bui, Yuanbo Zhang
  */
-public class LeftPanel extends VBox{
+public class LeftPanel {
 	
+    GUIInformation information;
+    
     /**
      * This method creates a VBox instance of the left part of the GUI
      */
 	LeftPanel(GUIInformation information)
 	{
 		super();
-	    this.update(information);
+		this.information = information;
 	}
 	
 	/**
@@ -31,18 +33,23 @@ public class LeftPanel extends VBox{
         ComboBox <String> comboBox = new ComboBox<String>();
         comboBox.getItems().addAll(
                 "10*10",
-                "1000*1000",
-                "10000*10000"
+                "100*100",
+                "1000*2000"
             );
         comboBox.getSelectionModel().selectFirst();
         result.getChildren().addAll(label,comboBox);
         return result;
     }
     
-    public void update(GUIInformation information)
+    public Node getGUI(GUIInformation information)
     {
-      this.getChildren().clear();
-      this.getChildren().addAll(new LegendView(),new MapView(information),this.createComboBox());
-      this.setSpacing(10);
+      this.information = information;
+      VBox result = new VBox();
+      LegendView legend = new LegendView();
+      MapView map = new MapView(information);
+      Node comboBox = this.createComboBox();
+      result.getChildren().addAll(legend,map.getGridPane(),comboBox);
+      result.setSpacing(10); 
+      return result;
     }
 }
