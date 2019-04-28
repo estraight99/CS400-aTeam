@@ -45,15 +45,15 @@ public class MapView {
     result.setHgap(0.1);
     
     
-    int n = information.map.length;
-    int m = information.map.width;
+    int n = information.getMap().length;
+    int m = information.getMap().width;
     
     int x = Math.min(information.topLeft.x,n-9);
     int y = Math.min(information.topLeft.y,m-9);
     
     for (int i = x; i <= x+9; i++)
         for (int j = y; j <= y+9; j++)
-            result.add(createLocation(information.map.getLocation(i, j)), j, i);
+            result.add(createLocation(information.getMap().getLocation(i, j)), j, i);
     
     for (Integer i = x; i <= x+9; i++) {
         Label label = new Label(i.toString());

@@ -194,7 +194,7 @@ public class RightPanel extends GridPane {
   {
     try
     {
-      PathFinding pathFinder = new PathFindingBFS(information.map);
+      PathFinding pathFinder = new PathFindingBFS(information.getMap());
       Coordinate start = new Coordinate(this.getFromX(),this.getFromY());
       Coordinate finish = new Coordinate(this.getToX(),this.getToY());
       System.out.println("I'm here");

@@ -1,25 +1,42 @@
 package application;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
+import org.json.simple.parser.ParseException;
 
 public class GUIInformation {
   static int[] mx = new int[]{-1,0,1,0};
   static int[] my = new int[]{0,-1,0,1};
   
   User user;
-  GameMap map;
+  GameMap[] map;
+  int mapID;
   Coordinate topLeft;
   
-  GUIInformation(User user, GameMap map,Coordinate topLeft)
+  GUIInformation(User user,int initMapID, Coordinate topLeft) throws FileNotFoundException, IOException, ParseException
   {
     this.user = user;
-    this.map = map;
+    this.map = new GameMap[3];
+    this.map[0] = new GameMap(MapGenerator.smallPath);
+    this.map[1] = new GameMap(MapGenerator.mediumPath);
+    this.map[2] = new GameMap(MapGenerator.bigPath);
+    this.mapID = initMapID;
     this.topLeft = topLeft;
+  }
+  
+  public GameMap getMap()
+  {
+    return this.map[this.mapID]; 
+  }
+  
+  public void changeMap(int id)
+  {
+    this.mapID = id;
   }
   
   private boolean ok(Coordinate newCoor)
   {
-    return (1<=newCoor.x && newCoor.x<=Math.max(1, map.length-9) && 1<=newCoor.y && newCoor.y<=Math.max(1,map.width-9));
+    return (1<=newCoor.x && newCoor.x<=Math.max(1, getMap().length-9) && 1<=newCoor.y && newCoor.y<=Math.max(1,getMap().width-9));
   }
   
   public void moveMap(int direction)
@@ -33,6 +50,7 @@ public class GUIInformation {
   public void updateJSONFile() throws FileNotFoundException
   {
     user.updateJSONFile();
-    map.updateJSONFile();
+    for (int i=0; i<map.length; i++)
+      map[i].updateJSONFile();
   }
 }

@@ -40,7 +40,7 @@ public class MapGenerator {
   {
     generateMap(smallPath,10,10);
     generateMap(mediumPath,100,100);
-    generateMap(bigPath,1000,2000);
+    generateMap(bigPath,1000,1000);
     System.out.println("Done!");
   }
 }
