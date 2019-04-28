@@ -73,6 +73,11 @@ public class Main extends Application {
     }
   }
   
+  
+  private void updateScene()
+  {
+    
+  }
   /**
    * This method launches the GUI
    * 

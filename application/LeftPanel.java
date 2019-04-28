@@ -40,9 +40,41 @@ public class LeftPanel {
                 "1000*2000"
             );
         comboBox.getSelectionModel().selectFirst();
+        comboBox.setOnAction(event ->
+        {
+          if (comboBox.getValue().equals("10*10"))
+          {
+            changeMap(MapGenerator.smallPath);
+          }
+          else
+          if (comboBox.getValue().equals("100*100"))
+          {
+            changeMap(MapGenerator.mediumPath);
+          }
+          else
+          if (comboBox.getValue().equals("1000*2000"))
+          {
+            changeMap(MapGenerator.bigPath);
+          }
+        });
         result.getChildren().addAll(label,comboBox);
         return result;
     }
+    
+    private void changeMap(String path)
+    {
+      try
+      {
+        information.map = new GameMap(path);
+      }
+      catch (Exception e)
+      {
+        // do nothing
+      }
+      
+      
+    }
+    
     
     public Node getGUI(GUIInformation information)
     {
