@@ -52,7 +52,6 @@ public class Main extends Application {
     root = new BorderPane();
     scene = new Scene(root);
     updateRoot();
-    leftPanel.comboBox.getSelectionModel().selectFirst();
     primaryStage.setScene(scene);
     primaryStage.show();
   }
