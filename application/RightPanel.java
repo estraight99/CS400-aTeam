@@ -1,5 +1,7 @@
 package application;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -40,19 +42,63 @@ public class RightPanel extends GridPane {
     toLeft_tf = new TextField();
     toRight_tf = new TextField();
 
-    // Setting default text for text fields
+    // Setting default text for text fieldsand adding listeners to upfate cost when text is changed
     fromLeft_tf.setPromptText("X");
     fromLeft_tf.setFocusTraversable(false);
+    fromLeft_tf.textProperty().addListener(new ChangeListener<String>() {
+	 public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+	     if (!fromLeft_tf.getText().equals("") && !fromRight_tf.getText().equals("")
+		     && !toLeft_tf.getText().equals("") && !toRight_tf.getText().equals("")) { 
+	      PathFinding pathFinder = new PathFindingBFS(information.map);
+	      Coordinate start = new Coordinate(getFromX(),getFromY());
+	      Coordinate finish = new Coordinate(getToX(),getToY());
+	      cost_lbl.setText("$"+pathFinder.evaluateCost(start, finish));
+	     }
+	  }
+    });
 
     fromRight_tf.setPromptText("Y");
     fromRight_tf.setFocusTraversable(false);
+    fromRight_tf.textProperty().addListener(new ChangeListener<String>() {
+	 public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+	     if (!fromLeft_tf.getText().equals("") && !fromRight_tf.getText().equals("")
+		     && !toLeft_tf.getText().equals("") && !toRight_tf.getText().equals("")) { 
+	      PathFinding pathFinder = new PathFindingBFS(information.map);
+	      Coordinate start = new Coordinate(getFromX(),getFromY());
+	      Coordinate finish = new Coordinate(getToX(),getToY());
+	      cost_lbl.setText("$"+pathFinder.evaluateCost(start, finish));
+	     }
+	  }
+    });
 
     toLeft_tf.setPromptText("X");
     toLeft_tf.setFocusTraversable(false);
+    toLeft_tf.textProperty().addListener(new ChangeListener<String>() {
+	 public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+	     if (!fromLeft_tf.getText().equals("") && !fromRight_tf.getText().equals("")
+		     && !toLeft_tf.getText().equals("") && !toRight_tf.getText().equals("")) { 
+	      PathFinding pathFinder = new PathFindingBFS(information.map);
+	      Coordinate start = new Coordinate(getFromX(),getFromY());
+	      Coordinate finish = new Coordinate(getToX(),getToY());
+	      cost_lbl.setText("$"+pathFinder.evaluateCost(start, finish));
+	     }
+	  }
+    });
 
     toRight_tf.setPromptText("Y");
     toRight_tf.setFocusTraversable(false);
-
+    toRight_tf.textProperty().addListener(new ChangeListener<String>() {
+	 public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+	     if (!fromLeft_tf.getText().equals("") && !fromRight_tf.getText().equals("")
+		     && !toLeft_tf.getText().equals("") && !toRight_tf.getText().equals("")) { 
+	      PathFinding pathFinder = new PathFindingBFS(information.map);
+	      Coordinate start = new Coordinate(getFromX(),getFromY());
+	      Coordinate finish = new Coordinate(getToX(),getToY());
+	      cost_lbl.setText("$"+pathFinder.evaluateCost(start, finish));
+	     }
+	  }
+   });
+    
     // setting widths
     fromLeft_tf.setMaxWidth(50);
     fromRight_tf.setMaxWidth(50);
@@ -160,4 +206,8 @@ public class RightPanel extends GridPane {
     }
   }
   
+  
+  private void changed(ObservableValue<? extends String> observable) {
+      this.cost_lbl.setText("worked");
+  }
 }
