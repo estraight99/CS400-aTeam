@@ -56,7 +56,7 @@ public class LeftPanel {
           if (comboBox.getValue().equals("100*100"))
             changeMap(1);
           else
-          if (comboBox.getValue().equals("1000*2000"))
+          if (comboBox.getValue().equals("1000*1000"))
             changeMap(2);
         });
         result.getChildren().addAll(label,comboBox);
