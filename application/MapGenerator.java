@@ -3,6 +3,7 @@ package application;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
+import java.util.Random;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
@@ -16,11 +17,12 @@ public class MapGenerator {
     jo.put("length", length);
     jo.put("width", width);
     
+    Random rand = new Random();
     JSONArray data = new JSONArray();
     for (int i=1; i<=length; i++)
       for (int j=1; j<=width; j++)
       {
-        JSONObject location = (new Location(i,j,"","",0)).createJSONObject();
+        JSONObject location = (new Location(i,j,"","",rand.nextInt(16))).createJSONObject();
         data.add(location);
       }
     

@@ -22,7 +22,6 @@ public class MapView {
 	private ImageView createLocation(Location loc)
     {
 	  int typeOfRoad = loc.getRoadInformation();
-	  typeOfRoad = 0;
       Image location = new Image(getClass().getResourceAsStream(".."+File.separator+"img"+File.separator+"road"+File.separator+typeOfRoad+".png"));
       ImageView locationView = new ImageView(location);
       locationView.setFitHeight(20);
