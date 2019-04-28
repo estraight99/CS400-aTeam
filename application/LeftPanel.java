@@ -41,33 +41,33 @@ public class LeftPanel {
                 "100*100",
                 "1000*2000"
             );
-        if (information.map.getWidth()==10)
+        if (information.getMap().getWidth()==10)
           comboBox.getSelectionModel().select(0);
-        if (information.map.getWidth()==100)
+        if (information.getMap().getWidth()==100)
           comboBox.getSelectionModel().select(1);
-        if (information.map.getWidth()==1000)
+        if (information.getMap().getWidth()==1000)
           comboBox.getSelectionModel().select(2);
         
         comboBox.setOnAction(event ->
         {
           if (comboBox.getValue().equals("10*10"))
-            changeMap(MapGenerator.smallPath);
+            changeMap(0);
           else
           if (comboBox.getValue().equals("100*100"))
-            changeMap(MapGenerator.mediumPath);
+            changeMap(1);
           else
           if (comboBox.getValue().equals("1000*2000"))
-            changeMap(MapGenerator.bigPath);
+            changeMap(2);
         });
         result.getChildren().addAll(label,comboBox);
         return result;
     }
     
-    private void changeMap(String path)
+    private void changeMap(int newMapID)
     {
       try
       {
-        information.map = new GameMap(path);
+        information.changeMap(newMapID);
         information.topLeft = new Coordinate(1,1);
       }
       catch (Exception e)
