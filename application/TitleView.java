@@ -1,5 +1,6 @@
 package application;
 import javafx.scene.Node;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -7,6 +8,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
+import javafx.stage.Stage;
 
 /**
  * This class represents the title of the program
@@ -17,9 +19,11 @@ public class TitleView extends BorderPane {
     /**
      * This method initializes a title for the program.
      */
-	TitleView()
+    Stage primaryStage;
+	TitleView(Stage primaryStage)
 	{
 		super();
+		this.primaryStage = primaryStage;
 		Label title = new Label("Road Builder");
 		title.setFont(Font.font("Arial",FontWeight.BOLD,20));
 		super.setLeft(title);
@@ -37,6 +41,10 @@ public class TitleView extends BorderPane {
       helpImageView.setFitWidth(15);
       Button helpButton = new Button();
       helpButton.setGraphic(helpImageView);
+      helpButton.setOnAction(event ->
+      {
+        Stage helpWindow = new HelpView(primaryStage);
+      });
       return helpButton;
     }
 }

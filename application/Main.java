@@ -25,10 +25,10 @@ public class Main extends Application {
           new GameMap("." + File.separator + "database" + File.separator + "mediumMap.json");
       Coordinate topLeft = new Coordinate(1, 1);
       GUIInformation information = new GUIInformation(mainUser, gameMap, topLeft);
-      
+
       LeftPanel leftPanel = new LeftPanel(information);
       RightPanel rightPanel = new RightPanel(information);
-      
+
       primaryStage.setTitle("Road Builder");
       BorderPane root = new BorderPane();
       Scene scene = new Scene(root);
@@ -36,36 +36,33 @@ public class Main extends Application {
       HBox sceneCenter = new HBox();
       sceneCenter.getChildren().addAll(leftPanel.getGUI(information), rightPanel);
       sceneCenter.setSpacing(10.0);
-      root.setTop(new TitleView());
+      root.setTop(new TitleView(primaryStage));
       root.setLeft(sceneCenter);
       root.setPadding(new Insets(10));
 
-      scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
-
-        @Override
-        public void handle(KeyEvent event) {
-          //System.out.println(information.topLeft);
-          switch (event.getCode()) {
-            case A:
-              information.moveMap(1);
-              break;
-            case W:
-              information.moveMap(0);
-              break;
-            case S:
-              information.moveMap(2);
-              break;
-            case D:
-              information.moveMap(3);
-              break;
-            default:
-              break;
-          }
-          sceneCenter.getChildren().clear();
-          sceneCenter.getChildren().addAll(leftPanel.getGUI(information),rightPanel);
+      scene.setOnKeyPressed((event) -> {
+        // System.out.println(information.topLeft);
+        switch (event.getCode()) {
+          case A:
+            information.moveMap(1);
+            break;
+          case W:
+            information.moveMap(0);
+            break;
+          case S:
+            information.moveMap(2);
+            break;
+          case D:
+            information.moveMap(3);
+            break;
+          default:
+            break;
         }
-
+        sceneCenter.getChildren().clear();
+        sceneCenter.getChildren().addAll(leftPanel.getGUI(information), rightPanel);
       });
+      
+      
 
 
 
