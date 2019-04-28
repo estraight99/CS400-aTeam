@@ -17,20 +17,17 @@ import javafx.scene.layout.HBox;
  * @author Dung Viet Bui, Eli Straight, Yuanbo Zhang
  */
 public class Main extends Application {
-
-  User mainUser;
-  GameMap gameMap;
+  
   GUIInformation information;
-  LeftPanel leftPanel;
-  RightPanel rightPanel;
-  BorderPane root;
   Stage primaryStage;
+  BorderPane root;
+  Scene scene;
   
   private void initializeInformation() throws FileNotFoundException, IOException, ParseException
   {
-    mainUser = new User("." + File.separator + "database" + File.separator + "user.json");
+    User mainUser = new User("." + File.separator + "database" + File.separator + "user.json");
     
-    gameMap =
+    GameMap gameMap =
         new GameMap("." + File.separator + "database" + File.separator + "mediumMap.json");
     
     Coordinate topLeft = new Coordinate(1, 1);
@@ -41,57 +38,62 @@ public class Main extends Application {
   public void start(Stage primaryStage) {
     try {
       this.primaryStage = primaryStage;
-      
-      initializeInformation();
       primaryStage.setTitle("Road Builder");
-      updateRoot();
-      BorderPane root = new BorderPane();
-      Scene scene = new Scene(root);
-      scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
-      HBox sceneCenter = new HBox();
-      sceneCenter.getChildren().addAll(leftPanel.getGUI(information), rightPanel);
-      sceneCenter.setSpacing(10.0);
-      root.setTop(new TitleView(primaryStage));
-      root.setLeft(sceneCenter);
-      root.setPadding(new Insets(10));
-
-      scene.setOnKeyPressed((event) -> {
-        // System.out.println(information.topLeft);
-        switch (event.getCode()) {
-          case A:
-            information.moveMap(1);
-            break;
-          case W:
-            information.moveMap(0);
-            break;
-          case S:
-            information.moveMap(2);
-            break;
-          case D:
-            information.moveMap(3);
-            break; 
-          default:
-            break;
-        }
-        sceneCenter.getChildren().clear();
-        sceneCenter.getChildren().addAll(leftPanel.getGUI(information), rightPanel);
-      });
-      
-      primaryStage.setScene(scene);
-      primaryStage.show();
+      initializeInformation();
+      initializeRoot();
     } catch (Exception e) {
       e.printStackTrace();
     }
   }
   
-  
+  private void initializeRoot()
+  {
+    root = new BorderPane();
+    scene = new Scene(root);
+    updateRoot();
+    
+    primaryStage.setScene(scene);
+    primaryStage.show();
+  }
   private void updateRoot()
   {
-    leftPanel = new LeftPanel(information);
-    rightPanel = new RightPanel(information);
+    LeftPanel leftPanel = new LeftPanel(information);
+    RightPanel rightPanel = new RightPanel(information);
+    
+    scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+    
+    HBox sceneCenter = new HBox();
+    sceneCenter.getChildren().addAll(leftPanel.getGUI(information), rightPanel);
+    sceneCenter.setSpacing(10.0);
+    
     root.setTop(new TitleView(primaryStage));
     root.setLeft(sceneCenter);
     root.setPadding(new Insets(10));
+    
+    sceneCenter.getChildren().clear();
+    sceneCenter.getChildren().addAll(leftPanel.getGUI(information), rightPanel);
+    
+    scene.setOnKeyPressed((event) -> {
+      // System.out.println(information.topLeft);
+      switch (event.getCode()) {
+        case A:
+          information.moveMap(1);
+          break;
+        case W:
+          information.moveMap(0);
+          break;
+        case S:
+          information.moveMap(2);
+          break;
+        case D:
+          information.moveMap(3);
+          break; 
+        default:
+          break;
+      }
+      updateRoot();
+    });
+    
   }
   /**
    * This method launches the GUI
