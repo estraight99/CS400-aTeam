@@ -12,15 +12,13 @@ import javafx.scene.layout.VBox;
  */
 public class LeftPanel extends VBox{
 	
-    GameMap map;
     /**
      * This method creates a VBox instance of the left part of the GUI
      */
 	LeftPanel(GUIInformation information)
 	{
 		super();
-		this.map = information.map;
-	    this.getChildren().addAll(new LegendView(),new MapView(map),this.createComboBox());
+	    this.getChildren().addAll(new LegendView(),new MapView(information),this.createComboBox());
 	    this.setSpacing(10);
 	}
 	

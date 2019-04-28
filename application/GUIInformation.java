@@ -3,6 +3,9 @@ package application;
 import java.io.FileNotFoundException;
 
 public class GUIInformation {
+  static int[] mx = new int[]{-1,0,1,0};
+  static int[] my = new int[]{0,-1,0,1};
+  
   User user;
   GameMap map;
   Coordinate topLeft;
@@ -13,25 +16,16 @@ public class GUIInformation {
     this.topLeft = topLeft;
   }
   
-  public void moveMapLeft()
+  private boolean ok(Coordinate newCoor)
   {
-    
+    return (1<=newCoor.x && newCoor.x<=map.length && 1<=newCoor.y && newCoor.y<=map.width);
   }
   
-  public void moveMapRight()
+  public void moveMap(int direction)
   {
-    
-  }
-  
-  public void moveMapUp()
-  {
-    
-  }
-  
-  
-  public void moveMapDown()
-  {
-    
+    Coordinate result = new Coordinate(topLeft.x+mx[direction],topLeft.y+my[direction]);
+    if (ok(result))
+      this.topLeft = result;
   }
   
   public void updateJSONFile() throws FileNotFoundException

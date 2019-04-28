@@ -8,25 +8,29 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 
 public class MapView extends GridPane {
-	MapView(GameMap map)
+	MapView(GUIInformation information)
 	{
 		this.setVgap(0.1);
 		this.setHgap(0.1);
 		
-		int n = map.getLength();
-		int m = map.getWidth();
 		
-		for (int i = 1; i <= n; i++)
-			for (int j = 1; j <= m; j++)
-				this.add(createLocation(map.getLocation(i, j)), j, i);
+		int n = information.map.length;
+		int m = information.map.width;
 		
-		for (Integer i = 1; i <= n; i++) {
+		int x = Math.min(information.topLeft.x,n-9);
+        int y = Math.min(information.topLeft.y,m-9);
+		
+        for (int i = x; i <= x+9; i++)
+			for (int j = y; j <= y+9; j++)
+				this.add(createLocation(information.map.getLocation(i, j)), j, i);
+		
+		for (Integer i = x; i <= x+9; i++) {
         	Label label = new Label(i.toString());
         	//label.setMinSize(50, 50);
         	//label.setAlignment(Pos.CENTER);
         	this.add(label, 0, i);
         }
-		for (Integer j = 1; j <= m; j++) {
+		for (Integer j = y; j <= y+9; j++) {
         	Label label = new Label(j.toString());
         	//label.setAlignment(Pos.CENTER);
         	this.add(label, j, 0);
