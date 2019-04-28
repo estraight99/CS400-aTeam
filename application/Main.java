@@ -25,21 +25,26 @@ public class Main extends Application {
           new GameMap("." + File.separator + "database" + File.separator + "mediumMap.json");
       Coordinate topLeft = new Coordinate(1, 1);
       GUIInformation information = new GUIInformation(mainUser, gameMap, topLeft);
+      
+      LeftPanel leftPanel = new LeftPanel(information);
+      RightPanel rightPanel = new RightPanel(information);
+      
       primaryStage.setTitle("Road Builder");
       BorderPane root = new BorderPane();
       Scene scene = new Scene(root);
       scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
       HBox sceneCenter = new HBox();
-      sceneCenter.getChildren().addAll(new LeftPanel(information), new RightPanel(information));
+      sceneCenter.getChildren().addAll(leftPanel, rightPanel);
       sceneCenter.setSpacing(10.0);
       root.setTop(new TitleView());
       root.setLeft(sceneCenter);
       root.setPadding(new Insets(10));
 
-      scene.setOnKeyTyped(new EventHandler<KeyEvent>() {
+      scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
 
         @Override
         public void handle(KeyEvent event) {
+          System.out.println(information.topLeft);
           switch (event.getCode()) {
             case UP:
               information.moveMap(0);
@@ -56,6 +61,9 @@ public class Main extends Application {
             default:
               break;
           }
+          sceneCenter.getChildren().clear();
+          leftPanel.update(information);
+          sceneCenter.getChildren().addAll(leftPanel,rightPanel);
         }
 
       });

@@ -18,8 +18,7 @@ public class LeftPanel extends VBox{
 	LeftPanel(GUIInformation information)
 	{
 		super();
-	    this.getChildren().addAll(new LegendView(),new MapView(information),this.createComboBox());
-	    this.setSpacing(10);
+	    this.update(information);
 	}
 	
 	/**
@@ -38,5 +37,12 @@ public class LeftPanel extends VBox{
         comboBox.getSelectionModel().selectFirst();
         result.getChildren().addAll(label,comboBox);
         return result;
+    }
+    
+    public void update(GUIInformation information)
+    {
+      this.getChildren().clear();
+      this.getChildren().addAll(new LegendView(),new MapView(information),this.createComboBox());
+      this.setSpacing(10);
     }
 }

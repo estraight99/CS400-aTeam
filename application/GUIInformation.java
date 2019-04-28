@@ -9,6 +9,7 @@ public class GUIInformation {
   User user;
   GameMap map;
   Coordinate topLeft;
+  
   GUIInformation(User user, GameMap map,Coordinate topLeft)
   {
     this.user = user;
@@ -18,7 +19,7 @@ public class GUIInformation {
   
   private boolean ok(Coordinate newCoor)
   {
-    return (1<=newCoor.x && newCoor.x<=map.length && 1<=newCoor.y && newCoor.y<=map.width);
+    return (1<=newCoor.x && newCoor.x<=Math.max(1, map.length-9) && 1<=newCoor.y && newCoor.y<=Math.max(1,map.width-9));
   }
   
   public void moveMap(int direction)
