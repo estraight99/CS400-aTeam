@@ -17,10 +17,12 @@ public class RightPanel extends GridPane {
   TextField fromRight_tf;
   TextField toLeft_tf;
   TextField toRight_tf;
+  GUIInformation information;
   
   RightPanel(GUIInformation information) {
 	
     super();
+    this.information = information;
     User user = information.user;
     int cost = 0;
     // creating components
@@ -140,6 +142,22 @@ public class RightPanel extends GridPane {
   public int getToY()
   {
     return Integer.parseInt(toRight_tf.getText());
+  }
+  
+  private void tryUpdateCostLabel()
+  {
+    try
+    {
+      PathFinding pathFinder = new PathFindingBFS(information.map);
+      Coordinate start = new Coordinate(this.getFromX(),this.getFromY());
+      Coordinate finish = new Coordinate(this.getToX(),this.getToY());
+      System.out.println("I'm here");
+      this.cost_lbl.setText("$"+pathFinder.evaluateCost(start, finish));
+    }
+    catch (Exception e)
+    {
+      // do nothing
+    }
   }
   
 }

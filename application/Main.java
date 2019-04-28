@@ -66,35 +66,13 @@ public class Main extends Application {
         sceneCenter.getChildren().addAll(leftPanel.getGUI(information), rightPanel);
       });
       
-      
-      
-      
-      
-
-
-
       primaryStage.setScene(scene);
       primaryStage.show();
     } catch (Exception e) {
       e.printStackTrace();
     }
   }
-
-  private void tryUpdateCostLabel()
-  {
-    try
-    {
-      PathFinding pathFinder = new PathFindingBFS(gameMap);
-      Coordinate start = new Coordinate(rightPanel.getFromX(),rightPanel.getFromY());
-      Coordinate finish = new Coordinate(rightPanel.getToX(),rightPanel.getToY());
-      System.out.println("I'm here");
-      rightPanel.cost_lbl.setText("$"+pathFinder.evaluateCost(start, finish));
-    }
-    catch (Exception e)
-    {
-      // do nothing
-    }
-  }
+  
   /**
    * This method launches the GUI
    * 
