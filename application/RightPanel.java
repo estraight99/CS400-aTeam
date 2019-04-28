@@ -49,7 +49,7 @@ public class RightPanel extends GridPane {
 	 public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
 	     if (!fromLeft_tf.getText().equals("") && !fromRight_tf.getText().equals("")
 		     && !toLeft_tf.getText().equals("") && !toRight_tf.getText().equals("")) { 
-	      PathFinding pathFinder = new PathFindingBFS(information.map);
+	      PathFinding pathFinder = new PathFindingBFS(information.getMap());
 	      Coordinate start = new Coordinate(getFromX(),getFromY());
 	      Coordinate finish = new Coordinate(getToX(),getToY());
 	      cost_lbl.setText("$"+pathFinder.evaluateCost(start, finish));
@@ -63,7 +63,7 @@ public class RightPanel extends GridPane {
 	 public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
 	     if (!fromLeft_tf.getText().equals("") && !fromRight_tf.getText().equals("")
 		     && !toLeft_tf.getText().equals("") && !toRight_tf.getText().equals("")) { 
-	      PathFinding pathFinder = new PathFindingBFS(information.map);
+	      PathFinding pathFinder = new PathFindingBFS(information.getMap());
 	      Coordinate start = new Coordinate(getFromX(),getFromY());
 	      Coordinate finish = new Coordinate(getToX(),getToY());
 	      cost_lbl.setText("$"+pathFinder.evaluateCost(start, finish));
@@ -77,7 +77,7 @@ public class RightPanel extends GridPane {
 	 public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
 	     if (!fromLeft_tf.getText().equals("") && !fromRight_tf.getText().equals("")
 		     && !toLeft_tf.getText().equals("") && !toRight_tf.getText().equals("")) { 
-	      PathFinding pathFinder = new PathFindingBFS(information.map);
+	      PathFinding pathFinder = new PathFindingBFS(information.getMap());
 	      Coordinate start = new Coordinate(getFromX(),getFromY());
 	      Coordinate finish = new Coordinate(getToX(),getToY());
 	      cost_lbl.setText("$"+pathFinder.evaluateCost(start, finish));
@@ -91,7 +91,7 @@ public class RightPanel extends GridPane {
 	 public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
 	     if (!fromLeft_tf.getText().equals("") && !fromRight_tf.getText().equals("")
 		     && !toLeft_tf.getText().equals("") && !toRight_tf.getText().equals("")) { 
-	      PathFinding pathFinder = new PathFindingBFS(information.map);
+	      PathFinding pathFinder = new PathFindingBFS(information.getMap());
 	      Coordinate start = new Coordinate(getFromX(),getFromY());
 	      Coordinate finish = new Coordinate(getToX(),getToY());
 	      cost_lbl.setText("$"+pathFinder.evaluateCost(start, finish));
