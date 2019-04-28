@@ -47,13 +47,7 @@ public class RightPanel extends GridPane {
     fromLeft_tf.setFocusTraversable(false);
     fromLeft_tf.textProperty().addListener(new ChangeListener<String>() {
 	 public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-	     if (!fromLeft_tf.getText().equals("") && !fromRight_tf.getText().equals("")
-		     && !toLeft_tf.getText().equals("") && !toRight_tf.getText().equals("")) { 
-	      PathFinding pathFinder = new PathFindingBFS(information.getMap());
-	      Coordinate start = new Coordinate(getFromX(),getFromY());
-	      Coordinate finish = new Coordinate(getToX(),getToY());
-	      cost_lbl.setText("$"+pathFinder.evaluateCost(start, finish));
-	     }
+	     UpdateCostLabel();
 	  }
     });
 
@@ -61,13 +55,7 @@ public class RightPanel extends GridPane {
     fromRight_tf.setFocusTraversable(false);
     fromRight_tf.textProperty().addListener(new ChangeListener<String>() {
 	 public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-	     if (!fromLeft_tf.getText().equals("") && !fromRight_tf.getText().equals("")
-		     && !toLeft_tf.getText().equals("") && !toRight_tf.getText().equals("")) { 
-	      PathFinding pathFinder = new PathFindingBFS(information.getMap());
-	      Coordinate start = new Coordinate(getFromX(),getFromY());
-	      Coordinate finish = new Coordinate(getToX(),getToY());
-	      cost_lbl.setText("$"+pathFinder.evaluateCost(start, finish));
-	     }
+	     UpdateCostLabel();
 	  }
     });
 
@@ -75,13 +63,7 @@ public class RightPanel extends GridPane {
     toLeft_tf.setFocusTraversable(false);
     toLeft_tf.textProperty().addListener(new ChangeListener<String>() {
 	 public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-	     if (!fromLeft_tf.getText().equals("") && !fromRight_tf.getText().equals("")
-		     && !toLeft_tf.getText().equals("") && !toRight_tf.getText().equals("")) { 
-	      PathFinding pathFinder = new PathFindingBFS(information.getMap());
-	      Coordinate start = new Coordinate(getFromX(),getFromY());
-	      Coordinate finish = new Coordinate(getToX(),getToY());
-	      cost_lbl.setText("$"+pathFinder.evaluateCost(start, finish));
-	     }
+	     UpdateCostLabel();
 	  }
     });
 
@@ -89,13 +71,7 @@ public class RightPanel extends GridPane {
     toRight_tf.setFocusTraversable(false);
     toRight_tf.textProperty().addListener(new ChangeListener<String>() {
 	 public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-	     if (!fromLeft_tf.getText().equals("") && !fromRight_tf.getText().equals("")
-		     && !toLeft_tf.getText().equals("") && !toRight_tf.getText().equals("")) { 
-	      PathFinding pathFinder = new PathFindingBFS(information.getMap());
-	      Coordinate start = new Coordinate(getFromX(),getFromY());
-	      Coordinate finish = new Coordinate(getToX(),getToY());
-	      cost_lbl.setText("$"+pathFinder.evaluateCost(start, finish));
-	     }
+	     UpdateCostLabel();
 	  }
    });
     
@@ -190,24 +166,17 @@ public class RightPanel extends GridPane {
     return Integer.parseInt(toRight_tf.getText());
   }
   
-  private void tryUpdateCostLabel()
-  {
-    try
-    {
-      PathFinding pathFinder = new PathFindingBFS(information.getMap());
-      Coordinate start = new Coordinate(this.getFromX(),this.getFromY());
-      Coordinate finish = new Coordinate(this.getToX(),this.getToY());
-      System.out.println("I'm here");
-      this.cost_lbl.setText("$"+pathFinder.evaluateCost(start, finish));
+    private void UpdateCostLabel() {
+	try {
+	    if (!fromLeft_tf.getText().equals("") && !fromRight_tf.getText().equals("")
+		    && !toLeft_tf.getText().equals("") && !toRight_tf.getText().equals("")) {
+		PathFinding pathFinder = new PathFindingBFS(information.getMap());
+		Coordinate start = new Coordinate(getFromX(), getFromY());
+		Coordinate finish = new Coordinate(getToX(), getToY());
+		cost_lbl.setText("$" + pathFinder.evaluateCost(start, finish));
+	    }
+	} catch (Exception e) {
+	    // do nothing
+	}
     }
-    catch (Exception e)
-    {
-      // do nothing
-    }
-  }
-  
-  
-  private void changed(ObservableValue<? extends String> observable) {
-      this.cost_lbl.setText("worked");
-  }
 }
