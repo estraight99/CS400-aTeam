@@ -15,15 +15,17 @@ public class LeftPanel {
     GUIInformation information;
     LegendView legend;
     Node comboBox;
+    Main mainInstance;
     /**
      * This method creates a VBox instance of the left part of the GUI
      */
-	LeftPanel(GUIInformation information)
+	LeftPanel(GUIInformation information,Main mainInstance)
 	{
 		super();
 		this.information = information;
 		this.legend = new LegendView();
 		this.comboBox = this.createComboBox();
+		this.mainInstance = mainInstance;
 	}
 	
 	/**
@@ -43,19 +45,14 @@ public class LeftPanel {
         comboBox.setOnAction(event ->
         {
           if (comboBox.getValue().equals("10*10"))
-          {
             changeMap(MapGenerator.smallPath);
-          }
           else
           if (comboBox.getValue().equals("100*100"))
-          {
             changeMap(MapGenerator.mediumPath);
-          }
           else
           if (comboBox.getValue().equals("1000*2000"))
-          {
             changeMap(MapGenerator.bigPath);
-          }
+          mainInstance.updateRoot();
         });
         result.getChildren().addAll(label,comboBox);
         return result;
@@ -66,15 +63,13 @@ public class LeftPanel {
       try
       {
         information.map = new GameMap(path);
+        information.topLeft = new Coordinate(1,1);
       }
       catch (Exception e)
       {
         // do nothing
       }
-      
-      
     }
-    
     
     public Node getGUI(GUIInformation information)
     {

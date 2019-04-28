@@ -55,9 +55,9 @@ public class Main extends Application {
     primaryStage.setScene(scene);
     primaryStage.show();
   }
-  private void updateRoot()
+  protected void updateRoot()
   {
-    LeftPanel leftPanel = new LeftPanel(information);
+    LeftPanel leftPanel = new LeftPanel(information,this);
     RightPanel rightPanel = new RightPanel(information);
     
     scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
