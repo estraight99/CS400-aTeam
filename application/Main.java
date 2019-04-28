@@ -21,6 +21,7 @@ public class Main extends Application {
   GUIInformation information;
   Stage primaryStage;
   BorderPane root;
+  LeftPanel leftPanel;
   Scene scene;
   
   private void initializeInformation() throws FileNotFoundException, IOException, ParseException
@@ -51,13 +52,14 @@ public class Main extends Application {
     root = new BorderPane();
     scene = new Scene(root);
     updateRoot();
-    
+    leftPanel.comboBox.getSelectionModel().selectFirst();
     primaryStage.setScene(scene);
     primaryStage.show();
   }
+  
   protected void updateRoot()
   {
-    LeftPanel leftPanel = new LeftPanel(information,this);
+    leftPanel = new LeftPanel(information,this);
     RightPanel rightPanel = new RightPanel(information);
     
     scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
