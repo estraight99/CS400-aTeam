@@ -15,17 +15,23 @@ import javafx.scene.layout.HBox;
  */
 public class Main extends Application {
 
+  User mainUser;
+  GameMap gameMap;
+  GUIInformation information;
+  LeftPanel leftPanel;
+  RightPanel rightPanel;
+  
   @Override
   public void start(Stage primaryStage) {
     try {
-      User mainUser = new User("." + File.separator + "database" + File.separator + "user.json");
-      GameMap gameMap =
+      mainUser = new User("." + File.separator + "database" + File.separator + "user.json");
+      gameMap =
           new GameMap("." + File.separator + "database" + File.separator + "mediumMap.json");
       Coordinate topLeft = new Coordinate(1, 1);
-      GUIInformation information = new GUIInformation(mainUser, gameMap, topLeft);
+      information = new GUIInformation(mainUser, gameMap, topLeft);
 
-      LeftPanel leftPanel = new LeftPanel(information);
-      RightPanel rightPanel = new RightPanel(information);
+      leftPanel = new LeftPanel(information);
+      rightPanel = new RightPanel(information);
 
       primaryStage.setTitle("Road Builder");
       BorderPane root = new BorderPane();
@@ -52,30 +58,7 @@ public class Main extends Application {
             break;
           case D:
             information.moveMap(3);
-            break;  
-          case DIGIT0:
-          case DIGIT1:
-          case DIGIT2:
-          case DIGIT3:
-          case DIGIT4:
-          case DIGIT5:
-          case DIGIT6:
-          case DIGIT7:
-          case DIGIT8:
-          case DIGIT9:
-            try
-            {
-              PathFinding pathFinder = new PathFindingBFS(gameMap);
-              Coordinate start = new Coordinate(rightPanel.getFromX(),rightPanel.getFromY());
-              Coordinate finish = new Coordinate(rightPanel.getToX(),rightPanel.getToY());
-              System.out.println("I'm here");
-              rightPanel.cost_lbl.setText("$"+pathFinder.evaluateCost(start, finish));
-            }
-            catch (Exception e)
-            {
-              // do nothing
-            }
-            break;
+            break; 
           default:
             break;
         }
@@ -97,6 +80,21 @@ public class Main extends Application {
     }
   }
 
+  private void tryUpdateCostLabel()
+  {
+    try
+    {
+      PathFinding pathFinder = new PathFindingBFS(gameMap);
+      Coordinate start = new Coordinate(rightPanel.getFromX(),rightPanel.getFromY());
+      Coordinate finish = new Coordinate(rightPanel.getToX(),rightPanel.getToY());
+      System.out.println("I'm here");
+      rightPanel.cost_lbl.setText("$"+pathFinder.evaluateCost(start, finish));
+    }
+    catch (Exception e)
+    {
+      // do nothing
+    }
+  }
   /**
    * This method launches the GUI
    * 
