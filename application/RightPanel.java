@@ -10,19 +10,21 @@ import javafx.scene.text.Font;
 
 /**
  * class that creates the right panel of the road builder application
+ * 
  * @author Eli Straight
  */
 public class RightPanel extends GridPane {
-    
+
   Label cost_lbl;
   TextField fromLeft_tf;
   TextField fromRight_tf;
   TextField toLeft_tf;
   TextField toRight_tf;
   GUIInformation information;
-  
+  Main mainInstance;
+
   RightPanel(GUIInformation information) {
-	
+
     super();
     this.information = information;
     User user = information.user;
@@ -42,39 +44,29 @@ public class RightPanel extends GridPane {
     toLeft_tf = new TextField();
     toRight_tf = new TextField();
 
+    ChangeListener<String> listener = new ChangeListener<String>() {
+      public void changed(ObservableValue<? extends String> observable, String oldValue,
+          String newValue) {
+        UpdateCostLabel();
+      }
+    };
     // Setting default text for text fieldsand adding listeners to upfate cost when text is changed
     fromLeft_tf.setPromptText("X");
     fromLeft_tf.setFocusTraversable(false);
-    fromLeft_tf.textProperty().addListener(new ChangeListener<String>() {
-	 public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-	     UpdateCostLabel();
-	  }
-    });
+    fromLeft_tf.textProperty().addListener(listener);
 
     fromRight_tf.setPromptText("Y");
     fromRight_tf.setFocusTraversable(false);
-    fromRight_tf.textProperty().addListener(new ChangeListener<String>() {
-	 public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-	     UpdateCostLabel();
-	  }
-    });
+    fromRight_tf.textProperty().addListener(listener);
 
     toLeft_tf.setPromptText("X");
     toLeft_tf.setFocusTraversable(false);
-    toLeft_tf.textProperty().addListener(new ChangeListener<String>() {
-	 public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-	     UpdateCostLabel();
-	  }
-    });
+    toLeft_tf.textProperty().addListener(listener);
 
     toRight_tf.setPromptText("Y");
     toRight_tf.setFocusTraversable(false);
-    toRight_tf.textProperty().addListener(new ChangeListener<String>() {
-	 public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-	     UpdateCostLabel();
-	  }
-   });
-    
+    toRight_tf.textProperty().addListener(listener);
+
     // setting widths
     fromLeft_tf.setMaxWidth(50);
     fromRight_tf.setMaxWidth(50);
@@ -141,42 +133,58 @@ public class RightPanel extends GridPane {
     this.add(build_btn, 2, 6);
 
     this.setVgap(10.0);
-	this.setHgap(5.0);
+    this.setHgap(5.0);
 
-    }
-  
-  public int getFromX()
-  {
+  }
+
+  public int getFromX() {
     return Integer.parseInt(fromLeft_tf.getText());
   }
-  
-  public int getFromY()
-  {
+
+  public int getFromY() {
     return Integer.parseInt(fromRight_tf.getText());
   }
-  
-  public int getToX()
-  {
+
+  public int getToX() {
     return Integer.parseInt(toLeft_tf.getText());
   }
-  
-  
-  public int getToY()
-  {
+
+
+  public int getToY() {
     return Integer.parseInt(toRight_tf.getText());
   }
-  
-    private void UpdateCostLabel() {
-	try {
-	    if (!fromLeft_tf.getText().equals("") && !fromRight_tf.getText().equals("")
-		    && !toLeft_tf.getText().equals("") && !toRight_tf.getText().equals("")) {
-		PathFinding pathFinder = new PathFindingBFS(information.getMap());
-		Coordinate start = new Coordinate(getFromX(), getFromY());
-		Coordinate finish = new Coordinate(getToX(), getToY());
-		cost_lbl.setText("$" + pathFinder.evaluateCost(start, finish));
-	    }
-	} catch (Exception e) {
-	    // do nothing
-	}
+
+  private void UpdateCostLabel() {
+    try {
+      if (!fromLeft_tf.getText().equals("") && !fromRight_tf.getText().equals("")
+          && !toLeft_tf.getText().equals("") && !toRight_tf.getText().equals("")) {
+        PathFinding pathFinder = new PathFindingBFS(information.getMap());
+        Coordinate start = new Coordinate(getFromX(), getFromY());
+        Coordinate finish = new Coordinate(getToX(), getToY());
+        cost_lbl.setText("$" + pathFinder.evaluateCost(start, finish));
+      }
+    } catch (Exception e) {
+      // do nothing
     }
+  }
+  
+  private void buildPath()
+  {
+    try
+    {
+      PathFinding pathFinder = new PathFindingBFS(information.getMap());
+      Coordinate start = new Coordinate(getFromX(), getFromY());
+      Coordinate finish = new Coordinate(getToX(), getToY());
+      pathFinder.buildRoad(information.user, start, finish);
+    }
+    catch (IllegalArgumentException e)
+    {
+      new InvalidInputView(mainInstance.primaryStage,e.getMessage());
+    }
+    catch (NotEnoughMoneyException e)
+    {
+      new InvalidInputView(mainInstance.primaryStage,"You do not have enough money to build the path");
+    }
+    
+  }
 }
