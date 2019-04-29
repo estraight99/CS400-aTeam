@@ -36,6 +36,14 @@ public class RightPanel extends GridPane {
     cost_lbl = new Label("$" + cost);
 
     Button build_btn = new Button("Build");
+    build_btn.setOnAction(event ->
+    {
+    	PathFinding pathFinder = new PathFindingBFS(information.getMap());
+		Coordinate start = new Coordinate(getFromX(), getFromY());
+		Coordinate finish = new Coordinate(getToX(), getToY());
+		pathFinder.buildRoad(user, start, finish);
+		//information.topLeft = 
+      });
 
     fromLeft_tf = new TextField();
     fromRight_tf = new TextField();
