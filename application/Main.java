@@ -56,6 +56,7 @@ public class Main extends Application {
   private void saveInformation() throws FileNotFoundException {
     information.updateJSONFile();
   }
+  
   private void initializeRoot()
   {
     root = new BorderPane();

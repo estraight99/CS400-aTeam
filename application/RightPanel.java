@@ -187,11 +187,15 @@ public class RightPanel extends GridPane {
     }
     catch (IllegalArgumentException e)
     {
-      new InvalidInputView(mainInstance.primaryStage,e.getMessage());
+      new InvalidInputView(mainInstance.primaryStage,"The input needs to be valid positive integers");
     }
     catch (NotEnoughMoneyException e)
     {
       new InvalidInputView(mainInstance.primaryStage,"You do not have enough money to build the path");
+    }
+    catch (Exception e)
+    {
+      new InvalidInputView(mainInstance.primaryStage,"The input needs to be valid positive integers");
     }
     
   }
