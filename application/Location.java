@@ -4,13 +4,13 @@ import org.json.simple.JSONObject;
 
 public class Location {
   Coordinate coordinate;
-  String type;
+  int type;
   String name;
   int roadInformation;
 
-  public Location(int x, int y, String type, String name, int roadInformation) {
+  public Location(int x, int y, String name, int roadInformation,int typeInformation) {
     this.coordinate = new Coordinate(x, y);
-    this.type = type;
+    this.type = typeInformation;
     this.name = name;
     this.roadInformation = roadInformation;
   }
@@ -34,15 +34,6 @@ public class Location {
 
   public void buildRoad(int direction) {
     this.buildRoadWithDirection(direction);
-  }
-
-
-  public String getType() {
-    return type;
-  }
-
-  public void setType(String type) {
-    this.type = type;
   }
 
   public String getName() {
@@ -108,10 +99,15 @@ public class Location {
     JSONObject jo = new JSONObject();
     jo.put("x", this.getX());
     jo.put("y", this.getY());
-    //jo.put("type", this.type);
+    jo.put("type", this.type);
     jo.put("road", this.roadInformation);
     //jo.put("name", this.name);
     return jo;
+  }
+
+
+  public int getTypeInformation() {
+    return this.type;
   }
 
 }

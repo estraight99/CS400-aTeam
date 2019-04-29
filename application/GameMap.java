@@ -33,8 +33,9 @@ public class GameMap {
       int y = ((Long) joLevel2.get("y")).intValue();
       //String name = (String) joLevel2.get("name");
       //String type = (String) joLevel2.get("type");
+      int typeInformation = ((Long) joLevel2.get("type")).intValue();
       int roadInformation = ((Long) joLevel2.get("road")).intValue();
-      content[x][y] = new Location(x,y,"","",roadInformation);
+      content[x][y] = new Location(x,y,"",roadInformation,typeInformation);
     }
     
   }

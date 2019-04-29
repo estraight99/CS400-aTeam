@@ -23,7 +23,13 @@ public class MapGenerator {
     for (int i=1; i<=length; i++)
       for (int j=1; j<=width; j++)
       {
-        JSONObject location = (new Location(i,j,"","",0)).createJSONObject();
+        int haveHouse = rand.nextInt(9);
+        JSONObject location;
+        if (haveHouse==1)
+          location = (new Location(i,j,"",0,rand.nextInt(9))).createJSONObject();
+        else
+          location = (new Location(i,j,"",0,0)).createJSONObject();
+          
         data.add(location);
       }
     

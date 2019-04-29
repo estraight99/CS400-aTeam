@@ -1,6 +1,5 @@
 package application;
 
-import java.io.FileNotFoundException;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.scene.control.Button;
