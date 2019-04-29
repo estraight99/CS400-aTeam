@@ -29,7 +29,6 @@ public class PathFindingBFS implements PathFinding{
   
   @Override
   public int evaluateCost(Coordinate start, Coordinate finish) {
-    
     if (!map.isValid(start) || !map.isValid(finish))
       return 0;
     dis = new int[map.getLength()+1][map.getWidth()+1];
@@ -70,7 +69,12 @@ public class PathFindingBFS implements PathFinding{
 
   @Override
   public void buildRoad(User user,Coordinate start, Coordinate finish) {
-    this.evaluateCost(start, finish);
+    if (!map.isValid(start) && !map.isValid(finish))
+      throw new IllegalArgumentException("The coordinates need to be positive integers!");
+    
+    if (user.getMoney()<this.evaluateCost(start, finish))
+      throw new NotEnoughMoneyException();
+    
     Location current = map.getLocation(finish);
     ArrayList<Location> result = new ArrayList<>();
     do
