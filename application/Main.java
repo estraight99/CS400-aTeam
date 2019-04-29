@@ -28,9 +28,6 @@ public class Main extends Application {
   {
     User mainUser = new User("." + File.separator + "database" + File.separator + "user.json");
     
-    GameMap gameMap =
-        new GameMap("." + File.separator + "database" + File.separator + "mediumMap.json");
-    
     Coordinate topLeft = new Coordinate(1, 1);
     
     information = new GUIInformation(mainUser, 1, topLeft);
@@ -42,11 +39,23 @@ public class Main extends Application {
       primaryStage.setTitle("Road Builder");
       initializeInformation();
       initializeRoot();
+      primaryStage.setOnCloseRequest(event ->
+      {
+        try {
+          information.updateJSONFile();
+        } catch (FileNotFoundException e) {
+          // TODO Auto-generated catch block
+          e.printStackTrace();
+        }
+      });
     } catch (Exception e) {
       e.printStackTrace();
     }
   }
   
+  private void saveInformation() throws FileNotFoundException {
+    information.updateJSONFile();
+  }
   private void initializeRoot()
   {
     root = new BorderPane();
@@ -54,12 +63,13 @@ public class Main extends Application {
     updateRoot();
     primaryStage.setScene(scene);
     primaryStage.show();
+    
   }
   
   protected void updateRoot()
   {
     leftPanel = new LeftPanel(information,this);
-    RightPanel rightPanel = new RightPanel(information);
+    RightPanel rightPanel = new RightPanel(this,information);
     
     scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
     
@@ -105,13 +115,9 @@ public class Main extends Application {
    * @throws FileNotFoundException 
    */
   public static void main(String[] args) throws FileNotFoundException, IOException, ParseException {
-    GameMap[] map = new GameMap[3];
-    map[0] = new GameMap(MapGenerator.smallPath);
-    map[1] = new GameMap(MapGenerator.mediumPath);
-    map[2] = new GameMap(MapGenerator.bigPath);
     launch(args);
-    
   }
 
+   
 
 }
