@@ -40,10 +40,7 @@ public class RightPanel extends GridPane {
     Button build_btn = new Button("Build");
     build_btn.setOnAction(event ->
     {
-    	PathFinding pathFinder = new PathFindingBFS(information.getMap());
-		Coordinate start = new Coordinate(getFromX(), getFromY());
-		Coordinate finish = new Coordinate(getToX(), getToY());
-		pathFinder.buildRoad(user, start, finish);
+    	buildPath();
 		//information.topLeft = 
       });
 
