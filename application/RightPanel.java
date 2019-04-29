@@ -1,6 +1,5 @@
 package application;
 
-import java.io.FileNotFoundException;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.scene.control.Button;
@@ -24,11 +23,10 @@ public class RightPanel extends GridPane {
   GUIInformation information;
   Main mainInstance;
 
-  RightPanel(Main mainInstance,GUIInformation information) {
+  RightPanel(GUIInformation information) {
 
     super();
     this.information = information;
-    this.mainInstance = mainInstance;
     User user = information.user;
     int cost = 0;
     // creating components
@@ -42,13 +40,8 @@ public class RightPanel extends GridPane {
     Button build_btn = new Button("Build");
     build_btn.setOnAction(event ->
     {
-<<<<<<< HEAD
     	
 		
-=======
-        buildPath();
-		//information.topLeft = 
->>>>>>> 869c8bdbf77c9a343a8f5244c18e4842e466a953
       });
 
     fromLeft_tf = new TextField();
@@ -188,7 +181,6 @@ public class RightPanel extends GridPane {
       Coordinate start = new Coordinate(getFromX(), getFromY());
       Coordinate finish = new Coordinate(getToX(), getToY());
       pathFinder.buildRoad(information.user, start, finish);
-      mainInstance.updateRoot();
     }
     catch (IllegalArgumentException e)
     {
