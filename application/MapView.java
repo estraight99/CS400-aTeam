@@ -2,10 +2,12 @@ package application;
 
 import java.io.File;
 
+import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.VBox;
 
 public class MapView {
     static Image[] allPossibleImage;
@@ -29,7 +31,7 @@ public class MapView {
 	  Image location = allPossibleImage[typeOfRoad];
 	  if (location==null)
 	  {
-	    location = new Image(getClass().getResourceAsStream(".."+File.separator+"img"+File.separator+"road"+File.separator+typeOfRoad+".png"));
+	    location = new Image(getClass().getResourceAsStream(".."+File.separator+"img"+File.separator+"road"+File.separator+typeOfRoad+"_0.png"));
 	    allPossibleImage[typeOfRoad] = location;
 	  }
       ImageView locationView = new ImageView(location);
@@ -66,6 +68,14 @@ public class MapView {
         //label.setAlignment(Pos.CENTER);
         result.add(label, j, 0);
     }
+    VBox dotVbox = new VBox();
+    Image dot = new Image(getClass().getResourceAsStream(".."+File.separator+"img"+File.separator+"legend"+File.separator+"green.png"));
+    ImageView dotView = new ImageView(dot);
+    dotView.setFitHeight(8);
+    dotView.setFitWidth(8);
+    dotVbox.getChildren().add(dotView);
+    dotVbox.setAlignment(Pos.CENTER);
+    result.add(dotVbox, 1, 8);
     
     return result;
   }
