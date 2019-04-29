@@ -42,14 +42,9 @@ public class RightPanel extends GridPane {
     Button build_btn = new Button("Build");
     build_btn.setOnAction(event ->
     {
-<<<<<<< HEAD
-    	
-		
-=======
         buildPath();
 		//information.topLeft = 
->>>>>>> 869c8bdbf77c9a343a8f5244c18e4842e466a953
-      });
+    });
 
     fromLeft_tf = new TextField();
     fromRight_tf = new TextField();
