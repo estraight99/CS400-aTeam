@@ -78,7 +78,7 @@ public class GUIInformation {
     title.setFont(Font.font("Arial", FontWeight.BOLD, 15));
     ImageView image =
         new ImageView(GUIInformation.typeOfLocationList.getImage(this.currentLocation.type));
-    image.setFitHeight(100);
+    image.setFitHeight(150);
     image.setFitWidth(200);
     Button setAsStart = new Button("Set as Starting Point");
     Button setAsEnd = new Button("Set as Ending Point");

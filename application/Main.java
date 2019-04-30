@@ -87,16 +87,16 @@ public class Main extends Application {
     scene.setOnKeyPressed((event) -> {
       // System.out.println(information.topLeft);
       switch (event.getCode()) {
-        case A:
+        case A: case LEFT:
           information.moveMap(1);
           break;
-        case W:
+        case W: case UP:
           information.moveMap(0);
           break;
-        case S:
+        case S: case DOWN:
           information.moveMap(2);
           break;
-        case D:
+        case D: case RIGHT:
           information.moveMap(3);
           break;
         default:

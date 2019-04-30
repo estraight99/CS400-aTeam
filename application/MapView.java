@@ -37,8 +37,8 @@ public class MapView {
       allPossibleImage[typeOfRoad][typeOfLocation] = location;
     }
     ImageView locationView = new ImageView(location);
-    locationView.setFitHeight(20);
-    locationView.setFitWidth(20);
+    locationView.setFitHeight(30);
+    locationView.setFitWidth(30);
     return locationView;
   }
 

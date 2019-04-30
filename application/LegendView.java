@@ -25,7 +25,7 @@ public class LegendView extends FlowPane {
 	      this.getChildren().add(pair);
 	    }
 		this.setHgap(5);
-		this.setMaxWidth(200.0);
+		this.setMaxWidth(350.0);
 	}
 	
 	private ImageView createLegend(int typeOfLocation)
