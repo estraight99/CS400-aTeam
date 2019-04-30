@@ -8,6 +8,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.HBox;
 
 public class LegendView extends FlowPane {
 	
@@ -15,12 +16,13 @@ public class LegendView extends FlowPane {
 	{
 	    TypeOfStationList list = new TypeOfStationList();
 	    
-	    for (int i=0; i<list.getN(); i++)
+	    for (int i=1; i<list.getN(); i++)
 	    {
 	      ImageView legend = createLegend(i);
 	      Label label = new Label(list.getName(i));
-	      this.getChildren().add(legend);
-	      this.getChildren().add(label);
+	      HBox pair = new HBox();
+	      pair.getChildren().addAll(legend,label);
+	      this.getChildren().add(pair);
 	    }
 		this.setHgap(5);
 		this.setMaxWidth(200.0);
