@@ -17,21 +17,21 @@ import javafx.scene.layout.HBox;
  * @author Dung Viet Bui, Eli Straight, Yuanbo Zhang
  */
 public class Main extends Application {
-  
+
   GUIInformation information;
   Stage primaryStage;
   BorderPane root;
   LeftPanel leftPanel;
   Scene scene;
-  
-  private void initializeInformation() throws FileNotFoundException, IOException, ParseException
-  {
+
+  private void initializeInformation() throws FileNotFoundException, IOException, ParseException {
     User mainUser = new User("." + File.separator + "database" + File.separator + "user.json");
-    
+
     Coordinate topLeft = new Coordinate(1, 1);
-    
+
     information = new GUIInformation(mainUser, 1, topLeft);
   }
+
   @Override
   public void start(Stage primaryStage) {
     try {
@@ -39,49 +39,42 @@ public class Main extends Application {
       primaryStage.setTitle("Road Builder");
       initializeInformation();
       initializeRoot();
-      primaryStage.setOnCloseRequest(event ->
-      {
-        try {
-          information.updateJSONFile();
-        } catch (FileNotFoundException e) {
-          // TODO Auto-generated catch block
-          e.printStackTrace();
-        }
+      primaryStage.setOnCloseRequest(event -> {
+        event.consume();
+        new SaveGameWindow(primaryStage,information);
       });
     } catch (Exception e) {
       e.printStackTrace();
     }
   }
-  
-  
-  private void initializeRoot() throws FileNotFoundException, IOException, ParseException
-  {
+
+
+  private void initializeRoot() throws FileNotFoundException, IOException, ParseException {
     root = new BorderPane();
     scene = new Scene(root);
     updateRoot();
     primaryStage.setScene(scene);
     primaryStage.show();
-    
+
   }
-  
-  protected void updateRoot() throws FileNotFoundException, IOException, ParseException
-  {
-    leftPanel = new LeftPanel(information,this);
-    RightPanel rightPanel = new RightPanel(this,information);
-    
+
+  protected void updateRoot() throws FileNotFoundException, IOException, ParseException {
+    leftPanel = new LeftPanel(information, this);
+    RightPanel rightPanel = new RightPanel(this, information);
+
     scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
-    
+
     HBox sceneCenter = new HBox();
     sceneCenter.getChildren().addAll(leftPanel.getGUI(information), rightPanel);
     sceneCenter.setSpacing(10.0);
-    
+
     root.setTop(new TitleView(primaryStage));
     root.setLeft(sceneCenter);
     root.setPadding(new Insets(10));
-    
+
     sceneCenter.getChildren().clear();
     sceneCenter.getChildren().addAll(leftPanel.getGUI(information), rightPanel);
-    
+
     scene.setOnKeyPressed((event) -> {
       // System.out.println(information.topLeft);
       switch (event.getCode()) {
@@ -96,7 +89,7 @@ public class Main extends Application {
           break;
         case D:
           information.moveMap(3);
-          break; 
+          break;
         default:
           break;
       }
@@ -107,20 +100,21 @@ public class Main extends Application {
         e.printStackTrace();
       }
     });
-    
+
   }
+
   /**
    * This method launches the GUI
    * 
    * @param args is ignored by this method.
-   * @throws ParseException 
-   * @throws IOException 
-   * @throws FileNotFoundException 
+   * @throws ParseException
+   * @throws IOException
+   * @throws FileNotFoundException
    */
   public static void main(String[] args) throws FileNotFoundException, IOException, ParseException {
     launch(args);
   }
 
-   
+
 
 }

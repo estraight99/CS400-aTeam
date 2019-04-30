@@ -8,6 +8,11 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+/**
+ * Adapted from https://o7planning.org/en/11533/opening-a-new-window-in-javafx
+ * @author Dung Viet Bui
+ *
+ */
 public class HelpView extends Stage
 {
   Scene scene;
@@ -28,6 +33,7 @@ public class HelpView extends Stage
     root.setPadding(new Insets(10));
     
     root.getChildren().addAll(this.mapHelp());
+    
     this.show();
   }
   
