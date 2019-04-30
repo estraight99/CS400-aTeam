@@ -42,7 +42,7 @@ public class GameMap {
   
   public boolean isValid(Coordinate c)
   {
-    return (1<=c.x && c.x<=length && 1<=c.y && c.y<=width);
+    return (1<=c.getX() && c.getX()<=length && 1<=c.getY() && c.getY()<=width);
   }
   
   public Location getLocation(int x,int y)
@@ -52,7 +52,7 @@ public class GameMap {
   
   public Location getLocation(Coordinate pos)
   {
-    return content[pos.x][pos.y];
+    return content[pos.getX()][pos.getY()];
   }
   
   
@@ -80,10 +80,12 @@ public class GameMap {
   
   public Location[][] getMap(Coordinate topLeft,Coordinate bottomRight)
   {
-    Location[][] result = new Location[bottomRight.x-topLeft.x+1][bottomRight.y-topLeft.y+1];
-    for (int i=0; i<bottomRight.x-topLeft.x+1; i++)
-      for (int j=0; j<bottomRight.y-topLeft.y+1; j++)
-        result[i][j] = content[topLeft.x+i][topLeft.y+j];
+    int width = bottomRight.getX()-topLeft.getX();
+    int length = bottomRight.getY()-topLeft.getY()+1;
+    Location[][] result = new Location[width][length];
+    for (int i=0; i<width; i++)
+      for (int j=0; j<length; j++)
+        result[i][j] = content[topLeft.getX()+i][topLeft.getY()+j];
     return result;
   }
   

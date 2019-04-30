@@ -17,11 +17,11 @@ public class Location {
 
 
   public int getX() {
-    return coordinate.x;
+    return coordinate.getX();
   }
 
   public int getY() {
-    return coordinate.y;
+    return coordinate.getY();
   }
 
   public int getRoadCostWithDirection(int direction) {

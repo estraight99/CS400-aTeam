@@ -52,12 +52,12 @@ public class GUIInformation {
   }
 
   private boolean ok(Coordinate newCoor) {
-    return (1 <= newCoor.x && newCoor.x <= Math.max(1, getMap().length - 9) && 1 <= newCoor.y
-        && newCoor.y <= Math.max(1, getMap().width - 9));
+    return (1 <= newCoor.getX() && newCoor.getX() <= Math.max(1, getMap().length - 9) && 1 <= newCoor.getY()
+        && newCoor.getY() <= Math.max(1, getMap().width - 9));
   }
 
   public void moveMap(int direction) {
-    Coordinate result = new Coordinate(topLeft.x + mx[direction], topLeft.y + my[direction]);
+    Coordinate result = new Coordinate(topLeft.getX() + mx[direction], topLeft.getY() + my[direction]);
     // System.out.println((map.length-9)+" "+(map.width-9));
     if (ok(result))
       this.topLeft = result;

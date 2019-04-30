@@ -19,7 +19,7 @@ public class PathFindingBFS implements PathFinding{
 
   private int getManhattanDistance(Coordinate A,Coordinate B)
   {
-    return Math.abs(A.x-B.x)+Math.abs(A.y-B.y);
+    return Math.abs(A.getX()-B.getX())+Math.abs(A.getY()-B.getY());
   }
   
   private boolean onShortestPath(Coordinate start,Coordinate finish,Coordinate middle)
@@ -38,7 +38,7 @@ public class PathFindingBFS implements PathFinding{
         dis[i][j] = PathFindingBFS.INF;
     
     LinkedList<Location> queue = new LinkedList<Location>();
-    dis[start.x][start.y] = 0;
+    dis[start.getX()][start.getY()] = 0;
     queue.addFirst(map.getLocation(start));
     do
     { 
@@ -50,10 +50,10 @@ public class PathFindingBFS implements PathFinding{
         if (map.isValid(newLocation) && onShortestPath(start,finish,newLocation))
         {
           int tmpCost = current.getRoadCostWithDirection(i);
-          if (dis[newLocation.x][newLocation.y]>dis[current.getX()][current.getY()]+tmpCost)
+          if (dis[newLocation.getX()][newLocation.getY()]>dis[current.getX()][current.getY()]+tmpCost)
           {
-            dis[newLocation.x][newLocation.y]=dis[current.getX()][current.getY()]+tmpCost;
-            trace[newLocation.x][newLocation.y]=current; 
+            dis[newLocation.getX()][newLocation.getY()]=dis[current.getX()][current.getY()]+tmpCost;
+            trace[newLocation.getX()][newLocation.getY()]=current; 
             if (tmpCost==0)
               queue.addFirst(map.getLocation(newLocation));
             else
@@ -64,7 +64,7 @@ public class PathFindingBFS implements PathFinding{
     }
     while (!queue.isEmpty());
     
-    return dis[finish.x][finish.y];
+    return dis[finish.getX()][finish.getY()];
   }
 
   @Override

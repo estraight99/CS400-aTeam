@@ -51,8 +51,8 @@ public class MapView {
     int n = information.getMap().length;
     int m = information.getMap().width;
 
-    int x = Math.min(information.topLeft.x, n - 9);
-    int y = Math.min(information.topLeft.y, m - 9);
+    int x = Math.min(information.topLeft.getX(), n - 9);
+    int y = Math.min(information.topLeft.getY(), m - 9);
 
     for (int i = x; i <= x + 9; i++)
       for (int j = y; j <= y + 9; j++) {
