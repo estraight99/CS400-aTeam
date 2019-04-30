@@ -3,9 +3,13 @@ package application;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
+/**
+ * 
+ * @author Dung Viet Bui
+ *
+ */
 public class PathFindingBFS implements PathFinding{
-  static int[] mx = new int[]{-1,0,1,0};
-  static int[] my = new int[]{0,-1,0,1};
+
   static final int INF = (int) 1e9;
   
   GameMap map;
@@ -46,7 +50,7 @@ public class PathFindingBFS implements PathFinding{
       queue.removeFirst();
       for (int i=0; i<4; i++)
       {
-        Coordinate newLocation = new Coordinate(current.getX()+mx[i],current.getY()+my[i]);
+        Coordinate newLocation = new Coordinate(current.getX()+GameConstant.mx[i],current.getY()+GameConstant.my[i]);
         if (map.isValid(newLocation) && onShortestPath(start,finish,newLocation))
         {
           int tmpCost = current.getRoadCostWithDirection(i);

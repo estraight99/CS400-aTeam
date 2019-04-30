@@ -1,5 +1,10 @@
 package application;
 
+/**
+ * 
+ * @author Dung Viet Bui
+ *
+ */
 public class NotEnoughMoneyException extends RuntimeException {
 
   /**

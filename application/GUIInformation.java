@@ -78,6 +78,11 @@ public class GUIInformation {
     this.currentLocation = this.getMap().getLocation(x,y);
   }
 
+  /**
+   * This method checks if the new top left coordinate is valid or not
+   * @param newCoor the new top left coordinate of the map view
+   * @return true if the new top left is valid, otherwise false
+   */
   private boolean ok(Coordinate newCoor) {
     return (1 <= newCoor.getX() && newCoor.getX() <= Math.max(1, getMap().getLength() - 9) && 1 <= newCoor.getY()
         && newCoor.getY() <= Math.max(1, getMap().getWidth() - 9));

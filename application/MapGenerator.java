@@ -7,6 +7,11 @@ import java.util.Random;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
+/**
+ * 
+ * @author Dung Viet Bui
+ *
+ */
 public class MapGenerator {
   @SuppressWarnings("unchecked")
   public static void generateMap(String pathToJSONFile,int length,int width) throws FileNotFoundException

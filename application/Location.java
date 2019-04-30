@@ -2,6 +2,11 @@ package application;
 
 import org.json.simple.JSONObject;
 
+/**
+ * 
+ * @author Dung Viet Bui
+ *
+ */
 public class Location {
   Coordinate coordinate;
   int type;
@@ -70,8 +75,8 @@ public class Location {
 
   private int getDirectionTo(Location location) {
     for (int i = 0; i < 4; i++) {
-      int nx = this.getX() + PathFindingBFS.mx[i];
-      int ny = this.getY() + PathFindingBFS.my[i];
+      int nx = this.getX() + GameConstant.mx[i];
+      int ny = this.getY() + GameConstant.my[i];
       if (location.getX() == nx && location.getY() == ny)
         return i;
     }

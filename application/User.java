@@ -8,6 +8,11 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
+/**
+ * 
+ * @author Dung Viet Bui
+ *
+ */
 public class User {
   private String name;
   private int money;

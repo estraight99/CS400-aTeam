@@ -10,6 +10,11 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 
+/**
+ * 
+ * @author Yuanbo Zhang
+ *
+ */
 public class LegendView extends FlowPane {
 	
 	LegendView() throws FileNotFoundException, IOException, ParseException

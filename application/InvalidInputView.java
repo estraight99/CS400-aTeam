@@ -8,6 +8,11 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+/**
+ * 
+ * @author Eli Straight
+ *
+ */
 public class InvalidInputView extends Stage{
     Scene scene;
     VBox root;

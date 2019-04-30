@@ -11,6 +11,11 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+/**
+ * 
+ * @author Dung Viet Bui
+ *
+ */
 public class SaveGameWindow extends Stage {
   Scene scene;
   VBox root;

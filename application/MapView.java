@@ -10,6 +10,11 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 
+/**
+ * 
+ * @author Dung Viet Bui, Yuanbo Zhang
+ *
+ */
 public class MapView {
   static Image[][] allPossibleImage;
   GUIInformation information;

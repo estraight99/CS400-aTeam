@@ -10,6 +10,11 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 import javafx.scene.image.Image;
 
+/**
+ * 
+ * @author Dung Viet Bui
+ *
+ */
 public class TypeOfLocationList {
   final String pathToJSONFile = "."+File.separator+"database"+File.separator+"typeOfLocation.json";
   int size;
