@@ -112,15 +112,4 @@ public class GameMap {
     
   }
   
-  public static void main(String[] args) throws FileNotFoundException, IOException, ParseException
-  {
-    GameMap smallMap = new GameMap("."+File.separator+"database"+File.separator+"smallMap.json");
-    System.out.println(smallMap);
-    PathFinding pathFinder = new PathFindingBFS(smallMap);
-    System.out.println(pathFinder.evaluateCost(new Coordinate(3,1), new Coordinate(1,3)));
-    User user = new User("bvd",100);
-    pathFinder.buildRoad(user, new Coordinate(3,1), new Coordinate(1,3));
-    System.out.println(user.getMoney());
-  }
-  
 }

@@ -3,7 +3,6 @@ package application;
 import java.io.File;
 import java.io.IOException;
 import org.json.simple.parser.ParseException;
-import javafx.event.EventHandler;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;

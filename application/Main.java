@@ -77,7 +77,7 @@ public class Main extends Application {
     sceneCenter.getChildren().addAll(leftPanel.getGUI(information), rightPanel);
     sceneCenter.setSpacing(10.0);
 
-    root.setTop(new TitleView(primaryStage));
+    root.setTop(new TitleView(primaryStage,information,this));
     root.setLeft(sceneCenter);
     root.setPadding(new Insets(10));
 

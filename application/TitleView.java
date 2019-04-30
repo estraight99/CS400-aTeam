@@ -5,6 +5,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
@@ -19,13 +20,17 @@ public class TitleView extends BorderPane {
      * This method initializes a title for the program.
      */
     Stage primaryStage;
+	GUIInformation information;
+	Main mainInstance;
 	
-    TitleView(Stage primaryStage)
+    TitleView(Stage primaryStage,GUIInformation information,Main mainInstance)
 	{
 		super();
 		this.primaryStage = primaryStage;
+		this.information = information;
 		Label title = new Label("Road Builder");
 		title.setFont(Font.font("Arial",FontWeight.BOLD,20));
+		this.mainInstance = mainInstance;
 		super.setLeft(title);
 		super.setRight(createHelpButton());
 	}
@@ -35,6 +40,7 @@ public class TitleView extends BorderPane {
      */
     private Node createHelpButton()
     {
+      HBox help = new HBox();
       Image helpIcon = new Image(getClass().getResourceAsStream("/img/help.png"));
       ImageView helpImageView = new ImageView(helpIcon);
       helpImageView.setFitHeight(15);
@@ -43,8 +49,12 @@ public class TitleView extends BorderPane {
       helpButton.setGraphic(helpImageView);
       helpButton.setOnAction(event ->
       {
-        new HelpView(primaryStage);
+        new HelpView(primaryStage,information,mainInstance);
       });
-      return helpButton;
+      
+      Label label = new Label("Click this button to access some special features!");
+      help.getChildren().addAll(label,helpButton);
+      help.setSpacing(5);
+      return help;
     }
 }

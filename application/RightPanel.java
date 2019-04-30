@@ -7,7 +7,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 
@@ -46,7 +45,8 @@ public class RightPanel extends VBox {
     
     // creating components
     Label info_lbl = new Label("Welcome " + user.getName());
-    Label playerMoney_lbl = new Label("You Have: $" + user.getMoney());
+    Label playerMoney_lbl = new Label("You Have: ");
+    Label money_lbl = new Label("$"+user.getMoney());
     Label from_lbl = new Label("From:");
     Label to_lbl = new Label("To:");
     Label buildCost_lbl = new Label("Cost:");
@@ -104,6 +104,7 @@ public class RightPanel extends VBox {
     // adding elements to the overall panel
     top.add(info_lbl, 0, 1);
     top.add(playerMoney_lbl, 0, 2);
+    top.add(money_lbl, 1, 2);
 
     top.add(from_lbl, 0, 3);
     top.add(fromLeft_tf, 1, 3);
@@ -161,12 +162,12 @@ public class RightPanel extends VBox {
       pathFinder.buildRoad(information.user, start, finish);
       mainInstance.updateRoot();
     } catch (IllegalArgumentException e) {
-      new InvalidInputView(mainInstance.primaryStage,"The coordinates need to be positive integer from 1 to "+information.getMap().length+"!");
+      new InvalidInputView(mainInstance.primaryStage,"Invalid Input","The coordinates need to be positive integer from 1 to "+information.getMap().length+"!");
     } catch (NotEnoughMoneyException e) {
-      new InvalidInputView(mainInstance.primaryStage,
+      new InvalidInputView(mainInstance.primaryStage,"Not Enough Money",
           "You do not have enough money to build the path");
     } catch (Exception e) {
-      new InvalidInputView(mainInstance.primaryStage,"The coordinates need to be positive integer from 1 to "+information.getMap().length+"!");
+      new InvalidInputView(mainInstance.primaryStage,"Invalid Input","The coordinates need to be positive integer from 1 to "+information.getMap().length+"!");
     }
 
   }

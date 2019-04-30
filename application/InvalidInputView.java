@@ -13,8 +13,8 @@ public class InvalidInputView extends Stage{
     VBox root;
     Stage owner;
 
-    public InvalidInputView(Stage owner, String message) {
-      this.setTitle("Invalid Input");
+    public InvalidInputView(Stage owner, String title, String message) {
+      this.setTitle(title);
       root = new VBox();
       
       scene = new Scene(root);

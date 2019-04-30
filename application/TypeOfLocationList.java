@@ -1,7 +1,6 @@
 package application;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -52,11 +51,5 @@ public class TypeOfLocationList {
   public int getSize()
   {
     return size;
-  }
-  
-  public static void main(String[] args) throws FileNotFoundException, IOException, ParseException
-  {
-    TypeOfLocationList list = new TypeOfLocationList();
-    System.out.println(list.getSize());
   }
 }
