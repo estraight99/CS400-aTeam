@@ -8,9 +8,6 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 public class MapGenerator {
-  static final String smallPath = "."+File.separator+"database"+File.separator+"smallMap.json";
-  static final String mediumPath = "."+File.separator+"database"+File.separator+"mediumMap.json";
-  static final String bigPath = "."+File.separator+"database"+File.separator+"bigMap.json";
   @SuppressWarnings("unchecked")
   public static void generateMap(String pathToJSONFile,int length,int width) throws FileNotFoundException
   {
@@ -44,9 +41,9 @@ public class MapGenerator {
   
   public static void main(String[] args) throws FileNotFoundException
   {
-    generateMap(smallPath,10,10);
-    generateMap(mediumPath,100,100);
-    generateMap(bigPath,1000,1000);
+    generateMap(GameConstant.smallPath,10,10);
+    generateMap(GameConstant.mediumPath,100,100);
+    generateMap(GameConstant.bigPath,1000,1000);
     System.out.println("Done!");
   }
 }

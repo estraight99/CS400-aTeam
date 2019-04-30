@@ -38,7 +38,7 @@ public class RightPanel extends VBox {
     super();
     this.information = information;
     this.mainInstance = mainInstance;
-    User user = information.user;
+    User user = information.getUser();
 
     GridPane top = new GridPane();
 
@@ -159,7 +159,7 @@ public class RightPanel extends VBox {
       PathFinding pathFinder = new PathFindingBFS(information.getMap());
       Coordinate start = new Coordinate(getFromX(), getFromY());
       Coordinate finish = new Coordinate(getToX(), getToY());
-      pathFinder.buildRoad(information.user, start, finish);
+      pathFinder.buildRoad(information.getUser(), start, finish);
       mainInstance.updateRoot();
     } catch (IllegalArgumentException e) {
       new InvalidInputView(mainInstance.primaryStage, "Invalid Input",

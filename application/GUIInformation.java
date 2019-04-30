@@ -12,41 +12,68 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 
+/**
+ * This class stores the information for the GUI when the program is running
+ * @author Dung Viet Bui
+ */
 public class GUIInformation {
-  static int[] mx = new int[] {-1, 0, 1, 0};
-  static int[] my = new int[] {0, -1, 0, 1};
-  static TypeOfLocationList typeOfLocationList = new TypeOfLocationList();
+  //this list stores the information (including the heavy images) of different kinds of location 
+  static TypeOfLocationList typeOfLocationList = new TypeOfLocationList(); 
 
-  User user;
-  GameMap[] map;
-  int mapID;
-  Coordinate topLeft;
-  Location currentLocation;
-  Main mainInstance;
+  private User user; // is the user using the program
+  private GameMap[] map; // is the current map of the program
+  private int mapID; // is the id of the map the user is looking at
+  private Coordinate topLeft; // is the top left of the map displayed on the screen
+  private Location currentLocation; // is the current location displayed in the big box
+  private Main mainInstance; // is the Main instance running the program
 
-  GUIInformation(User user, int initMapID, Coordinate topLeft,Main mainInstance)
+  /**
+   * This method initializes a GUIInformation instance
+   * @param user is the user currently using this program
+   * @param initMapID is the first map the user will be looking at
+   * @param topLeft is the top left coordinate of the map displayed on the screen
+   * @param mainInstance is the Main instance running the program
+   * @throws FileNotFoundException is never thrown if no file is missing
+   * @throws IOException is never thrown if no file is missing
+   * @throws ParseException is never thrown if no file is missing
+   */
+  public GUIInformation(User user, int initMapID, Coordinate topLeft,Main mainInstance)
       throws FileNotFoundException, IOException, ParseException {
     this.user = user;
     this.map = new GameMap[3];
-    this.map[0] = new GameMap(MapGenerator.smallPath);
-    this.map[1] = new GameMap(MapGenerator.mediumPath);
-    this.map[2] = new GameMap(MapGenerator.bigPath);
+    // preload the map
+    this.map[0] = new GameMap(GameConstant.smallPath);
+    this.map[1] = new GameMap(GameConstant.mediumPath);
+    this.map[2] = new GameMap(GameConstant.bigPath);
+    
     this.mapID = initMapID;
     this.topLeft = topLeft;
     this.currentLocation = this.getMap().getLocation(1,1);
     this.mainInstance = mainInstance;
   }
 
+   /**
+   * @return the map the program is using
+   */
   public GameMap getMap() {
     return this.map[this.mapID];
   }
 
+  /**
+   * This method changes the current map to the new map
+   * @param id is the id of the new map (0 - small, 1 - medium, 2 - big)
+   */
   public void changeMap(int id) {
     this.mapID = id;
     this.topLeft = new Coordinate(1, 1);
     this.currentLocation = this.getMap().getLocation(1,1);
   }
 
+  /**
+   * This method changes the current location displayed in the big box
+   * @param x is the x-coordinate of the new location
+   * @param y is the y-coordinate of the new location
+   */
   public void changeCurrentLocation(int x, int y) {
     this.currentLocation = this.getMap().getLocation(x,y);
   }
@@ -57,7 +84,7 @@ public class GUIInformation {
   }
 
   public void moveMap(int direction) {
-    Coordinate result = new Coordinate(topLeft.getX() + mx[direction], topLeft.getY() + my[direction]);
+    Coordinate result = new Coordinate(topLeft.getX() + GameConstant.mx[direction], topLeft.getY() + GameConstant.my[direction]);
     // System.out.println((map.length-9)+" "+(map.width-9));
     if (ok(result))
       this.topLeft = result;
@@ -91,5 +118,19 @@ public class GUIInformation {
     result.getChildren().addAll(title, image, setAsStart, setAsEnd);
     result.setSpacing(5);
     return result;
+  }
+
+  public User getUser() {
+    return this.user;
+  }
+  
+  public Main getMainInstance()
+  {
+    return this.mainInstance;
+  }
+  
+  public Coordinate getTopLeft()
+  {
+    return this.topLeft;
   }
 }

@@ -49,37 +49,34 @@ public class HelpView extends Stage {
   private Node mapHelp() {
     VBox result = new VBox();
     
-    Button makeTheUserRich = new Button("Make " + information.user.getName() + " rich!");
-    Button makeTheUserPoor = new Button("Make " + information.user.getName() + " poor!");
+    Button makeTheUserRich = new Button("Make " + information.getUser().getName() + " rich!");
+    Button makeTheUserPoor = new Button("Make " + information.getUser().getName() + " poor!");
     TextField newUsernameInput = new TextField();
     newUsernameInput.setPromptText("New username");
     Button changeUsername = new Button("Change username!");
 
     makeTheUserRich.setOnAction(event -> {
-      this.information.user.setMoney((int) 1e5);
+      this.information.getUser().setMoney((int) 1e5);
       try {
         mainInstance.updateRoot();
       } catch (IOException | ParseException e) {
-        // TODO Auto-generated catch block
         e.printStackTrace();
       }
     });
     makeTheUserPoor.setOnAction(event -> {
-      this.information.user.setMoney(10);
+      this.information.getUser().setMoney(10);
       try {
         mainInstance.updateRoot();
       } catch (IOException | ParseException e) {
-        // TODO Auto-generated catch block
         e.printStackTrace();
       }
     });
     
     changeUsername.setOnAction(event -> {
-      this.information.user.setName(newUsernameInput.getText());
+      this.information.getUser().setName(newUsernameInput.getText());
       try {
         this.mainInstance.updateRoot();
       } catch (IOException | ParseException e) {
-        // TODO Auto-generated catch block
         e.printStackTrace();
       }
     });

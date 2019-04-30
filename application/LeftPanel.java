@@ -98,7 +98,6 @@ public class LeftPanel {
       try
       {
         information.changeMap(newMapID);
-        information.topLeft = new Coordinate(1,1);
       }
       catch (Exception e)
       {

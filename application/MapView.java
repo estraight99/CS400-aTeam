@@ -51,8 +51,8 @@ public class MapView {
     int n = information.getMap().getLength();
     int m = information.getMap().getWidth();
 
-    int x = Math.min(information.topLeft.getX(), n - 9);
-    int y = Math.min(information.topLeft.getY(), m - 9);
+    int x = Math.min(information.getTopLeft().getX(), n - 9);
+    int y = Math.min(information.getTopLeft().getY(), m - 9);
 
     for (int i = x; i <= x + 9; i++)
       for (int j = y; j <= y + 9; j++) {
@@ -64,7 +64,7 @@ public class MapView {
         current.addEventHandler(MouseEvent.MOUSE_RELEASED, event -> {
           information.changeCurrentLocation(I, J);
           try {
-            information.mainInstance.updateRoot();
+            information.getMainInstance().updateRoot();
           } catch (IOException | ParseException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
