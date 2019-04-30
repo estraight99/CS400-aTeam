@@ -70,7 +70,7 @@ public class PathFindingBFS implements PathFinding{
   @Override
   public void buildRoad(User user,Coordinate start, Coordinate finish) {
     if (!map.isValid(start) && !map.isValid(finish))
-      throw new IllegalArgumentException("The coordinates need to be positive integers!");
+      throw new IllegalArgumentException("The coordinates need to be positive integer from 1 to "+map.length+"!");
     
     if (user.getMoney()<this.evaluateCost(start, finish))
       throw new NotEnoughMoneyException();

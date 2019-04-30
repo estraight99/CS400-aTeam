@@ -6,6 +6,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.text.Font;
 
 /**
@@ -13,7 +14,7 @@ import javafx.scene.text.Font;
  * 
  * @author Eli Straight
  */
-public class RightPanel extends GridPane {
+public class RightPanel extends HBox {
 
   Label cost_lbl;
   TextField fromLeft_tf;
@@ -23,26 +24,27 @@ public class RightPanel extends GridPane {
   GUIInformation information;
   Main mainInstance;
 
-  RightPanel(Main mainInstance,GUIInformation information) {
+  RightPanel(Main mainInstance, GUIInformation information) {
 
     super();
     this.information = information;
     this.mainInstance = mainInstance;
     User user = information.user;
-    int cost = 0;
+    
+    GridPane top = new GridPane();
+    
     // creating components
     Label info_lbl = new Label("Welcome " + user.getName());
     Label playerMoney_lbl = new Label("You Have: $" + user.getMoney());
     Label from_lbl = new Label("From:");
     Label to_lbl = new Label("To:");
     Label buildCost_lbl = new Label("Cost:");
-    cost_lbl = new Label("$" + cost);
+    cost_lbl = new Label("$0");
 
     Button build_btn = new Button("Build");
-    build_btn.setOnAction(event ->
-    {
-        buildPath();
-		//information.topLeft = 
+    build_btn.setOnAction(event -> {
+      buildPath();
+      // information.topLeft =
     });
 
     fromLeft_tf = new TextField();
@@ -88,59 +90,27 @@ public class RightPanel extends GridPane {
     build_btn.setFont(Font.font("Arial", 15));
     cost_lbl.setFont(Font.font("Arial", 15));
 
-    // changing TextField's width
-    /*
-     * fromLeft_tf.setPrefWidth(80); fromRight_tf.setPrefWidth(80); toLeft_tf.setPrefWidth(80);
-     * toRight_tf.setPrefWidth(80);
-     */
-
-    /*
-     * //setting spacing and adding to boxes from_hbox.setSpacing(20);
-     * //from_hbox.getChildren().addAll(from_lbl, fromLeft_tf, fromRight_tf);
-     * 
-     * //to_hbox.setSpacing(20); //to_hbox.getChildren().addAll(to_lbl, toLeft_tf, toRight_tf);
-     * //to_hbox.setMargin(toLeft_tf, new Insets(0, 0, 0, 22));
-     * 
-     * build_hbox.getChildren().addAll(build_btn); //build_hbox.setAlignment(Pos.BASELINE_RIGHT);
-     * 
-     * info_hbox.getChildren().addAll(info_lbl); //info_hbox.setAlignment(Pos.BASELINE_CENTER);
-     * 
-     * rightSide_vbox.setSpacing(25);
-     */
-    /*
-     * rightSide_vbox.getChildren().addAll(info_hbox, playerMoney_lbl, from_hbox, to_hbox,
-     * buildCost_lbl, build_hbox);
-     */
-
-    // changing the margins for rightSide_vbox's children
-    /*
-     * rightSide_vbox.setMargin(info_hbox, new Insets(40, 50, 30, 0));
-     * rightSide_vbox.setMargin(playerMoney_lbl, new Insets(0, 50, 0, 0));
-     * rightSide_vbox.setMargin(from_hbox, new Insets(0, 50, 0, 0));
-     * rightSide_vbox.setMargin(to_hbox, new Insets(0, 50, 0, 0));
-     * rightSide_vbox.setMargin(build_hbox, new Insets(0, 50, 0, 0));
-     */
-
     // adding elements to the overall panel
-    this.add(info_lbl, 0, 1);
-    this.add(playerMoney_lbl, 0, 2);
+    top.add(info_lbl, 0, 1);
+    top.add(playerMoney_lbl, 0, 2);
 
-    this.add(from_lbl, 0, 3);
-    this.add(fromLeft_tf, 1, 3);
-    this.add(fromRight_tf, 2, 3);
+    top.add(from_lbl, 0, 3);
+    top.add(fromLeft_tf, 1, 3);
+    top.add(fromRight_tf, 2, 3);
 
-    this.add(to_lbl, 0, 4);
-    this.add(toLeft_tf, 1, 4);
-    this.add(toRight_tf, 2, 4);
+    top.add(to_lbl, 0, 4);
+    top.add(toLeft_tf, 1, 4);
+    top.add(toRight_tf, 2, 4);
 
-    this.add(buildCost_lbl, 0, 5);
-    this.add(cost_lbl, 2, 5);
+    top.add(buildCost_lbl, 0, 5);
+    top.add(cost_lbl, 2, 5);
 
-    this.add(build_btn, 2, 6);
+    top.add(build_btn, 2, 6);
 
-    this.setVgap(10.0);
-    this.setHgap(5.0);
+    top.setVgap(10.0);
+    top.setHgap(5.0);
 
+    this.getChildren().add(top);
   }
 
   public int getFromX() {
@@ -162,40 +132,30 @@ public class RightPanel extends GridPane {
 
   private void UpdateCostLabel() {
     try {
-      if (!fromLeft_tf.getText().equals("") && !fromRight_tf.getText().equals("")
-          && !toLeft_tf.getText().equals("") && !toRight_tf.getText().equals("")) {
-        PathFinding pathFinder = new PathFindingBFS(information.getMap());
-        Coordinate start = new Coordinate(getFromX(), getFromY());
-        Coordinate finish = new Coordinate(getToX(), getToY());
-        cost_lbl.setText("$" + pathFinder.evaluateCost(start, finish));
-      }
+      PathFinding pathFinder = new PathFindingBFS(information.getMap());
+      Coordinate start = new Coordinate(getFromX(), getFromY());
+      Coordinate finish = new Coordinate(getToX(), getToY());
+      cost_lbl.setText("$" + pathFinder.evaluateCost(start, finish));
     } catch (Exception e) {
       // do nothing
     }
   }
-  
-  private void buildPath()
-  {
-    try
-    {
+
+  private void buildPath() {
+    try {
       PathFinding pathFinder = new PathFindingBFS(information.getMap());
       Coordinate start = new Coordinate(getFromX(), getFromY());
       Coordinate finish = new Coordinate(getToX(), getToY());
       pathFinder.buildRoad(information.user, start, finish);
       mainInstance.updateRoot();
+    } catch (IllegalArgumentException e) {
+      new InvalidInputView(mainInstance.primaryStage,"The coordinates need to be positive integer from 1 to "+information.getMap().length+"!");
+    } catch (NotEnoughMoneyException e) {
+      new InvalidInputView(mainInstance.primaryStage,
+          "You do not have enough money to build the path");
+    } catch (Exception e) {
+      new InvalidInputView(mainInstance.primaryStage,"The coordinates need to be positive integer from 1 to "+information.getMap().length+"!");
     }
-    catch (IllegalArgumentException e)
-    {
-      new InvalidInputView(mainInstance.primaryStage,"The input needs to be valid positive integers");
-    }
-    catch (NotEnoughMoneyException e)
-    {
-      new InvalidInputView(mainInstance.primaryStage,"You do not have enough money to build the path");
-    }
-    catch (Exception e)
-    {
-      new InvalidInputView(mainInstance.primaryStage,"The input needs to be valid positive integers");
-    }
-    
+
   }
 }

@@ -19,7 +19,8 @@ public class TitleView extends BorderPane {
      * This method initializes a title for the program.
      */
     Stage primaryStage;
-	TitleView(Stage primaryStage)
+	
+    TitleView(Stage primaryStage)
 	{
 		super();
 		this.primaryStage = primaryStage;

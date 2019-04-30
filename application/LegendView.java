@@ -14,9 +14,9 @@ public class LegendView extends FlowPane {
 	
 	LegendView() throws FileNotFoundException, IOException, ParseException
 	{
-	    TypeOfStationList list = new TypeOfStationList();
+	    TypeOfLocationList list = new TypeOfLocationList();
 	    
-	    for (int i=1; i<list.getN(); i++)
+	    for (int i=1; i<list.getSize(); i++)
 	    {
 	      ImageView legend = createLegend(i);
 	      Label label = new Label(list.getName(i));
