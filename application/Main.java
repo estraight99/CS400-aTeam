@@ -54,7 +54,7 @@ public class Main extends Application {
   }
   
   
-  private void initializeRoot()
+  private void initializeRoot() throws FileNotFoundException, IOException, ParseException
   {
     root = new BorderPane();
     scene = new Scene(root);
@@ -64,7 +64,7 @@ public class Main extends Application {
     
   }
   
-  protected void updateRoot()
+  protected void updateRoot() throws FileNotFoundException, IOException, ParseException
   {
     leftPanel = new LeftPanel(information,this);
     RightPanel rightPanel = new RightPanel(this,information);
@@ -100,7 +100,12 @@ public class Main extends Application {
         default:
           break;
       }
-      updateRoot();
+      try {
+        updateRoot();
+      } catch (IOException | ParseException e) {
+        // TODO Auto-generated catch block
+        e.printStackTrace();
+      }
     });
     
   }

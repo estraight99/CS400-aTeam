@@ -1,7 +1,9 @@
 package application;
 
 import java.io.File;
-
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import org.json.simple.parser.ParseException;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -9,12 +11,14 @@ import javafx.scene.layout.FlowPane;
 
 public class LegendView extends FlowPane {
 	
-	LegendView()
+	LegendView() throws FileNotFoundException, IOException, ParseException
 	{
-	    for (int i=1; i<=8; i++)
+	    TypeOfStationList list = new TypeOfStationList();
+	    
+	    for (int i=0; i<list.getN(); i++)
 	    {
 	      ImageView legend = createLegend(i);
-	      Label label = new Label("Type "+i);
+	      Label label = new Label(list.getName(i));
 	      this.getChildren().add(legend);
 	      this.getChildren().add(label);
 	    }

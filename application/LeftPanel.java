@@ -1,5 +1,8 @@
 package application;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import org.json.simple.parser.ParseException;
 import javafx.scene.Node;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
@@ -18,8 +21,11 @@ public class LeftPanel {
     ComboBox<String> comboBox;
     /**
      * This method creates a VBox instance of the left part of the GUI
+     * @throws ParseException 
+     * @throws IOException 
+     * @throws FileNotFoundException 
      */
-	LeftPanel(GUIInformation information,Main mainInstance)
+	LeftPanel(GUIInformation information,Main mainInstance) throws FileNotFoundException, IOException, ParseException
 	{
 		super();
 		this.information = information;
@@ -56,19 +62,34 @@ public class LeftPanel {
         comboBox.setOnAction(event ->
         {
           if (comboBox.getValue().equals("10*10"))
-            changeMap(0);
+            try {
+              changeMap(0);
+            } catch (IOException | ParseException e2) {
+              // TODO Auto-generated catch block
+              e2.printStackTrace();
+            }
           else
           if (comboBox.getValue().equals("100*100"))
-            changeMap(1);
+            try {
+              changeMap(1);
+            } catch (IOException | ParseException e1) {
+              // TODO Auto-generated catch block
+              e1.printStackTrace();
+            }
           else
           if (comboBox.getValue().equals("1000*1000"))
-            changeMap(2);
+            try {
+              changeMap(2);
+            } catch (IOException | ParseException e) {
+              // TODO Auto-generated catch block
+              e.printStackTrace();
+            }
         });
         result.getChildren().addAll(label,comboBox);
         return result;
     }
     
-    private void changeMap(int newMapID)
+    private void changeMap(int newMapID) throws FileNotFoundException, IOException, ParseException
     {
       try
       {

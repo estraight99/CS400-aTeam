@@ -1,0 +1,41 @@
+{
+	"data":
+	[
+		{
+			"id": 0,
+			"name": "Grassland"
+		},
+		{
+			"id": 1,
+			"name": "Bank"
+		},
+		{
+			"id": 2,
+			"name": "Coal Mine"
+		},
+		{
+			"id": 3,
+			"name": "Factory"
+		},
+		{
+			"id": 4,
+			"name": "Farm"
+		},
+		{
+			"id": 5,
+			"name": "Forest"
+		},
+		{
+			"id": 6,
+			"name": "Iron Ore Mine"
+		},
+		{
+			"id": 7,
+			"name": "Power Station"
+		},
+		{
+			"id": 8,
+			"name": "Sawmill"
+		}
+	]
+}
