@@ -6,7 +6,8 @@ package application;
  */
 public class Coordinate {
   
-  private int x,y;
+  private int x; // the vertical coordinate of the Location
+  private int y; // the horizontal coordinate of the Location
   
   /**
    * This method creates an instance of Coordinate with the given x and y
