@@ -34,10 +34,14 @@ public class LeftPanel {
 		this.mainInstance = mainInstance;
 	}
 	
-	private Node createHelpLabel()
+	private Node createHelp()
 	{
-	  Label label = new Label("Press A, S, D, W to move the map!");
-	  return label;
+	  VBox help = new VBox();
+	  Label label1 = new Label("Press A, S, D, W to move the map!");
+	  Label label2 = new Label("Click on the map to choose locations");
+	  help.getChildren().addAll(label1,label2);
+	  help.setSpacing(5);
+	  return help;
 	}
 	/**
      * @return a ComboBox that helps user choose the type of map.
@@ -108,8 +112,9 @@ public class LeftPanel {
       this.information = information;
       VBox result = new VBox();
       MapView map = new MapView(information);
-      result.getChildren().addAll(legend,map.getGridPane(),this.createHelpLabel(),this.createComboBox());
+      result.getChildren().addAll(legend,map.getGridPane(),this.createHelp(),this.createComboBox());
       result.setSpacing(10); 
       return result;
     }
+    
 }

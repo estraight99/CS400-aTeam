@@ -63,7 +63,6 @@ public class MapView {
         // based on
         // https://stackoverflow.com/questions/25550518/add-eventhandler-to-imageview-contained-in-tilepane-contained-in-vbox
         current.addEventHandler(MouseEvent.MOUSE_RELEASED, event -> {
-          System.out.println("I'm here"+I+" "+J);
           information.changeCurrentLocation(I, J);
           try {
             information.mainInstance.updateRoot();
