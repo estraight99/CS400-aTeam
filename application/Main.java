@@ -3,11 +3,13 @@ package application;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.ArrayList;
 import org.json.simple.parser.ParseException;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 
@@ -22,6 +24,7 @@ public class Main extends Application {
   Stage primaryStage;
   BorderPane root;
   LeftPanel leftPanel;
+  RightPanel rightPanel;
   Scene scene;
 
   private void initializeInformation() throws FileNotFoundException, IOException, ParseException {
@@ -29,7 +32,7 @@ public class Main extends Application {
 
     Coordinate topLeft = new Coordinate(1, 1);
 
-    information = new GUIInformation(mainUser, 1, topLeft);
+    information = new GUIInformation(mainUser, 1, topLeft,this);
   }
 
   @Override
@@ -60,7 +63,13 @@ public class Main extends Application {
 
   protected void updateRoot() throws FileNotFoundException, IOException, ParseException {
     leftPanel = new LeftPanel(information, this);
-    RightPanel rightPanel = new RightPanel(this, information);
+    if (rightPanel!=null)
+    {
+      ArrayList<TextField> field = rightPanel.getTextField();
+      rightPanel = new RightPanel(this,information,field);
+    }
+    else
+      rightPanel = new RightPanel(this, information);
 
     scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 

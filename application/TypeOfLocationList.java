@@ -36,12 +36,9 @@ public class TypeOfLocationList {
       this.size++;
       JSONObject type = (JSONObject) i;
       name.add((String) type.get("name"));
-      if (size!=1)
-      {
-        //System.out.println("."+File.separator+"img"+File.separator+"big"+File.separator+(n-1)+".png");
-        Image current = new Image(getClass().getResourceAsStream(".."+File.separator+"img"+File.separator+"big"+File.separator+(size-1)+".png"));
-        image.add(current);
-      }
+      //System.out.println("."+File.separator+"img"+File.separator+"big"+File.separator+(n-1)+".png");
+      Image current = new Image(getClass().getResourceAsStream(".."+File.separator+"img"+File.separator+"big"+File.separator+(size-1)+".png"));
+      image.add(current);
     }
   }
   public String getName(int id)

@@ -1,5 +1,6 @@
 package application;
 
+import java.util.ArrayList;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.scene.control.Button;
@@ -7,6 +8,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 
 /**
@@ -14,7 +16,7 @@ import javafx.scene.text.Font;
  * 
  * @author Eli Straight
  */
-public class RightPanel extends HBox {
+public class RightPanel extends VBox {
 
   Label cost_lbl;
   TextField fromLeft_tf;
@@ -24,6 +26,15 @@ public class RightPanel extends HBox {
   GUIInformation information;
   Main mainInstance;
 
+  RightPanel(Main mainInstance, GUIInformation information,ArrayList<TextField> field)
+  {
+    this(mainInstance,information);
+    this.fromLeft_tf.setText(field.get(0).getText());
+    this.fromRight_tf.setText(field.get(1).getText());
+    this.toLeft_tf.setText(field.get(2).getText());
+    this.toRight_tf.setText(field.get(3).getText());
+  }
+  
   RightPanel(Main mainInstance, GUIInformation information) {
 
     super();
@@ -110,8 +121,9 @@ public class RightPanel extends HBox {
     top.setVgap(10.0);
     top.setHgap(5.0);
 
-    this.getChildren().add(top);
+    this.getChildren().addAll(top,information.currentLocationView(fromLeft_tf,fromRight_tf,toLeft_tf,toRight_tf));
   }
+  
 
   public int getFromX() {
     return Integer.parseInt(fromLeft_tf.getText());
@@ -157,5 +169,15 @@ public class RightPanel extends HBox {
       new InvalidInputView(mainInstance.primaryStage,"The coordinates need to be positive integer from 1 to "+information.getMap().length+"!");
     }
 
+  }
+  
+  public ArrayList<TextField> getTextField()
+  {
+    ArrayList<TextField> result = new ArrayList<>();
+    result.add(fromLeft_tf);
+    result.add(fromRight_tf);
+    result.add(toLeft_tf);
+    result.add(toRight_tf);
+    return result;
   }
 }

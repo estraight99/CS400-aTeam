@@ -1,9 +1,14 @@
 package application;
 
 import java.io.File;
+import java.io.IOException;
+import org.json.simple.parser.ParseException;
+import javafx.event.EventHandler;
+import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 
 public class MapView {
@@ -51,8 +56,25 @@ public class MapView {
     int y = Math.min(information.topLeft.y, m - 9);
 
     for (int i = x; i <= x + 9; i++)
-      for (int j = y; j <= y + 9; j++)
-        result.add(createLocation(information.getMap().getLocation(i, j)), j, i);
+      for (int j = y; j <= y + 9; j++) {
+        Node current = createLocation(information.getMap().getLocation(i, j));
+        final int I = i;
+        final int J = j;
+        // based on
+        // https://stackoverflow.com/questions/25550518/add-eventhandler-to-imageview-contained-in-tilepane-contained-in-vbox
+        current.addEventHandler(MouseEvent.MOUSE_RELEASED, event -> {
+          System.out.println("I'm here"+I+" "+J);
+          information.changeCurrentLocation(I, J);
+          try {
+            information.mainInstance.updateRoot();
+          } catch (IOException | ParseException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+          }
+          event.consume();
+        });
+        result.add(current, j, i);
+      }
 
     for (Integer i = x; i <= x + 9; i++) {
       Label label = new Label(i.toString());
