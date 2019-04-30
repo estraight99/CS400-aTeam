@@ -33,7 +33,7 @@ public class GUIInformation {
     this.map[2] = new GameMap(MapGenerator.bigPath);
     this.mapID = initMapID;
     this.topLeft = topLeft;
-    this.currentLocation = this.getMap().content[1][1];
+    this.currentLocation = this.getMap().getLocation(1,1);
     this.mainInstance = mainInstance;
   }
 
@@ -44,16 +44,16 @@ public class GUIInformation {
   public void changeMap(int id) {
     this.mapID = id;
     this.topLeft = new Coordinate(1, 1);
-    this.currentLocation = this.getMap().content[1][1];
+    this.currentLocation = this.getMap().getLocation(1,1);
   }
 
   public void changeCurrentLocation(int x, int y) {
-    this.currentLocation = this.getMap().content[x][y];
+    this.currentLocation = this.getMap().getLocation(x,y);
   }
 
   private boolean ok(Coordinate newCoor) {
-    return (1 <= newCoor.getX() && newCoor.getX() <= Math.max(1, getMap().length - 9) && 1 <= newCoor.getY()
-        && newCoor.getY() <= Math.max(1, getMap().width - 9));
+    return (1 <= newCoor.getX() && newCoor.getX() <= Math.max(1, getMap().getLength() - 9) && 1 <= newCoor.getY()
+        && newCoor.getY() <= Math.max(1, getMap().getWidth() - 9));
   }
 
   public void moveMap(int direction) {

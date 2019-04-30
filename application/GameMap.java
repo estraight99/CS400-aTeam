@@ -108,10 +108,10 @@ public class GameMap {
   }
 
   /**
-   * This method gets a portion of the map
-   * @param topLeft
-   * @param bottomRight
-   * @return
+   * This method gets a portion of the map from a top left coordinate and a bottom right coordinate
+   * @param topLeft is the top left coordinate of the map
+   * @param bottomRight is the bottom right coordinate of the map
+   * @return a portion of the map in the form of a 2d-array of Location
    */
   public Location[][] getMap(Coordinate topLeft, Coordinate bottomRight) {
     int width = bottomRight.getX() - topLeft.getX();
@@ -123,6 +123,10 @@ public class GameMap {
     return result;
   }
 
+  /**
+   * This method updates the map in the JSON File
+   * @throws FileNotFoundException is never thrown if no file is missing
+   */
   @SuppressWarnings("unchecked")
   public void updateJSONFile() throws FileNotFoundException {
     JSONObject jo = new JSONObject();

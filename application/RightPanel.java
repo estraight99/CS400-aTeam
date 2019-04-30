@@ -25,28 +25,27 @@ public class RightPanel extends VBox {
   GUIInformation information;
   Main mainInstance;
 
-  RightPanel(Main mainInstance, GUIInformation information,ArrayList<TextField> field)
-  {
-    this(mainInstance,information);
+  RightPanel(Main mainInstance, GUIInformation information, ArrayList<TextField> field) {
+    this(mainInstance, information);
     this.fromLeft_tf.setText(field.get(0).getText());
     this.fromRight_tf.setText(field.get(1).getText());
     this.toLeft_tf.setText(field.get(2).getText());
     this.toRight_tf.setText(field.get(3).getText());
   }
-  
+
   RightPanel(Main mainInstance, GUIInformation information) {
 
     super();
     this.information = information;
     this.mainInstance = mainInstance;
     User user = information.user;
-    
+
     GridPane top = new GridPane();
-    
+
     // creating components
     Label info_lbl = new Label("Welcome " + user.getName());
     Label playerMoney_lbl = new Label("You Have: ");
-    Label money_lbl = new Label("$"+user.getMoney());
+    Label money_lbl = new Label("$" + user.getMoney());
     Label from_lbl = new Label("From:");
     Label to_lbl = new Label("To:");
     Label buildCost_lbl = new Label("Cost:");
@@ -122,9 +121,10 @@ public class RightPanel extends VBox {
     top.setVgap(10.0);
     top.setHgap(5.0);
 
-    this.getChildren().addAll(top,information.currentLocationView(fromLeft_tf,fromRight_tf,toLeft_tf,toRight_tf));
+    this.getChildren().addAll(top,
+        information.currentLocationView(fromLeft_tf, fromRight_tf, toLeft_tf, toRight_tf));
   }
-  
+
 
   public int getFromX() {
     return Integer.parseInt(fromLeft_tf.getText());
@@ -162,18 +162,21 @@ public class RightPanel extends VBox {
       pathFinder.buildRoad(information.user, start, finish);
       mainInstance.updateRoot();
     } catch (IllegalArgumentException e) {
-      new InvalidInputView(mainInstance.primaryStage,"Invalid Input","The coordinates need to be positive integer from 1 to "+information.getMap().length+"!");
+      new InvalidInputView(mainInstance.primaryStage, "Invalid Input",
+          "The coordinates need to be positive integer from 1 to " + information.getMap().getLength()
+              + "!");
     } catch (NotEnoughMoneyException e) {
-      new InvalidInputView(mainInstance.primaryStage,"Not Enough Money",
+      new InvalidInputView(mainInstance.primaryStage, "Not Enough Money",
           "You do not have enough money to build the path");
     } catch (Exception e) {
-      new InvalidInputView(mainInstance.primaryStage,"Invalid Input","The coordinates need to be positive integer from 1 to "+information.getMap().length+"!");
+      new InvalidInputView(mainInstance.primaryStage, "Invalid Input",
+          "The coordinates need to be positive integer from 1 to " + information.getMap().getLength()
+              + "!");
     }
 
   }
-  
-  public ArrayList<TextField> getTextField()
-  {
+
+  public ArrayList<TextField> getTextField() {
     ArrayList<TextField> result = new ArrayList<>();
     result.add(fromLeft_tf);
     result.add(fromRight_tf);

@@ -48,8 +48,8 @@ public class MapView {
     result.setHgap(0.1);
 
 
-    int n = information.getMap().length;
-    int m = information.getMap().width;
+    int n = information.getMap().getLength();
+    int m = information.getMap().getWidth();
 
     int x = Math.min(information.topLeft.getX(), n - 9);
     int y = Math.min(information.topLeft.getY(), m - 9);
