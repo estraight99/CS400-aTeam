@@ -21,7 +21,8 @@ We create a simple GUI for the program to finish Milestone #1.
 The first problem we encountered is to display the map in the GUI. When we simply put the ImageView to the GridPane, the images are stacked on top of each other instead of creating the map that we expected. Yuanbo Zhang came up with a solution: adding some gap between the rows and the columns of the GridPane. This solution works on Linux and Mac; however, there is a gap between two consecutive rows of the map on Windows. We decide that it is a minor problem and move on to the next task.
 
 ### Between the First Meeting and the Second Meeting (from April 22nd, 2019 to April 27th, 2019)
-Yuanbo Zhang and Eli Straight performs some minor changes to the code, 
-Dung Viet Bui starts to implement some crucial elements for the program such as the GameMap, the MapGenerator, the User, and a temporary PathFinding algorithm. Dung Viet Bui's initial algorithm is based on Dijkstra's algorithm, which has the complexity of O(E + Vlog(V)) with E is the number of edges and V is the number of vertices on the graph. Since V ~ the number of tiles on the map and E ~ 4V (because the degree of most vertices is 4), theoretically, the algorithm can handle a graph that has as many tiles as 10^6.
+Yuanbo Zhang and Eli Straight performed some minor changes to the code so that the program can be submitted for Milestone 1.
+
+Meanwhile, Dung Viet Bui started to implement some crucial elements for the program such as the GameMap, the MapGenerator, the User, and a temporary PathFinding algorithm. Dung Viet Bui's initial algorithm was based on Dijkstra's algorithm, which has the complexity of O(E + Vlog(V)) with E is the number of edges and V is the number of vertices on the graph. Since V ~ the number of tiles on the map and E ~ 4V (because the degree of most vertices is 4), theoretically, the algorithm can handle a graph that has as many tiles as 10^6 in 1 second. However, he still wants to improve the performance of the program by apply a trick he has read somewhere on Codeforces.com
 
 
