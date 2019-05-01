@@ -1,6 +1,8 @@
 package application;
 
 /**
+ * This class represents a NotEnoughMoneyException which will be thrown when
+ * the build cost is greater than the money user owns
  * 
  * @author Dung Viet Bui
  *
