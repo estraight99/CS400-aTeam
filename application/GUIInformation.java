@@ -88,6 +88,10 @@ public class GUIInformation {
         && newCoor.getY() <= Math.max(1, getMap().getWidth() - 9));
   }
 
+  /**
+   * This method moves the displayed map in the given direction
+   * @param direction is an integer from 0 to 3 that represents a direction (up, down, left, right)
+   */
   public void moveMap(int direction) {
     Coordinate result = new Coordinate(topLeft.getX() + GameConstant.mx[direction], topLeft.getY() + GameConstant.my[direction]);
     // System.out.println((map.length-9)+" "+(map.width-9));
@@ -95,12 +99,24 @@ public class GUIInformation {
       this.topLeft = result;
   }
 
+  /**
+   * This method updates all JSON Files that are related to the game
+   * @throws FileNotFoundException is never thrown
+   */
   public void updateJSONFile() throws FileNotFoundException {
     user.updateJSONFile();
     for (int i = 0; i < map.length; i++)
       map[i].updateJSONFile();
   }
 
+  /**
+   * This method returns a Node that displays the full information of the current Location on the map
+   * @param fromX is the text field that contains the x coordinate of the starting point
+   * @param fromY is the text field that contains the y coordinate of the starting point
+   * @param toX is the text field that contains the x coordinate of the ending point
+   * @param toY is the text field that contains the y coordinate of the ending point
+   * @return the Node that displays the full information of the current Location
+   */
   public Node currentLocationView(TextField fromX, TextField fromY, TextField toX, TextField toY) {
     VBox result = new VBox();
     Label title = new Label(GUIInformation.typeOfLocationList.getName(this.currentLocation.type)
@@ -125,15 +141,24 @@ public class GUIInformation {
     return result;
   }
 
+  /**
+   * @return the current user who uses this program
+   */
   public User getUser() {
     return this.user;
   }
   
+  /**
+   * @return the current Main instance of the program
+   */
   public Main getMainInstance()
   {
     return this.mainInstance;
   }
   
+  /**
+   * @return the current top left coordinate of the displayed map.
+   */
   public Coordinate getTopLeft()
   {
     return this.topLeft;
