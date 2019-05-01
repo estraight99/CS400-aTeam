@@ -15,4 +15,6 @@ One problem which usually arises during the game is to build a path, which consi
 We have written a program that helps players in this game **build the shortest path between two locations, and if there are multiple shortest paths, the program need to choose the cheapest one to build.**
 
 ## Developer Diary
+### First Meeting (April 21st, 2019)
+We create a simple GUI for the program to finish Milestone #1
 
