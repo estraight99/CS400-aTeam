@@ -13,18 +13,26 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 /**
+ * This class represents the help stage, it extends the stage class
  * Adapted from https://o7planning.org/en/11533/opening-a-new-window-in-javafx
  * 
  * @author Dung Viet Bui
  *
  */
 public class HelpView extends Stage {
-  Scene scene;
-  VBox root;
-  Stage owner;
-  GUIInformation information;
-  Main mainInstance;
+  Scene scene; // the scene of this stage
+  VBox root; // a VBOX containing all the elements in helpView
+  Stage owner; // owner of this stage, which is the primary stage
+  GUIInformation information; // the instance stores all the information for the GUI
+  Main mainInstance; // is the Main instance running the program
 
+  /**
+   * This method initialized an HelpView stage where user can access some special features
+   * like changing their username, increasing or decreasing the money they own
+   * @param owner is the primary stage
+   * @param information the instance stores all the information for the GUI
+   * @param mainInstance is the Main instance running the program
+   */
   public HelpView(Stage owner, GUIInformation information, Main mainInstance) {
     this.setTitle("Special Features");
     root = new VBox();
@@ -45,7 +53,14 @@ public class HelpView extends Stage {
     this.show();
   }
 
-
+  /**
+   * This method creates and returns a VOBX containing all the elements in the helpView
+   * Features in this VBOX: 
+   * 1. a button allowing user to increase the money they own
+   * 2. a button allowing user to decrease the money they own
+   * 3. A textField allowing user to change their user name
+   * @return a VBOX that contains all the elements in helpView
+   */
   private Node mapHelp() {
     VBox result = new VBox();
     
