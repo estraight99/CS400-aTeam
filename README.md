@@ -2,7 +2,7 @@
 
 ## Author
 * Dung Viet Bui, LEC 001, XTeam 22. Email: dvbui@wisc.edu
-* Eli Straight, LEC 001, XTeam 22. Email: 
+* Eli Straight, LEC 001, XTeam 22. Email: straight2@wisc.edu
 * Yuanbo Zhang, LEC 001, XTeam 22. Email:
 
 ## Description
