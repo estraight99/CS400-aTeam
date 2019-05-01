@@ -79,7 +79,7 @@ public class SaveGameWindow extends Stage {
         information.updateJSONFile();
         owner.close();
       } catch (FileNotFoundException e) {
-        // TODO Auto-generated catch block
+        // do nothing
         e.printStackTrace();
       }
     });
