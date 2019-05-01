@@ -13,7 +13,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 /**
- * This class represents the help stage, it extends the stage class
+ * This class represents the help stage, it extends the Stage class
  * Adapted from https://o7planning.org/en/11533/opening-a-new-window-in-javafx
  * 
  * @author Dung Viet Bui
