@@ -15,10 +15,10 @@ import javafx.scene.layout.VBox;
  */
 public class LeftPanel {
 	
-    GUIInformation information;
-    LegendView legend;
-    Main mainInstance;
-    ComboBox<String> comboBox;
+    GUIInformation information; // the instance stores all the information for the GUI
+    LegendView legend; // an area displays all the legends
+    Main mainInstance; // is the Main instance running the program
+    ComboBox<String> comboBox; // a combo box where user can choose map size
     /**
      * This method creates a VBox instance of the left part of the GUI
      * @throws ParseException 
@@ -34,6 +34,10 @@ public class LeftPanel {
 		this.mainInstance = mainInstance;
 	}
 	
+	/**
+     * This method creates and returns a VBOX containing some labels to display help information
+     * @return the VBOX containing help information
+     */
 	private Node createHelp()
 	{
 	  VBox help = new VBox();
@@ -44,6 +48,7 @@ public class LeftPanel {
 	  return help;
 	}
 	/**
+	 * This method creates and returns a comboBox where user can choose map size
      * @return a ComboBox that helps user choose the type of map.
      */
     private Node createComboBox()
@@ -93,6 +98,13 @@ public class LeftPanel {
         return result;
     }
     
+    /**
+	 * This method defines the behavior when user change the map size in the drop down list
+     * @param newMapID is the ID of the new map ((0 - small, 1 - medium, 2 - big)
+     * @throws FileNotFoundException is never thrown if no file is missing
+     * @throws IOException is never thrown if no file is missing
+     * @throws ParseException is never thrown if no file is missing
+     */
     private void changeMap(int newMapID) throws FileNotFoundException, IOException, ParseException
     {
       try
@@ -106,6 +118,11 @@ public class LeftPanel {
       mainInstance.updateRoot();
     }
     
+    /**
+	 * This method creates and returns a VBOX containing all the elements in the left panel
+     * @param information the instance stores all the information for the GUI
+     * @return a VBOX containing all the elements in the left panel
+     */
     public Node getGUI(GUIInformation information)
     {
       this.information = information;
