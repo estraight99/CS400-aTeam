@@ -24,14 +24,14 @@ import javafx.scene.layout.GridPane;
  */
 public class MapView {
   static Image[][] allPossibleImage; // store all the images
-  GUIInformation information; // the instance stores all the information for the GUI
+  private GUIInformation information; // the instance stores all the information for the GUI
 
   /**
    * This method initialize a mapView where the map is displayed
    * 
    * @param information is the instance stores all the information for the GUI
    */
-  MapView(GUIInformation information) {
+  public MapView(GUIInformation information) {
     this.information = information;
     allPossibleImage = new Image[16][9];
   }

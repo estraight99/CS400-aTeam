@@ -119,11 +119,11 @@ public class GUIInformation {
    */
   public Node currentLocationView(TextField fromX, TextField fromY, TextField toX, TextField toY) {
     VBox result = new VBox();
-    Label title = new Label(GUIInformation.typeOfLocationList.getName(this.currentLocation.type)
+    Label title = new Label(GUIInformation.typeOfLocationList.getName(this.currentLocation.getTypeInformation())
         + " (" + this.currentLocation.getX() + "," + this.currentLocation.getY() + ")");
     title.setFont(Font.font("Arial", FontWeight.BOLD, 15));
     ImageView image =
-        new ImageView(GUIInformation.typeOfLocationList.getImage(this.currentLocation.type));
+        new ImageView(GUIInformation.typeOfLocationList.getImage(this.currentLocation.getTypeInformation()));
     image.setFitHeight(150);
     image.setFitWidth(200);
     Button setAsStart = new Button("Set as Starting Point");

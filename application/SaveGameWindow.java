@@ -12,18 +12,25 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 /**
- * This class creates a Save Game window, which is used at the end of the game
- * Adapted from https://o7planning.org/en/11533/opening-a-new-window-in-javafx
+ * This class creates a Save Game window, which is used at the end of the game Adapted from
+ * https://o7planning.org/en/11533/opening-a-new-window-in-javafx
+ * 
  * @author Dung Viet Bui
  */
 public class SaveGameWindow extends Stage {
-  
-  Scene scene; // the scene of this SaveGameWindow
-  VBox root; // the root of this SaveGameWindow
-  Stage owner; // the main window of the game
-  
-  GUIInformation information;
 
+  private Scene scene; // the scene of this SaveGameWindow
+  private VBox root; // the root of this SaveGameWindow
+  private Stage owner; // the main window of the game
+
+  private GUIInformation information; // the information for the GUI
+
+  /**
+   * This method creates a SaveGameWindow at the end of the game
+   * 
+   * @param owner       is the main window of the game
+   * @param information is the information for the GUI
+   */
   public SaveGameWindow(Stage owner, GUIInformation information) {
     this.setTitle("Save Game?");
     root = new VBox();
@@ -45,15 +52,25 @@ public class SaveGameWindow extends Stage {
     twoButtons.getChildren().addAll(yesButton(), noButton());
     twoButtons.setSpacing(10.0);
     twoButtons.setAlignment(Pos.CENTER);
-    root.getChildren().addAll(this.message(),twoButtons);
+    root.getChildren().addAll(this.message(), twoButtons);
 
     this.show();
   }
 
+  /**
+   * This method creates a Label with the message
+   * 
+   * @return a Label with the save game message
+   */
   private Label message() {
     return new Label("Do you want to save the game?");
   }
 
+  /**
+   * This method creates the Yes button for the window
+   * 
+   * @return a Yes button that can call the appropriate method to save the game
+   */
   private Button yesButton() {
     Button result = new Button("Yes");
     result.setOnAction(event -> {
@@ -68,9 +85,16 @@ public class SaveGameWindow extends Stage {
     return result;
   }
 
+  /**
+   * This method creates a No button for the window
+   * 
+   * @return a No button
+   */
   private Button noButton() {
     Button result = new Button("No");
-    result.setOnAction(event -> {owner.close();});
+    result.setOnAction(event -> {
+      owner.close();
+    });
     return result;
   }
 

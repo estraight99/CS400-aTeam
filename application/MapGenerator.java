@@ -53,7 +53,7 @@ public class MapGenerator {
   }
   
   /**
-   * Testing main
+   * This method generates all three maps for the game
    */
   public static void main(String[] args) throws FileNotFoundException
   {

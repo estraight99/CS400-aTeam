@@ -15,16 +15,16 @@ public class PathFindingBFS implements PathFinding {
 
   static final int INF = (int) 1e9; // infinity variable, used to mark unvisited vertices
 
-  GameMap map; // the map of the Game
-  int[][] dis; // the distance array used to mark distance between the start and the point
-  Location[][] trace; // this array is used to recover the optimal path
+  private GameMap map; // the map of the Game
+  private int[][] dis; // the distance array used to mark distance between the start and the point
+  private Location[][] trace; // this array is used to recover the optimal path
 
   /**
    * This method initializes a PathFinding instance for the given map
    * 
    * @param map is the map of the Game
    */
-  PathFindingBFS(GameMap map) {
+  public PathFindingBFS(GameMap map) {
     this.map = map;
   }
 

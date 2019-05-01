@@ -18,13 +18,13 @@ import javafx.scene.text.Font;
  */
 public class RightPanel extends VBox {
 
-  Label cost_lbl; // the label that displays the cost of to build the path
-  TextField fromLeft_tf; // the text field that contains the x coordinate of the start
-  TextField fromRight_tf; // the text field that contains the y coordinate of the start
-  TextField toLeft_tf; // the text field that contains the x coordinate of the end
-  TextField toRight_tf; // the text field that contains the y coordinate of the end
-  GUIInformation information; // this contains the information for the GUI
-  Main mainInstance; // this is the current Main instance of the program
+  private Label cost_lbl; // the label that displays the cost of to build the path
+  private TextField fromLeft_tf; // the text field that contains the x coordinate of the start
+  private TextField fromRight_tf; // the text field that contains the y coordinate of the start
+  private TextField toLeft_tf; // the text field that contains the x coordinate of the end
+  private TextField toRight_tf; // the text field that contains the y coordinate of the end
+  private GUIInformation information; // this contains the information for the GUI
+  private Main mainInstance; // this is the current Main instance of the program
 
   /**
    * This method creates a new instance of RightPanel with the current Main instance,
@@ -34,7 +34,7 @@ public class RightPanel extends VBox {
    * @param information  is the information of the current game
    * @param field        is the text fields from the previous RightPanel
    */
-  RightPanel(Main mainInstance, GUIInformation information, List<TextField> field) {
+  public RightPanel(Main mainInstance, GUIInformation information, List<TextField> field) {
     this(mainInstance, information);
     this.fromLeft_tf.setText(field.get(0).getText());
     this.fromRight_tf.setText(field.get(1).getText());
@@ -48,7 +48,7 @@ public class RightPanel extends VBox {
    * @param mainInstance is the running Main instance
    * @param information  is the information of the current game
    */
-  RightPanel(Main mainInstance, GUIInformation information) {
+  public RightPanel(Main mainInstance, GUIInformation information) {
 
     super();
     this.information = information;

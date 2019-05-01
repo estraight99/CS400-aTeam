@@ -20,11 +20,10 @@ import javafx.stage.Stage;
  *
  */
 public class HelpView extends Stage {
-  Scene scene; // the scene of this stage
-  VBox root; // a VBOX containing all the elements in helpView
-  Stage owner; // owner of this stage, which is the primary stage
-  GUIInformation information; // the instance stores all the information for the GUI
-  Main mainInstance; // is the Main instance running the program
+  private Scene scene; // the scene of this stage
+  private VBox root; // a VBOX containing all the elements in helpView
+  private GUIInformation information; // the instance stores all the information for the GUI
+  private Main mainInstance; // is the Main instance running the program
 
   /**
    * This method initialized an HelpView stage where user can access some special features
@@ -38,7 +37,6 @@ public class HelpView extends Stage {
     root = new VBox();
 
     scene = new Scene(root);
-    this.owner = owner;
     this.setScene(scene);
     this.initModality(Modality.WINDOW_MODAL);
     this.initOwner(owner);

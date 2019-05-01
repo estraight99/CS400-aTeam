@@ -15,17 +15,17 @@ import javafx.scene.layout.VBox;
  */
 public class LeftPanel {
 	
-    GUIInformation information; // the instance stores all the information for the GUI
-    LegendView legend; // an area displays all the legends
-    Main mainInstance; // is the Main instance running the program
-    ComboBox<String> comboBox; // a combo box where user can choose map size
+    private GUIInformation information; // the instance stores all the information for the GUI
+    private LegendView legend; // an area displays all the legends
+    private Main mainInstance; // is the Main instance running the program
+    private ComboBox<String> comboBox; // a combo box where user can choose map size
     /**
      * This method creates a VBox instance of the left part of the GUI
      * @throws ParseException 
      * @throws IOException 
      * @throws FileNotFoundException 
      */
-	LeftPanel(GUIInformation information,Main mainInstance) throws FileNotFoundException, IOException, ParseException
+	public LeftPanel(GUIInformation information,Main mainInstance) throws FileNotFoundException, IOException, ParseException
 	{
 		super();
 		this.information = information;

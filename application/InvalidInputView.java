@@ -16,9 +16,8 @@ import javafx.stage.Stage;
  *
  */
 public class InvalidInputView extends Stage{
-    Scene scene; // the scene of this stage
-    VBox root; // a VBOX containing all the elements in InvalidInputView
-    Stage owner; // owner of this stage, which is the primary stage
+    private Scene scene; // the scene of this stage
+    private VBox root; // a VBOX containing all the elements in InvalidInputView
 
     /**
      * This method initialized an InvalidInputView stage which user will receive when they
@@ -32,7 +31,6 @@ public class InvalidInputView extends Stage{
       root = new VBox();
       
       scene = new Scene(root);
-      this.owner = owner;
       this.setScene(scene);
       this.initModality(Modality.WINDOW_MODAL);
       this.initOwner(owner);

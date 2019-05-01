@@ -17,14 +17,14 @@ import javafx.stage.Stage;
  */
 public class TitleView extends BorderPane {
   
-    Stage primaryStage;
-	GUIInformation information;
-	Main mainInstance;
+    private Stage primaryStage;
+	private GUIInformation information;
+	private Main mainInstance;
 	
 	/**
      * This method initializes a title for the program.
      */
-    TitleView(Stage primaryStage,GUIInformation information,Main mainInstance)
+    public TitleView(Stage primaryStage,GUIInformation information,Main mainInstance)
 	{
 		super();
 		this.primaryStage = primaryStage;

@@ -24,7 +24,7 @@ public class LegendView extends FlowPane {
      * @throws IOException is never thrown if no file is missing
      * @throws ParseException is never thrown if no file is missing
      */
-	LegendView() throws FileNotFoundException, IOException, ParseException
+	public LegendView() throws FileNotFoundException, IOException, ParseException
 	{
 	    TypeOfLocationList list = new TypeOfLocationList();
 	    

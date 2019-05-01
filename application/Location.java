@@ -9,10 +9,10 @@ import org.json.simple.JSONObject;
  *
  */
 public class Location {
-  Coordinate coordinate; // coordinate of this location
-  int type; // type of this location
-  String name; // name of this location
-  int roadInformation; // road information shows every road that connects to this location
+  private Coordinate coordinate; // coordinate of this location
+  private int type; // type of this location
+  private String name; // name of this location
+  private int roadInformation; // road information shows every road that connects to this location
 
   /**
    * This method initialize a location on the map

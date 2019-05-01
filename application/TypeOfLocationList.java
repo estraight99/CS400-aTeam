@@ -16,18 +16,19 @@ import javafx.scene.image.Image;
  *
  */
 public class TypeOfLocationList {
-  final String pathToJSONFile = "."+File.separator+"database"+File.separator+"typeOfLocation.json";
-  int size;
-  ArrayList<String> name;
-  ArrayList<Image> image;
+  static final String pathToJSONFile = "."+File.separator+"database"+File.separator+"typeOfLocation.json";
   
-  TypeOfLocationList()
+  private int size;
+  private ArrayList<String> name;
+  private ArrayList<Image> image;
+  
+  public TypeOfLocationList()
   {
     Object obj = null;
     try {
       obj = new JSONParser().parse(new FileReader(pathToJSONFile));
     } catch (IOException | ParseException e) {
-      // TODO Auto-generated catch block
+      // do nothing
       e.printStackTrace();
     }
     JSONObject jo = (JSONObject) obj;
@@ -40,11 +41,11 @@ public class TypeOfLocationList {
       this.size++;
       JSONObject type = (JSONObject) i;
       name.add((String) type.get("name"));
-      //System.out.println("."+File.separator+"img"+File.separator+"big"+File.separator+(n-1)+".png");
       Image current = new Image(getClass().getResourceAsStream(".."+File.separator+"img"+File.separator+"big"+File.separator+(size-1)+".png"));
       image.add(current);
     }
   }
+  
   public String getName(int id)
   {
     return name.get(id);
