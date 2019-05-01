@@ -20,13 +20,19 @@ import javafx.scene.layout.HBox;
  */
 public class Main extends Application {
 
-  GUIInformation information;
-  Stage primaryStage;
-  BorderPane root;
-  LeftPanel leftPanel;
-  RightPanel rightPanel;
-  Scene scene;
+  GUIInformation information; // the instance stores all the information for the GUI
+  Stage primaryStage; // primary stage to display the main application window
+  BorderPane root; // a borderPane layout to arrange all the elements
+  LeftPanel leftPanel; // left panel of this borderPane
+  RightPanel rightPanel; // right panel of this borderPane
+  Scene scene; // the scene of this stage
 
+  /**
+   * This method initializes all GUI information 
+   * @throws FileNotFoundException is never thrown if no file is missing
+   * @throws IOException is never thrown if no file is missing
+   * @throws ParseException is never thrown if no file is missing
+   */
   private void initializeInformation() throws FileNotFoundException, IOException, ParseException {
     User mainUser = new User("." + File.separator + "database" + File.separator + "user.json");
 
@@ -35,6 +41,10 @@ public class Main extends Application {
     information = new GUIInformation(mainUser, 1, topLeft,this);
   }
 
+  /**
+   * This method runs when application starts
+   * @param primaryStage is the main window of the application
+   */
   @Override
   public void start(Stage primaryStage) {
     try {
@@ -51,7 +61,12 @@ public class Main extends Application {
     }
   }
 
-
+  /**
+   * This method initializes the borderPane
+   * @throws FileNotFoundException is never thrown if no file is missing
+   * @throws IOException is never thrown if no file is missing
+   * @throws ParseException is never thrown if no file is missing
+   */
   private void initializeRoot() throws FileNotFoundException, IOException, ParseException {
     root = new BorderPane();
     scene = new Scene(root);
@@ -61,6 +76,13 @@ public class Main extends Application {
 
   }
 
+  /**
+   * This method updates the borderPane when any change is made to the main window
+   * for example: a new road is built, so the map must be updated
+   * @throws FileNotFoundException is never thrown if no file is missing
+   * @throws IOException is never thrown if no file is missing
+   * @throws ParseException is never thrown if no file is missing
+   */
   protected void updateRoot() throws FileNotFoundException, IOException, ParseException {
     leftPanel = new LeftPanel(information, this);
     if (rightPanel!=null)

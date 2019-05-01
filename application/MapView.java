@@ -1,6 +1,7 @@
 package application;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import org.json.simple.parser.ParseException;
 import javafx.scene.Node;
@@ -11,15 +12,19 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 
 /**
+ * This class defines how the map is displayed on the GUI interface
  * 
  * @author Dung Viet Bui, Yuanbo Zhang
  *
  */
 public class MapView {
-  static Image[][] allPossibleImage;
-  GUIInformation information;
+  static Image[][] allPossibleImage; // store all the images
+  GUIInformation information; // the instance stores all the information for the GUI
 
-
+  /**
+   * This method initialize a mapView where the map is displayed
+   * @param information is the instance stores all the information for the GUI
+   */
   MapView(GUIInformation information) {
     this.information = information;
     allPossibleImage = new Image[16][9];
@@ -46,6 +51,11 @@ public class MapView {
     return locationView;
   }
 
+  /**
+   * This method creates and returns a grid pane containing the map
+   * 
+   * @return a gridPane conntaning the map
+   */
   public GridPane getGridPane() {
     GridPane result = new GridPane();
 

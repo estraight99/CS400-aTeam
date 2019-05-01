@@ -9,15 +9,23 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 /**
+ * This class represents the invalidInput stage, it extends the Stage class
  * 
  * @author Eli Straight
  *
  */
 public class InvalidInputView extends Stage{
-    Scene scene;
-    VBox root;
-    Stage owner;
+    Scene scene; // the scene of this stage
+    VBox root; // a VBOX containing all the elements in InvalidInputView
+    Stage owner; // owner of this stage, which is the primary stage
 
+    /**
+     * This method initialized an InvalidInputView stage which user will receive when they
+     * input illegal coordinates
+     * @param owner is the primary stage
+     * @param title is the title for this stage
+     * @param message is the error message displays on the stage
+     */
     public InvalidInputView(Stage owner, String title, String message) {
       this.setTitle(title);
       root = new VBox();
@@ -36,6 +44,12 @@ public class InvalidInputView extends Stage{
       this.show();
     }
 
+    /**
+     * This method creates and returns a label containing the error message
+     *
+     * @param message is the message displays on the stage
+     * @return a label containing the error message
+     */
     private Node inputProblem(String message) {
 	Label messagePrompt = new Label(message);
 	return messagePrompt;
