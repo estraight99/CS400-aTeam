@@ -10,6 +10,7 @@ import javafx.stage.Stage;
 
 /**
  * This class represents the invalidInput stage, it extends the Stage class
+ * Adapted from https://o7planning.org/en/11533/opening-a-new-window-in-javafx
  * 
  * @author Eli Straight
  *

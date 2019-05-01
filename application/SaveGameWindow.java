@@ -12,14 +12,16 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 /**
- * 
+ * This class creates a Save Game window, which is used at the end of the game
+ * Adapted from https://o7planning.org/en/11533/opening-a-new-window-in-javafx
  * @author Dung Viet Bui
- *
  */
 public class SaveGameWindow extends Stage {
-  Scene scene;
-  VBox root;
-  Stage owner;
+  
+  Scene scene; // the scene of this SaveGameWindow
+  VBox root; // the root of this SaveGameWindow
+  Stage owner; // the main window of the game
+  
   GUIInformation information;
 
   public SaveGameWindow(Stage owner, GUIInformation information) {

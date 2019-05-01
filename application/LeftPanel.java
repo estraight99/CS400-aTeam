@@ -61,11 +61,11 @@ public class LeftPanel {
                 "100*100",
                 "1000*1000"
             );
-        if (information.getMap().getWidth()==10)
+        if (information.getMap().getWidth()==GameConstant.smallMapSize)
           comboBox.getSelectionModel().select(0);
-        if (information.getMap().getWidth()==100)
+        if (information.getMap().getWidth()==GameConstant.mediumMapSize)
           comboBox.getSelectionModel().select(1);
-        if (information.getMap().getWidth()==1000)
+        if (information.getMap().getWidth()==GameConstant.bigMapSize)
           comboBox.getSelectionModel().select(2);
         
         comboBox.setOnAction(event ->
@@ -74,7 +74,7 @@ public class LeftPanel {
             try {
               changeMap(0);
             } catch (IOException | ParseException e2) {
-              // TODO Auto-generated catch block
+              // do nothing
               e2.printStackTrace();
             }
           else
@@ -82,7 +82,7 @@ public class LeftPanel {
             try {
               changeMap(1);
             } catch (IOException | ParseException e1) {
-              // TODO Auto-generated catch block
+              // do nothing
               e1.printStackTrace();
             }
           else
@@ -90,7 +90,7 @@ public class LeftPanel {
             try {
               changeMap(2);
             } catch (IOException | ParseException e) {
-              // TODO Auto-generated catch block
+              // do nothing
               e.printStackTrace();
             }
         });

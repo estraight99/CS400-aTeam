@@ -1,10 +1,6 @@
 package application;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
-
 import org.json.simple.JSONObject;
-import org.json.simple.parser.ParseException;
 
 /**
  * This class represents one location (block) of the map

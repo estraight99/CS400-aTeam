@@ -15,4 +15,8 @@ public class GameConstant {
   static final String smallPath = "."+File.separator+"database"+File.separator+"smallMap.json"; 
   static final String mediumPath = "."+File.separator+"database"+File.separator+"mediumMap.json";
   static final String bigPath = "."+File.separator+"database"+File.separator+"bigMap.json";
+  
+  static final int smallMapSize = 10; // the size of the small map
+  static final int mediumMapSize = 100; // the size of the medium map
+  static final int bigMapSize = 1000; // the size of the big map
 }

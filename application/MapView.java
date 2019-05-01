@@ -1,7 +1,6 @@
 package application;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import org.json.simple.parser.ParseException;
 import javafx.scene.Node;
@@ -12,7 +11,13 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 
 /**
- * This class defines how the map is displayed on the GUI interface
+ * This class defines how the map is displayed on the GUI interface.
+ * 
+ * Yuanbo Zhang gets some help from
+ * https://docs.oracle.com/javafx/2/ui_controls/accordion-titledpane.htm#CACGBAHI
+ * 
+ * Dung Viet Bui gets some help from
+ * https://stackoverflow.com/questions/25550518/add-eventhandler-to-imageview-contained-in-tilepane-contained-in-vbox
  * 
  * @author Dung Viet Bui, Yuanbo Zhang
  *
@@ -23,6 +28,7 @@ public class MapView {
 
   /**
    * This method initialize a mapView where the map is displayed
+   * 
    * @param information is the instance stores all the information for the GUI
    */
   MapView(GUIInformation information) {
@@ -74,7 +80,7 @@ public class MapView {
         Node current = createLocation(information.getMap().getLocation(i, j));
         final int I = i;
         final int J = j;
-        // based on
+        
         // https://stackoverflow.com/questions/25550518/add-eventhandler-to-imageview-contained-in-tilepane-contained-in-vbox
         current.addEventHandler(MouseEvent.MOUSE_RELEASED, event -> {
           information.changeCurrentLocation(I, J);

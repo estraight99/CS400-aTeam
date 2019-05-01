@@ -1,12 +1,10 @@
 package application;
 
 import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Random;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
-import org.json.simple.parser.ParseException;
 
 /**
  * This class represents a map generator: reading from a JSON file and creates the map
