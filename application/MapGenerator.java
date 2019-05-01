@@ -36,9 +36,9 @@ public class MapGenerator {
         int haveHouse = rand.nextInt(9);
         JSONObject location;
         if (haveHouse==1)
-          location = (new Location(i,j,"",0,rand.nextInt(9))).createJSONObject();
+          location = (new Location(i,j,0,rand.nextInt(9))).createJSONObject();
         else
-          location = (new Location(i,j,"",0,0)).createJSONObject();
+          location = (new Location(i,j,0,0)).createJSONObject();
           
         data.add(location);
       }

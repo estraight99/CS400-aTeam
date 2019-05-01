@@ -11,7 +11,6 @@ import org.json.simple.JSONObject;
 public class Location {
   private Coordinate coordinate; // coordinate of this location
   private int type; // type of this location
-  private String name; // name of this location
   private int roadInformation; // road information shows every road that connects to this location
 
   /**
@@ -22,10 +21,9 @@ public class Location {
    * @param roadInformation shows all adjacent roads
    * @param typeInformation is the type of this location
    */
-  public Location(int x, int y, String name, int roadInformation,int typeInformation) {
+  public Location(int x, int y, int roadInformation,int typeInformation) {
     this.coordinate = new Coordinate(x, y);
     this.type = typeInformation;
-    this.name = name;
     this.roadInformation = roadInformation;
   }
 
@@ -70,22 +68,6 @@ public class Location {
 
   /**
    * getter method
-   * @return the name of this location
-   */
-  public String getName() {
-    return name;
-  }
-
-  /**
-   * setter method
-   * @param new name of this location
-   */
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  /**
-   * getter method
    * @return the road information
    */
   public int getRoadInformation() {
@@ -98,16 +80,6 @@ public class Location {
    */
   public void setRoadInformation(int roadInformation) {
     this.roadInformation = roadInformation;
-  }
-
-  /**
-   * Override toString method
-   * @return result string
-   */
-  @Override
-  public String toString() {
-    return "Location [type=" + type + ", name=" + name + ", roadInformation=" + roadInformation
-        + "]";
   }
 
   /**

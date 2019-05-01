@@ -50,9 +50,26 @@ public class GameMap {
       // String type = (String) joLevel2.get("type");
       int typeInformation = ((Long) joLevel2.get("type")).intValue();
       int roadInformation = ((Long) joLevel2.get("road")).intValue();
-      content[x][y] = new Location(x, y, "", roadInformation, typeInformation);
+      content[x][y] = new Location(x, y, roadInformation, typeInformation);
     }
 
+  }
+  
+  /**
+   * This method initializes an empty map with the given length and width
+   * This method is only used in the test class
+   * @param length is the length of the map
+   * @param width is the width of the map
+   */
+  protected GameMap(int length,int width)
+  {
+    this.length = length;
+    this.width = width;
+    content = new Location[length+1][width+1];
+    for (int i=1; i<=length; i++)
+      for (int j=1; j<=width; j++)
+         content[i][j] = new Location(i,j,0,0);
+    
   }
 
   /**
