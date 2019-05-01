@@ -1,17 +1,28 @@
 package application;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Random;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
+import org.json.simple.parser.ParseException;
 
 /**
+ * This class represents a map generator: reading from a JSON file and creates the map
  * 
  * @author Dung Viet Bui
  *
  */
 public class MapGenerator {
+	
+	/**
+     * This method generate a map based on provided JSON file and size of the map
+     * @param pathToJSONFile is the path to the JSON file of the map
+     * @param length is the length of the map, or how many rows
+     * @param width is the width of the map, or how many columns
+     * @throws FileNotFoundException is never thrown if no file is missing
+     */
   @SuppressWarnings("unchecked")
   public static void generateMap(String pathToJSONFile,int length,int width) throws FileNotFoundException
   {
@@ -43,6 +54,9 @@ public class MapGenerator {
     pw.close(); 
   }
   
+  /**
+   * Testing main
+   */
   public static void main(String[] args) throws FileNotFoundException
   {
     generateMap(GameConstant.smallPath,10,10);
