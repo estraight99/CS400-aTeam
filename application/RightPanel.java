@@ -1,6 +1,7 @@
 package application;
 
 import java.util.ArrayList;
+import java.util.List;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.scene.control.Button;
@@ -25,7 +26,7 @@ public class RightPanel extends VBox {
   GUIInformation information;
   Main mainInstance;
 
-  RightPanel(Main mainInstance, GUIInformation information, ArrayList<TextField> field) {
+  RightPanel(Main mainInstance, GUIInformation information, List<TextField> field) {
     this(mainInstance, information);
     this.fromLeft_tf.setText(field.get(0).getText());
     this.fromRight_tf.setText(field.get(1).getText());
@@ -176,8 +177,8 @@ public class RightPanel extends VBox {
 
   }
 
-  public ArrayList<TextField> getTextField() {
-    ArrayList<TextField> result = new ArrayList<>();
+  public List<TextField> getTextField() {
+    List<TextField> result = new ArrayList<>();
     result.add(fromLeft_tf);
     result.add(fromRight_tf);
     result.add(toLeft_tf);

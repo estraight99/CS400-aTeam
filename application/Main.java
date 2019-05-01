@@ -3,7 +3,7 @@ package application;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.ArrayList;
+import java.util.List;
 import org.json.simple.parser.ParseException;
 import javafx.application.Application;
 import javafx.geometry.Insets;
@@ -65,7 +65,7 @@ public class Main extends Application {
     leftPanel = new LeftPanel(information, this);
     if (rightPanel!=null)
     {
-      ArrayList<TextField> field = rightPanel.getTextField();
+      List<TextField> field = rightPanel.getTextField();
       rightPanel = new RightPanel(this,information,field);
     }
     else

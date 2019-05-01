@@ -2,6 +2,7 @@ package application;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 
 /**
  * 
@@ -80,7 +81,8 @@ public class PathFindingBFS implements PathFinding{
       throw new NotEnoughMoneyException();
     
     Location current = map.getLocation(finish);
-    ArrayList<Location> result = new ArrayList<>();
+    List<Location> result = new ArrayList<>();
+    
     do
     {
       result.add(current);
