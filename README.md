@@ -35,7 +35,7 @@ The first problem we encountered is to display the map in the GUI. When we simpl
 ### Between the First Meeting and the Second Meeting (from April 22nd, 2019 to April 27th, 2019)
 Yuanbo Zhang and Eli Straight performed some minor changes to the code so that the program can be submitted for Milestone 1.
 
-Meanwhile, Dung Viet Bui started to implement some crucial elements for the program such as the GameMap, the MapGenerator, the User, and a PathFinding algorithm. Viet's algorithm is described below.
+Meanwhile, Dung Viet Bui started to implement some crucial elements for the program such as the GameMap, the MapGenerator, the User, and a PathFinding algorithm. Viet's algorithm is described below. Because he was bored, he also implemented the JSON Input/Output part for these crucial classes.
 
 At the end of April 27th, 2019, both the front-end and the back-end of the program are basically done; however, the team still needed a meeting to connect these parts together.
 
