@@ -2,8 +2,8 @@
 ![Best photo of the program](https://raw.githubusercontent.com/estraight99/CS400-aTeam/master/screenshot_getCost.png?token=ALJ2NYSFAN57VDLV5JC5V2C4ZNIAO)
 ## Author
 * Dung Viet Bui, LEC 001, XTeam 22. Email: dvbui@wisc.edu (Algorithm and GUI designer)
-* Eli Straight, LEC 001, XTeam 22. Email: straight2@wisc.edu (The maker of the Right Part of the GUI)
-* Yuanbo Zhang, LEC 001, XTeam 22. Email: yzhang2325@wisc.edu (The maker of the Left Part of the GUI)
+* Eli Straight, LEC 001, XTeam 22. Email: straight2@wisc.edu (The coder of the Right Part of the GUI)
+* Yuanbo Zhang, LEC 001, XTeam 22. Email: yzhang2325@wisc.edu (The coder of the Left Part of the GUI)
 * Quming Wang, LEC 001, ATeam 101. Email: qwang357@wisc.edu (Graphics Designer, joined the team on April 28th, 2019)
 
 ## Description
