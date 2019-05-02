@@ -33,3 +33,6 @@ The GUI and the algorithm are put together during the meeting. We encountered so
 * There was little communication between the program and the user. Eli Straight created some pop-up windows to solve this problem.
 * Yuanbo Zhang modified the ComboBox so that the user can switch between three maps during the game. He used the same idea from the createImageView() method to "preload" all three maps that are used in the program. While this effort increased the start-up time of the program to ~6 seconds, it now takes only miliseconds to switch between maps during the game.
 
+### Between the Second Meeting and the Due Date (April 29th, 2019 to May 2nd, 2019)
+* Dung Viet Bui improved his algorithm by using a LinkedList instead of a PriorityQueue in the Dijkstra algorithm.
+* Eli Straight and Yuanbo Zhang performed some testing process and documented the code.
