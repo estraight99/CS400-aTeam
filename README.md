@@ -4,7 +4,7 @@
 * Dung Viet Bui, LEC 001, XTeam 22. Email: dvbui@wisc.edu (Algorithm and GUI designer)
 * Eli Straight, LEC 001, XTeam 22. Email: straight2@wisc.edu (The maker of the Right Part of the GUI)
 * Yuanbo Zhang, LEC 001, XTeam 22. Email: yzhang2325@wisc.edu (The maker of the Left Part of the GUI)
-* Quming Wang, LEC 001, ATeam 101. Email: qwang357@wisc.edu (Graphics Designer)
+* Quming Wang, LEC 001, ATeam 101. Email: qwang357@wisc.edu (Graphics Designer, joined the team on April 28th, 2019 when the program is basically done)
 
 ## Description
 (Even though TTD Online is mentioned in the description, we actually intend to build an independent program which is not related to the design of OpenTTD or TTD Online, and this program cannot be used in the game because the data format of the program is not compatible with those in OpenTTD or TTD Online)
