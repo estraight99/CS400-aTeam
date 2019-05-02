@@ -48,8 +48,8 @@ public class MapView {
     int typeOfLocation = loc.getTypeInformation();
     Image location = allPossibleImage[typeOfRoad][typeOfLocation];
     if (location == null) {
-      location = new Image(getClass().getResourceAsStream(".." + File.separator + "img"
-          + File.separator + "road" + File.separator + typeOfRoad + "_" + typeOfLocation + ".png"));
+      location = new Image("." + File.separator + "img"
+          + File.separator + "road" + File.separator + typeOfRoad + "_" + typeOfLocation + ".png");
       allPossibleImage[typeOfRoad][typeOfLocation] = location;
     }
     ImageView locationView = new ImageView(location);

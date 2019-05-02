@@ -48,7 +48,7 @@ public class TypeOfLocationList {
       this.size++;
       JSONObject type = (JSONObject) i;
       name.add((String) type.get("name"));
-      Image current = new Image(getClass().getResourceAsStream(".."+File.separator+"img"+File.separator+"big"+File.separator+(size-1)+".png"));
+      Image current = new Image("."+File.separator+"img"+File.separator+"big"+File.separator+(size-1)+".png");
       image.add(current);
     }
   }
