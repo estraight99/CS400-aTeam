@@ -35,7 +35,7 @@ The first problem we encountered is to display the map in the GUI. When we simpl
 ### Between the First Meeting and the Second Meeting (from April 22nd, 2019 to April 27th, 2019)
 Yuanbo Zhang and Eli Straight performed some minor changes to the code so that the program can be submitted for Milestone 1.
 
-Meanwhile, Dung Viet Bui started to implement some crucial elements for the program such as the GameMap, the MapGenerator, the User, and a temporary PathFinding algorithm. Viet's initial algorithm was based on Dijkstra's algorithm, which has the complexity of O(E + Vlog(V)) with E is the number of edges and V is the number of vertices on the graph. Since V ~ the number of tiles on the map and E ~ 4V (because the degree of most vertices is 4), theoretically, the algorithm could handle a graph that has as many tiles as 10^6 in 1 second.
+Meanwhile, Dung Viet Bui started to implement some crucial elements for the program such as the GameMap, the MapGenerator, the User, and a PathFinding algorithm. Viet's algorithm is described below.
 
 At the end of April 27th, 2019, both the front-end and the back-end of the program are basically done; however, the team still needed a meeting to connect these parts together.
 
@@ -50,7 +50,7 @@ The project is basically done at this point.
 * At the end of the day, Quming Wang joined the team and designed the graphics for different types of location in the game.
 
 ### Between the Second Meeting and the Due Date (April 29th, 2019 to May 2nd, 2019)
-* Dung Viet Bui improved his algorithm by using a LinkedList instead of a PriorityQueue in the Dijkstra algorithm. The path finding speed in the worst case in the biggest map decreased from ~2 seconds to less than 1 second.
+* Dung Viet Bui improved his algorithm by using a LinkedList instead of a PriorityQueue in the Dijkstra's algorithm. The path finding speed in the worst case in the biggest map decreased from ~2 seconds to less than 1 second.
 * Eli Straight and Yuanbo Zhang performed some testing process and documented the code.
 
 ## The Algorithm
