@@ -23,6 +23,6 @@ The first problem we encountered is to display the map in the GUI. When we simpl
 ### Between the First Meeting and the Second Meeting (from April 22nd, 2019 to April 27th, 2019)
 Yuanbo Zhang and Eli Straight performed some minor changes to the code so that the program can be submitted for Milestone 1.
 
-Meanwhile, Dung Viet Bui started to implement some crucial elements for the program such as the GameMap, the MapGenerator, the User, and a temporary PathFinding algorithm. Dung Viet Bui's initial algorithm was based on Dijkstra's algorithm, which has the complexity of O(E + Vlog(V)) with E is the number of edges and V is the number of vertices on the graph. Since V ~ the number of tiles on the map and E ~ 4V (because the degree of most vertices is 4), theoretically, the algorithm can handle a graph that has as many tiles as 10^6 in 1 second. However, he still wants to improve the performance of the program by apply a trick he has read somewhere on Codeforces.com
+Meanwhile, Dung Viet Bui started to implement some crucial elements for the program such as the GameMap, the MapGenerator, the User, and a temporary PathFinding algorithm. Viet's initial algorithm was based on Dijkstra's algorithm, which has the complexity of O(E + Vlog(V)) with E is the number of edges and V is the number of vertices on the graph. Since V ~ the number of tiles on the map and E ~ 4V (because the degree of most vertices is 4), theoretically, the algorithm could handle a graph that has as many tiles as 10^6 in 1 second.
 
 
