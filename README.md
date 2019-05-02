@@ -23,6 +23,8 @@ We have written a program that helps players in this game **build the shortest p
 ```java -jar executable.jar```
 
 Dung Viet Bui cannot discover why ```executable.jar``` can run directly on Linux
+### Reset the program
+Compile and run ```MapGenerator.java```. This map generator will reset the map of the game. To reset the information of the user, use the Special Features in the program.
 
 ## Developer Diary
 ### The First Meeting (April 21st, 2019)
