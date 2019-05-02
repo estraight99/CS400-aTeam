@@ -25,4 +25,7 @@ Yuanbo Zhang and Eli Straight performed some minor changes to the code so that t
 
 Meanwhile, Dung Viet Bui started to implement some crucial elements for the program such as the GameMap, the MapGenerator, the User, and a temporary PathFinding algorithm. Viet's initial algorithm was based on Dijkstra's algorithm, which has the complexity of O(E + Vlog(V)) with E is the number of edges and V is the number of vertices on the graph. Since V ~ the number of tiles on the map and E ~ 4V (because the degree of most vertices is 4), theoretically, the algorithm could handle a graph that has as many tiles as 10^6 in 1 second.
 
+At the end of April 27th, 2019, both the front-end and the back-end of the program are basically done; however, the team still needed a meeting to connect these parts together.
+
+
 
