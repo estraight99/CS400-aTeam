@@ -1,5 +1,5 @@
 # Road Builder
-![Best photo of the program](https://raw.githubusercontent.com/estraight99/CS400-aTeam/master/screenshot_getCost.png?token=ALJ2NYSFAN57VDLV5JC5V2C4ZNIAO)
+![Best photo of the program](https://2.pik.vn/20193967b8f8-b028-4f37-aeec-f25e9e7bd682.png)
 ## Author
 * Dung Viet Bui, LEC 001, XTeam 22. Email: dvbui@wisc.edu (Algorithm and GUI designer)
 * Eli Straight, LEC 001, XTeam 22. Email: straight2@wisc.edu (The coder of the Right Part of the GUI + some pop-up windows)
