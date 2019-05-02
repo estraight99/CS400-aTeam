@@ -3,7 +3,7 @@
 ## Author
 * Dung Viet Bui, LEC 001, XTeam 22. Email: dvbui@wisc.edu
 * Eli Straight, LEC 001, XTeam 22. Email: straight2@wisc.edu
-* Yuanbo Zhang, LEC 001, XTeam 22. Email:
+* Yuanbo Zhang, LEC 001, XTeam 22. Email: yzhang2325@wisc.edu
 
 ## Description
 (Even though TTD Online is mentioned in the description, we actually intend to build an independent program which is not related to the design of OpenTTD or TTD Online, and this program cannot be used in the game because the data format of the program is not compatible with those in OpenTTD or TTD Online)
