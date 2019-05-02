@@ -31,5 +31,5 @@ At the end of April 27th, 2019, both the front-end and the back-end of the progr
 The GUI and the algorithm are put together during the meeting. We encountered some problems during this combining process:
 * The Map took too long to load. The problem was the Images loaded into the program were not recycled, so each time the GameMap is moved, ~10 additional images are loaded. If the user tried to move the map too fast, then the number of new Images could grow very quickly. Dung Viet Bui decided to improve his createImageView() method by creating a "cache" array in the MapView class so Images can be reused again.
 * There was little communication between the program and the user. Eli Straight created some pop-up windows to solve this problem.
-*
+* Yuanbo Zhang modified the ComboBox so that the user can switch between three maps during the game. He used the same idea from the createImageView() method to "preload" all three maps that are used in the program. While this effort increased the start-up time of the program to ~6 seconds, it now takes only miliseconds to switch between maps during the game.
 
