@@ -42,6 +42,9 @@ The GUI and the algorithm are put together during the meeting. We encountered so
 * The Map took too long to load. The problem was the Images loaded into the program were not recycled, so each time the GameMap is moved, ~10 additional images are loaded. If the user tried to move the map too fast, then the number of new Images could grow very quickly. Dung Viet Bui decided to improve his createImageView() method by creating a "cache" array in the MapView class so Images can be reused again.
 * There was little communication between the program and the user. Eli Straight created some pop-up windows to solve this problem.
 * Yuanbo Zhang modified the ComboBox so that the user can switch between three maps during the game. He used the same idea from the createImageView() method to "preload" all three maps that are used in the program. While this effort increased the start-up time of the program to ~6 seconds, it now takes only miliseconds to switch between maps during the game.
+
+The project is basically done at this point.
+
 * At the end of the day, Quming Wang joined the team and designed the graphics for different types of location in the game.
 
 ### Between the Second Meeting and the Due Date (April 29th, 2019 to May 2nd, 2019)
@@ -50,8 +53,19 @@ The GUI and the algorithm are put together during the meeting. We encountered so
 
 ## The Algorithm
 (Written by Dung Viet Bui)
+
 The inputs of the algorithm are the map of the game, and the starting point and the ending point of the path that needed to be built.
 
 In the first step, I view the map of the game as a Grid Graph with each location is a vertex on the graph, and each "adjacency" relation is an edge of the graph.
 
-In the second step, I assign the direction for the edges on this Grid Graph. Define the distance of vertices a and b be the length of the shortest path between a and b. With every vertices a and b, a points to b if and only if (the distance from the starting point to b) + (the distance from the ending point to b) = (the distance from the starting point to the ending point). Traveling on this graph from the starting point, you will definitely reach the ending point.
+In the second step, I assign the direction for the edges on this Grid Graph. Define the distance of vertices a and b be the length of the shortest path between a and b. With every vertices a and b, a points to b if and only if (the distance from the starting point to b) + (the distance from the ending point to b) = (the distance from the starting point to the ending point). Traveling on this graph from the starting point, you will definitely reach the ending point on the shortest path.
+
+In the third step, I assign the cost to the edges of the above directed graph. If there is a road between a and b, the cost of the edge (a,b) is 0 because I do not need to build any road. If there is not a road between a and b, the cost of the edge (a,b) is 1.
+
+(All the above steps are done implicitly in my mind, I do not actually make a new graph for each step).
+
+In the fourth step, I run the Dijkstra's algorithm on the graph to find the shortest path from the starting point to the ending point. This shortest path is actually the cheapest-shortest path to build between the starting point and the ending point.
+
+The complexity of this algorithm is O(E + Vlog(V)) with V is the number of vertices on the graph, and E is the number of edges on the graph. Since V = n^2 and E = 4V (n is the length / the width of the GameMap), the complexity of this algorithm can also be expressed as O(4n^2 + n^2log(n^2) = O(n^2log(n)).
+
+In this specific problem, the PriorityQueue in the Dijkstra's algorithm can be replaced with a LinkedList.
