@@ -14,6 +14,15 @@ One problem which usually arises during the game is to build a path, which consi
 
 We have written a program that helps players in this game **build the shortest path between two locations, and if there are multiple shortest paths, the program need to choose the cheapest one to build.**
 
+## How to use this program
+### Run the program
+* On Windows: Double click on ```executable.jar```.
+* On Linux: Open the terminal in the folder containing ```executable.jar``` and type
+
+```java -jar executable.jar```
+
+Dung Viet Bui cannot discover why ```executable.jar``` can run directly on Linux
+
 ## Developer Diary
 ### The First Meeting (April 21st, 2019)
 We create a simple GUI for the program to finish Milestone #1. Dung Viet Bui implements the top part of the GUI (the title and the help button) and the ImageView for each tile on the map, Eli Straight implements the right part (the text fields), and Yuanbo Zhang implements the right part of the GUI (including the map).
@@ -40,3 +49,8 @@ The GUI and the algorithm are put together during the meeting. We encountered so
 
 ## The Algorithm
 (Written by Dung Viet Bui)
+The inputs of the algorithm are the map of the game, and the starting point and the ending point of the path that needed to be built.
+
+In the first step, I view the map of the game as a Grid Graph with each location is a vertex on the graph, and each "adjacency" relation is an edge of the graph.
+
+In the second step, I assign the direction for the edges on this Grid Graph. Define the distance of vertices a and b be the length of the shortest path between a and b. With every vertices a and b, a points to b if and only if (the distance from the starting point to b) + (the distance from the ending point to b) = (the distance from the starting point to the ending point). Traveling on this graph from the starting point, you will definitely reach the ending point.
