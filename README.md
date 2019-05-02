@@ -28,5 +28,5 @@ Meanwhile, Dung Viet Bui started to implement some crucial elements for the prog
 At the end of April 27th, 2019, both the front-end and the back-end of the program are basically done; however, the team still needed a meeting to connect these parts together.
 
 ### The Second Meeting (April 28th, 2019)
-The GUI and the algorithm is put together during the meeting. 
+The GUI and the algorithm is put together during the meeting. The first problem we encountered is that the GUI takes too long to load.
 
