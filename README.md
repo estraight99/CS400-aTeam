@@ -18,6 +18,9 @@ We have written a program that helps players in this game **build the shortest p
 ## How to use this program
 ### Run the program
 Double click on ```executable.jar```
+
+If it does not work, open the terminal in the game's folder and use the command ```java -jar executable.jar```
+
 ### Reset the program
 Compile and run ```MapGenerator.java```. This map generator will reset the map of the game. To reset the information of the user, use the Special Features in the program.
 
