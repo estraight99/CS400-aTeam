@@ -16,7 +16,7 @@ We have written a program that helps players in this game **build the shortest p
 
 ## Developer Diary
 ### The First Meeting (April 21st, 2019)
-We create a simple GUI for the program to finish Milestone #1. 
+We create a simple GUI for the program to finish Milestone #1. Dung Viet Bui implements the top part of the GUI (the title and the help button) and the ImageView for each tile on the map, Eli Straight implements the right part (the text fields), and Yuanbo Zhang implements the right part of the GUI (including the map).
 
 The first problem we encountered is to display the map in the GUI. When we simply put the ImageView to the GridPane, the images are stacked on top of each other instead of creating the map that we expected. Yuanbo Zhang came up with a solution: adding some gap between the rows and the columns of the GridPane. This solution works on Linux and Mac; however, there is a gap between two consecutive rows of the map on Windows. We decide that it is a minor problem and move on to the next task.
 
