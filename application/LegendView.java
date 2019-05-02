@@ -47,7 +47,7 @@ public class LegendView extends FlowPane {
      */
 	private ImageView createLegend(int typeOfLocation)
     {
-      Image legend = new Image("."+File.separator+"img"+File.separator+"legend"+File.separator+typeOfLocation+".png");
+      Image legend = new Image("file:."+File.separator+"img"+File.separator+"legend"+File.separator+typeOfLocation+".png");
       ImageView locationView = new ImageView(legend);
       locationView.setFitHeight(10);
       locationView.setFitWidth(10);
