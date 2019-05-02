@@ -17,12 +17,7 @@ We have written a program that helps players in this game **build the shortest p
 
 ## How to use this program
 ### Run the program
-* On Windows: Double click on ```executable.jar```.
-* On Linux: Open the terminal in the folder containing ```executable.jar``` and type
-
-```java -jar executable.jar```
-
-Dung Viet Bui cannot discover why ```executable.jar``` can run directly on Linux
+Double click on ```executable.jar```
 ### Reset the program
 Compile and run ```MapGenerator.java```. This map generator will reset the map of the game. To reset the information of the user, use the Special Features in the program.
 
