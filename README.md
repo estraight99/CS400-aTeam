@@ -78,3 +78,6 @@ In this specific problem, the PriorityQueue in the Dijkstra's algorithm can be r
 * To on-click listeners to the ImageView, he used some helps ![from StackOverFlow](https://stackoverflow.com/questions/25550518/add-eventhandler-to-imageview-contained-in-tilepane-contained-in-vbox)
 * To create custom pop-ups for the project, he used some helps from ![this tutorial](https://o7planning.org/en/11533/opening-a-new-window-in-javafx).
 * To detect the closing action, he used some helps ![from StackOverFlow](https://stackoverflow.com/questions/26619566/javafx-stage-close-handler)
+
+### Yuanbo Zhang
+* To display the map properly, he used some helps from ![this tutorial](https://docs.oracle.com/javafx/2/ui_controls/accordion-titledpane.htm#CACGBAHI).
