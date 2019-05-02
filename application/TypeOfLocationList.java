@@ -35,11 +35,14 @@ public class TypeOfLocationList {
       // do nothing
       e.printStackTrace();
     }
+    
     JSONObject jo = (JSONObject) obj;
     JSONArray arr = (JSONArray) jo.get("data");
     this.size=0;
+    
     name = new ArrayList<>();
     image = new ArrayList<>();
+    
     for (Object i: arr)
     {
       this.size++;
