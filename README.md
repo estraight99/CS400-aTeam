@@ -73,5 +73,8 @@ The complexity of this algorithm is O(E + Vlog(V)) with V is the number of verti
 In this specific problem, the PriorityQueue in the Dijkstra's algorithm can be replaced with a LinkedList, for when a vertex is reached through an edge with cost 0, that vertex can always be put at the "top" of the PriorityQueue, and when a vertex is reached through an edge with cost 1, that vertex can always be put at the "bottom" part of the PriorityQueue. When the PriorityQueue is replaced with the LinkedList, the complexity of the Dijkstra's algorithm decreases to O(n^2). The new algorithm produced by this trick is called BFS 0-1 on some website.
 
 ## External Assistance
-To parse the JSON files, Dung Viet Bui used a tutorial ![from GeeksForGeeks](https://www.geeksforgeeks.org/parse-json-java/).
-
+### Dung Viet Bui
+* To parse the JSON files, he used a tutorial ![from GeeksForGeeks](https://www.geeksforgeeks.org/parse-json-java/).
+* To on-click listeners to the ImageView, he used some helps ![from StackOverFlow](https://stackoverflow.com/questions/25550518/add-eventhandler-to-imageview-contained-in-tilepane-contained-in-vbox)
+* To create custom pop-ups for the project, he used some helps from ![this tutorial](https://o7planning.org/en/11533/opening-a-new-window-in-javafx).
+* To detect the closing action, he used some helps ![from StackOverFlow](https://stackoverflow.com/questions/26619566/javafx-stage-close-handler)
