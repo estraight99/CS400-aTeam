@@ -70,4 +70,4 @@ In the fourth step, I run the Dijkstra's algorithm on the graph to find the shor
 
 The complexity of this algorithm is O(E + Vlog(V)) with V is the number of vertices on the graph, and E is the number of edges on the graph. Since V = n^2 and E = 4V (n is the length / the width of the GameMap), the complexity of this algorithm can also be expressed as O(4n^2 + n^2log(n^2) = O(n^2log(n)).
 
-In this specific problem, the PriorityQueue in the Dijkstra's algorithm can be replaced with a LinkedList.
+In this specific problem, the PriorityQueue in the Dijkstra's algorithm can be replaced with a LinkedList, for when a vertex is reached through an edge with cost 0, that vertex can always be put at the "top" of the PriorityQueue, and when a vertex is reached through an edge with cost 1, that vertex can always be put at the "bottom" part of the PriorityQueue. When the PriorityQueue is replaced with the LinkedList, the complexity of the Dijkstra's algorithm decreases to O(n^2). The new algorithm produced by this trick is called BFS 0-1 on some website.
