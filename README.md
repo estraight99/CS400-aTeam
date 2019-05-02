@@ -15,7 +15,7 @@ One problem which usually arises during the game is to build a path, which consi
 We have written a program that helps players in this game **build the shortest path between two locations, and if there are multiple shortest paths, the program need to choose the cheapest one to build.**
 
 ## Developer Diary
-### First Meeting (April 21st, 2019)
+### The First Meeting (April 21st, 2019)
 We create a simple GUI for the program to finish Milestone #1. 
 
 The first problem we encountered is to display the map in the GUI. When we simply put the ImageView to the GridPane, the images are stacked on top of each other instead of creating the map that we expected. Yuanbo Zhang came up with a solution: adding some gap between the rows and the columns of the GridPane. This solution works on Linux and Mac; however, there is a gap between two consecutive rows of the map on Windows. We decide that it is a minor problem and move on to the next task.
@@ -27,5 +27,6 @@ Meanwhile, Dung Viet Bui started to implement some crucial elements for the prog
 
 At the end of April 27th, 2019, both the front-end and the back-end of the program are basically done; however, the team still needed a meeting to connect these parts together.
 
-
+### The Second Meeting (April 28th, 2019)
+The GUI and the algorithm is put together during the meeting. 
 
