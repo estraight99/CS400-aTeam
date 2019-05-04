@@ -4,7 +4,6 @@
 * Dung Viet Bui, LEC 001, XTeam 22. Email: dvbui@wisc.edu (Algorithm and GUI designer)
 * Eli Straight, LEC 001, XTeam 22. Email: straight2@wisc.edu (The coder of the Right Part of the GUI + some pop-up windows)
 * Yuanbo Zhang, LEC 001, XTeam 22. Email: yzhang2325@wisc.edu (The coder of the Left Part of the GUI)
-* Quming Wang, LEC 001, ATeam 101. Email: qwang357@wisc.edu (Graphics Designer, joined the team on April 28th, 2019 and coded nothing)
 
 ## Description
 (Even though TTD Online is mentioned in the description, we actually intend to build an independent program which is not related to the design of OpenTTD or TTD Online, and this program cannot be used in the game because the data format of the program is not compatible with those in OpenTTD or TTD Online)
@@ -45,7 +44,7 @@ The GUI and the algorithm were put together during the meeting. We encountered s
 
 The project was basically done at this point.
 
-* At the end of the day, Quming Wang joined the team and designed the graphics for different types of location in the game.
+* At the end of the day, Yuanbo Zhang designed the graphics for different types of location in the game.
 
 ### Between the Second Meeting and the Due Date (April 29th, 2019 to May 2nd, 2019)
 * Dung Viet Bui improved his algorithm by using a LinkedList instead of a PriorityQueue in Dijkstra's algorithm. The pathfinding time in the worst case in the biggest map decreased from ~2 seconds to less than 1 second.
@@ -79,3 +78,9 @@ In this specific problem, the PriorityQueue in Dijkstra's algorithm can be repla
 
 ### Yuanbo Zhang
 * To display the map properly, he used some help from ![this tutorial](https://docs.oracle.com/javafx/2/ui_controls/accordion-titledpane.htm#CACGBAHI).
+
+### Graphics
+* The road and water tiles are taken from ![OpenGameArt.org](https://opengameart.org/content/road-and-water-tiles-from-isometric-set)
+* The big icons on the bottom right of the screen are taken from the ![original OpenTTD game](https://wiki.openttd.org).
+* ![The source of the home icon](https://ya-webdesign.com/image/home-clipart/80978.html)
+* Other icons are taken from some random Google searches.
