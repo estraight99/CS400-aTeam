@@ -4,7 +4,6 @@
 * Dung Viet Bui, LEC 001, XTeam 22. Email: dvbui@wisc.edu (Algorithm and GUI designer)
 * Eli Straight, LEC 001, XTeam 22. Email: straight2@wisc.edu (The coder of the Right Part of the GUI + some pop-up windows)
 * Yuanbo Zhang, LEC 001, XTeam 22. Email: yzhang2325@wisc.edu (The coder of the Left Part of the GUI)
-* Quming Wang, LEC 001, ATeam 101. Email: qwang357@wisc.edu (Graphics Designer, officially joined the team on May 2nd, 2019 and coded nothing). He was accepted into the team because Yuanbo Zhang received some help from him without any permission and awareness of other team members.
 
 ## Description
 (Even though TTD Online is mentioned in the description, we actually intend to build an independent program which is not related to the design of OpenTTD or TTD Online, and this program cannot be used in the game because the data format of the program is not compatible with those in OpenTTD or TTD Online)
@@ -45,12 +44,9 @@ The GUI and the algorithm were put together during the meeting. We encountered s
 
 The project was basically done at this point.
 
-* At the end of the day, Yuanbo Zhang designed the graphics for different types of location in the game. Without any permission from the other two team members, Yuanbo Zhang used some help from Quming Wang, a student who was not in the team at that time.
-
 ### Between the Second Meeting and the Due Date (April 29th, 2019 to May 2nd, 2019)
 * Dung Viet Bui improved his algorithm by using a LinkedList instead of a PriorityQueue in Dijkstra's algorithm. The pathfinding time in the worst case in the biggest map decreased from ~2 seconds to less than 1 second.
 * Eli Straight and Yuanbo Zhang performed some testing process and documented the code.
-* On May 2nd, 2019, Yuanbo Zhang confessed that he used some helps Quming Wang and insisted that Quming Wang should be included in the team. To avoid any plagiarism problem, Eli Straight and Dung Viet Bui decided to accept this new team member.
 
 ## The Algorithm
 (Written by Dung Viet Bui)
@@ -80,8 +76,6 @@ In this specific problem, the PriorityQueue in Dijkstra's algorithm can be repla
 
 ### Yuanbo Zhang
 * To display the map properly, he used some help from ![this tutorial](https://docs.oracle.com/javafx/2/ui_controls/accordion-titledpane.htm#CACGBAHI).
-
-### Quming Wang
 * The road and water tiles are taken from ![OpenGameArt.org](https://opengameart.org/content/road-and-water-tiles-from-isometric-set)
 * The big icons on the bottom right of the screen are taken from the ![original OpenTTD game](https://wiki.openttd.org).
 * ![The source of the home icon](https://ya-webdesign.com/image/home-clipart/80978.html)
